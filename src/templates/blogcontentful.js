@@ -28,8 +28,11 @@ const ContentfulBlogIndex = ({ data, location, pageContext }) => {
 //  const { edges: posts } = data.allMarkdownRemark;
 // The below objects are coming from gatsby-paginate
   const { group, index, first, last, pathPrefix } = pageContext;
-  const previousUrl = index - 1 == 1 ? "/" :  "/" + (index - 1).toString();
-  const nextUrl = "/" + (index + 1).toString();
+  console.log("pathPrefix is ", pathPrefix)
+  const previousUrl = index - 1 == 1 ? "/" + pathPrefix :  pathPrefix + "/" + (index - 1).toString();
+  console.log("previousUrl is ", previousUrl)
+
+  const nextUrl = pathPrefix + "/" + (index + 1).toString();
   const cursor = {
     show: true,
     blink: true,

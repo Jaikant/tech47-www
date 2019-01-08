@@ -29,7 +29,7 @@ injectGlobal`
   a:hover {
     cursor: pointer;
     text-decoration: none;
-    color: ${colors.tech47hover};
+    color: ${colors.gray.calm};
     transition: color 0.15s ease-in;
   };
   h1, h2, h3, h4, h5, h6 {
