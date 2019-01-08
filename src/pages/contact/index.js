@@ -124,7 +124,6 @@ class ContactForm extends React.Component {
 const Contact = ({ data, location }) => {
   const { markdownRemark: remark } = data;
   return (
-    <Layout location={location}>
       <Box bg={colors.primary}>
         <Box css="margin: 2.5em">
           <h1>{remark.frontmatter.title}</h1>
@@ -132,10 +131,8 @@ const Contact = ({ data, location }) => {
             css="text-align: left;"
             dangerouslySetInnerHTML={{ __html: remark.html }}
           />
-          <ContactForm/>
         </Box>
       </Box>
-    </Layout>
   );
 };
 

@@ -185,7 +185,7 @@ exports.createPages = ({ graphql, actions }) => {
               createPage: createPage,
               pageTemplate: "src/templates/blogcontentful.js",
               pageLength: 10,
-              pathPrefix: ""
+              pathPrefix: "blog"
             });
 
             const prev = index === 0 ? false : contentfulposts[index - 1].node;

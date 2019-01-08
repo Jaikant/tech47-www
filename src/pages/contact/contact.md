@@ -1,11 +1,9 @@
 ---
-title: "Waiting to hear from you!"
+title: "Our Location"
 date: "2017-12-20"
 ---
 
-![contact us](contact.jpg)
-
-<h4 align="center"> Feel free to email or call us </h4>
+<h4 align="center"> Address </h4>
+<p align="center"> 1020, 1st Stage, 4th Block, HBR Layout, Bangalore - 560043, India </p>
 <p align="center"><a href="mailto:jai@tech47.in">jai@tech47.in</a>, +91 9886106999</p>
 
-<p align="center"> Alternatively you could drop us a message below. </p>

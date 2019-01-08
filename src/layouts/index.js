@@ -72,12 +72,12 @@ const Layout = ({ children, location }) => {
            <link rel="shortcut icon" href={favicon} type="image/x-icon" />
            <link rel="icon" href={favicon} type="image/x-icon" />
          </Helmet>
-         <Navigation
+         {/* <Navigation
            title={data.site.siteMetadata.title}
            logo={data.logoImage.resize.src}
            logoWhite={data.logoWhite.resize.src}
            location={location}
-         />
+         /> */}
          {children}
          <Footer title={data.site.siteMetadata.title} />
        </MainDiv>
