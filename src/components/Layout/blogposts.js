@@ -156,11 +156,10 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
             const image = post.featuredImage
               ? post.featuredImage.resolutions
               : null;
-              console.log(`/${post.slug}`);
             return (
               <div key={post.id}>
               <BlogCard image={post.featuredImage ? true : false}>
-                <Link to={`/${post.slug}`}>
+                <Link to={`blog/${post.slug}`}>
                   {image ?
                     <Img
                       alt={post.featuredImage.title}
