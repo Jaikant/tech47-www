@@ -112,7 +112,6 @@ const BlogCard = styled.div`
 `;
 
 const NavLink = props => {
-  console.log("props are ", props)
   if (!props.test) {
     return <Link to={props.url}>{props.text}</Link>;
   } else {
@@ -160,7 +159,7 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
             return (
               <div key={post.id}>
               <BlogCard image={post.featuredImage ? true : false}>
-                <Link to={post.slug}>
+                <Link to={`\${post.slug}`}>
                   {image ?
                     <Img
                       alt={post.featuredImage.title}
