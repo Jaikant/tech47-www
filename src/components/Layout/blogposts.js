@@ -159,7 +159,7 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
             return (
               <div key={post.id}>
               <BlogCard image={post.featuredImage ? true : false}>
-                <Link to={`blog/${post.slug}`}>
+                <Link to={post.slug}>
                   {image ?
                     <Img
                       alt={post.featuredImage.title}
