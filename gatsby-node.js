@@ -191,7 +191,7 @@ exports.createPages = ({ graphql, actions }) => {
             const prev = index === 0 ? false : contentfulposts[index - 1].node;
             const next = index === contentfulposts.length - 1 ? false : contentfulposts[index + 1].node;
             createPage({
-              path: `${post.node.slug}`,
+              path: `blog/${post.node.slug}`,
               component: slash(contentfulPostTemplate),
               context: {
                 slug: post.node.slug,
