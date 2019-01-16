@@ -177,7 +177,7 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
                   <h3>
                     {post.title}
                   </h3>
-                  <Link to={post.slug}>
+                  <Link to={`/${post.slug}`}>
                     <div className={excerptStyle}>
                       <span>{post.blog.childMarkdownRemark.excerpt}</span>
                     </div>
