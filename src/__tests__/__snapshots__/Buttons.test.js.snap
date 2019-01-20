@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons renders correctly 1`] = `
+<button
+  className="css-15x5664 e1kp5q4c0"
+/>
+`;
