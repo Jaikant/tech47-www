@@ -194,7 +194,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     //contentful fragment taken from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js
     const contentfulPostTemplate = path.resolve(
-      'src/templates/contentful-post-template.js'
+      'src/templates/contentful-meetup-template.js'
     );
     resolve(
       graphql(
