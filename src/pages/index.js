@@ -38,6 +38,7 @@ const Index = () => (
         <img src={tech} width="120" alt="Logo" />
         <Labels>
             <a href="mailto:jai@tech47.in">Email</a>
+            <a href="/meetups">Meet Ups</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Address</a>
 

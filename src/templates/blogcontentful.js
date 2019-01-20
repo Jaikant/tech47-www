@@ -55,9 +55,9 @@ const ContentfulBlogIndex = ({ data, location, pageContext }) => {
                 padding: 0px 32px;
             `}>
           <Typist cursor={cursor}>
-            <span> We love to build the technology that powers your startup. </span>
-            <Typist.Backspace count={58} delay={1000} />
-            <span> We </span>
+            <span> We love to build technology </span>
+            {/* <Typist.Backspace count={58} delay={1000} /> */}
+            {/* <span> We </span> */}
             <FaHeart
               css={css({
                 cursor: `pointer`,
@@ -67,7 +67,7 @@ const ContentfulBlogIndex = ({ data, location, pageContext }) => {
               })}
             />
             {' '}
-            startups.
+            {/* startups. */}
           </Typist>
           </div>
         </div>
