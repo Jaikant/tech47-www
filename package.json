@@ -82,11 +82,11 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "babel-core": "^7.0.0-bridge.0",
+    "@babel/core": "7.2.2",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "8.2.6",
-    "babel-jest": "^23.6.0",
-    "babel-preset-gatsby": "^0.1.6",
+    "babel-jest": "23.6.0",
+    "babel-preset-gatsby": "0.1.6",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
@@ -99,11 +99,11 @@
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.10.0",
     "gatsby-plugin-react-helmet": "2.0.11",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "23.6.0",
     "object-fit-images": "3.2.3",
     "prettier": "1.14.0",
     "react-helmet": "5.2.0",
-    "react-test-renderer": "^16.7.0"
+    "react-test-renderer": "16.7.0"
   }
 }
