@@ -5,5 +5,5 @@ workflow "New workflow" {
 
 action "Build" {
   uses = "jzweifel/gatsby-cli-github-action@v1.0.0"
-  args = "args = \"build\""
+  args = "build"
 }
