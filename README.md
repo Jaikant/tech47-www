@@ -3,7 +3,6 @@
 Built using 
 [GatsbyJS](https://github.com/gatsbyjs/gatsby).
 
-
 ## What we use in this
 
 
@@ -13,3 +12,4 @@ Built using
 * Eslint in dev mode with the airbnb config and prettier formatting rules.
 * [Prettier](https://github.com/prettier/prettier) for a uniform codebase.
 * [Feather](https://feather.netlify.com/) icons.
+
