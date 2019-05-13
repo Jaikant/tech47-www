@@ -1,9 +1,9 @@
 workflow "New workflow" {
-  resolves = ["Github Action for Gatsby CLI"]
-  on = "check_run"
+  on = "push"
+  resolves = ["Build"]
 }
 
-action "Github Action for Gatsby CLI" {
+action "Build" {
   uses = "jzweifel/gatsby-cli-github-action@v1.0.0"
-  args = "args = \"gatsby build\""
+  args = "args = \"build\""
 }
