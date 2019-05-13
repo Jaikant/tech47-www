@@ -1,6 +1,6 @@
 workflow "New workflow" {
   resolves = ["Github Action for Gatsby CLI"]
-  on = "push"
+  on = "check_run"
 }
 
 action "Github Action for Gatsby CLI" {
