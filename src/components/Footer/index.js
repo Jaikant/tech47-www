@@ -8,7 +8,7 @@ import media from '../../utils/media';
 
 const footerStyle = css`
   overflow: hidden;
-  background-color: ${colors.tech47blue};
+  background-image: linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%);
   color: ${colors.light};
   text-align: center;
   opacity: 0.99; // We need this for iPad pro when bg pictures starts covering footer.
@@ -122,12 +122,16 @@ const Wrapper = styled.div`
   }
 `;
 
+const FooterDiv = styled.div`
+  align-self: flex-end;
+`;
+
 const Footer = props => (
-  <div>
+  <FooterDiv>
     <div
       css={`
            ${box};
-           text-align: left;
+           text-align: center;
            @media (min-width: 300px) {
              padding: 8px 0px;
            }
@@ -143,15 +147,15 @@ const Footer = props => (
                margin: 32px;
              `};
              ${media.tablet`
-               text-align: left;
+               text-align: center;
                margin: 0px 16px;
              `};
            }
            `}
     >
-      <p>{`Copyright © 2018 ${props.title}.`}</p>
+      <p>{`Copyright © 2019 ${props.title}.`}</p>
     </div>
-  </div>
+  </FooterDiv>
 );
 
 Footer.propTypes = {

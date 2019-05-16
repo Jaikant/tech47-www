@@ -124,7 +124,7 @@ const StyledSpan = styled.span`
   font-size: 0.65em;
 `;
 
-const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
+const BlogPosts = ({ group, first, last, previousUrl, nextUrl, pathPrefix }) => {
   return (
     <div css={`
           -ms-transform: translate(0px, -16vh);
@@ -144,7 +144,7 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
            .filter(post => post.node.featured == "featured")
            .map(({ node: post }, index) => {
              return (
-               <MainPost key={post.id} post={post}/>
+               <MainPost key={post.id} post={post} pathPrefix={pathPrefix} />
              )
            }
          )
@@ -159,50 +159,48 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl }) => {
             return (
               <div key={post.id}>
               <BlogCard image={post.featuredImage ? true : false}>
-                <Link to={post.slug}>
+                <Link to={`${pathPrefix}/${post.slug}`}>
                   {image ?
                     <Img
                       alt={post.featuredImage.title}
                       resolutions={image}
                     /> : null }
-                </Link>
-                <div css="padding: 24px;">
-                  <div>
-                    <div className={tagStyle}>
-                      <Tags list={post.tags || []} />
+                  <div css="padding: 24px;">
+                    <div>
+                      <div className={tagStyle}>
+                        <Tags list={post.tags || []} />
+                      </div>
+                      <span className={dateStyle}> {post.updatedAt} &middot; </span>
+                      <StyledSpan>{post.blog.childMarkdownRemark.timeToRead} min read </StyledSpan>
                     </div>
-                    <span className={dateStyle}> {post.updatedAt} &middot; </span>
-                    <StyledSpan>{post.blog.childMarkdownRemark.timeToRead} min read </StyledSpan>
-                  </div>
-                  <h3>
-                    {post.title}
-                  </h3>
-                  <Link to={`/${post.slug}`}>
+                    <h3>
+                      {post.title}
+                    </h3>
                     <div className={excerptStyle}>
                       <span>{post.blog.childMarkdownRemark.excerpt}</span>
                     </div>
-                  </Link>
-                  <div className={seemoreStyle}>
-                    <div className={author}>
-                      <Img resolutions={post.author.profilePicture.resolutions} 
-                        alt={post.author.name}
-                      className={img}/>
-                      <p className={authorName}>{post.author.name}</p>
+                    <div className={seemoreStyle}>
+                      <div className={author}>
+                        <Img resolutions={post.author.profilePicture.resolutions} 
+                          alt={post.author.name}
+                        className={img}/>
+                        <p className={authorName}>{post.author.name}</p>
+                      </div>
+                      <Link to={`${pathPrefix}/${post.slug}`} className={link}>
+                        <span css="padding: 16px;"> See More </span>
+                        <FaLongArrowRight
+                          css={css({
+                            fontSize: `1em`,
+                            color: `${colors.tech47pink}`,
+                            "&:hover": {
+                              color: `${colors.tech47purple}`,
+                            },
+                          })}
+                        />
+                      </Link>
                     </div>
-                    <Link to={post.slug} className={link}>
-                      <span css="padding: 16px;"> See More </span>
-                      <FaLongArrowRight
-                        css={css({
-                          fontSize: `1em`,
-                          color: `${colors.tech47pink}`,
-                          "&:hover": {
-                            color: `${colors.tech47purple}`,
-                          },
-                        })}
-                      />
-                    </Link>
                   </div>
-                </div>
+                </Link>
               </BlogCard>
               </div>
             );

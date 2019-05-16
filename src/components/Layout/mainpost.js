@@ -122,7 +122,7 @@ const StyledSpan = styled.span`
   font-size: 0.65em;
 `;
 
-const MainPost = ({ post }) => {
+const MainPost = ({ post, pathPrefix }) => {
   const image = post.featuredImage
     ? post.featuredImage.sizes
     : null;
@@ -135,7 +135,7 @@ const MainPost = ({ post }) => {
             `}
       >
           <BlogCard image={post.featuredImage ? true : false}>
-            <Link to={post.slug}>
+            <Link to={`${pathPrefix}/${post.slug}`}>
               {image ?
                 <Img
                   alt={post.featuredImage.title}
@@ -165,7 +165,7 @@ const MainPost = ({ post }) => {
                       className={img}/>
                       <p className={authorName}>{post.author.name}</p>
                 </div>
-                <Link to={post.slug} className={link}>
+                <Link to={`${pathPrefix}/${post.slug}`} className={link}>
                   <span css="padding: 16px;"> See More </span>
                   <FaLongArrowRight
                     css={css({

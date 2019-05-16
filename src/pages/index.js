@@ -17,8 +17,8 @@ const MainDiv = styled.div`
 
 const Labels = styled.div`
     font: sans-serif;
-    font-size: 8px;
-    width: 150px;
+    font-size: 12px;
+    width: 300px;
     display: flex;
     justify-content: space-evenly;
     a {
@@ -38,8 +38,9 @@ const Index = () => (
         <img src={tech} width="120" alt="Logo" />
         <Labels>
             <a href="mailto:jai@tech47.in">Email</a>
+            <a href="/open-positions">Open Positions</a>
+            <a href="/blog">Blogs</a>
             <a href="/meetups">Meet Ups</a>
-            <a href="/blog">Blog</a>
             <a href="/contact">Address</a>
 
         </Labels>

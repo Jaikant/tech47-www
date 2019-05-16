@@ -17,6 +17,7 @@ import "../css/prism.css"
 injectGlobal`
   * {
       //font: 16px/1.5em "Source Sans Pro",Arial,sans-serif;
+      font: sans-serif;
       box-sizing: border-box;
   };
   body {
@@ -38,8 +39,9 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
+  display: grid;
   width: 100%;
-  height: 400px;
+  min-height: 100vh;
 `;
 
 const Layout = ({ children, location }) => {
