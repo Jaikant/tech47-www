@@ -24,7 +24,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 const createTagPages = (createPage, edges) => {
   const tagTemplate = path.resolve(`src/templates/tags.js`);
   const posts = {};
-  console.log("creating posts");
 
   edges
     .forEach(({ node }) => {
@@ -62,16 +61,14 @@ const createTagPages = (createPage, edges) => {
     });
 }
 // image dimensions 268 * 0.75 = 201
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  new Promise((resolve, reject) => {
 
     //contentful fragment taken from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js
     const contentfulPostTemplate = path.resolve(
       'src/templates/contentful-post-template.js'
     );
-    resolve(
-      graphql(
+    await graphql(
         `
           {
             allContentfulBlogPost(filter: {featured: {ne: "featured"}}) {
@@ -156,6 +153,8 @@ exports.createPages = ({ graphql, actions }) => {
             console.log("error is ", contentful.error);
             reject(contentful.error);
           }
+
+
           const contentfulposts = contentful.data.allContentfulBlogPost.edges;
           if (contentful.data.contentfulBlogPost != null) {
             contentfulposts.unshift({ node : contentful.data.contentfulBlogPost});
@@ -185,19 +184,14 @@ exports.createPages = ({ graphql, actions }) => {
             });
           });
         }
-      )
-    );
-  });
+      );
 
   // meetups
-  new Promise((resolve, reject) => {
-
     //contentful fragment taken from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js
-    const contentfulPostTemplate = path.resolve(
+    const contentfulMeetupTemplate = path.resolve(
       'src/templates/contentful-meetup-template.js'
     );
-    resolve(
-      graphql(
+    await graphql(
         `
           {
             allContentfulMeetUps(filter: {featured: {ne: "featured"}}) {
@@ -301,8 +295,8 @@ exports.createPages = ({ graphql, actions }) => {
             const prev = index === 0 ? false : contentfulposts[index - 1].node;
             const next = index === contentfulposts.length - 1 ? false : contentfulposts[index + 1].node;
             createPage({
-              path: `meetup/${post.node.slug}`,
-              component: slash(contentfulPostTemplate),
+              path: `meetups/${post.node.slug}`,
+              component: slash(contentfulMeetupTemplate),
               context: {
                 slug: post.node.slug,
                 prev: prev,
@@ -312,7 +306,4 @@ exports.createPages = ({ graphql, actions }) => {
           });
         }
       )
-    );
-  });
-
 };
