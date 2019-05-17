@@ -135,7 +135,7 @@ const MainPost = ({ post, pathPrefix }) => {
             `}
       >
           <BlogCard image={post.featuredImage ? true : false}>
-            <Link to={`${pathPrefix}/${post.slug}`}>
+            <Link to={`/${pathPrefix}/${post.slug}`}>
               {image ?
                 <Img
                   alt={post.featuredImage.title}
@@ -165,7 +165,7 @@ const MainPost = ({ post, pathPrefix }) => {
                       className={img}/>
                       <p className={authorName}>{post.author.name}</p>
                 </div>
-                <Link to={`${pathPrefix}/${post.slug}`} className={link}>
+                <Link to={`/${pathPrefix}/${post.slug}`} className={link}>
                   <span css="padding: 16px;"> See More </span>
                   <FaLongArrowRight
                     css={css({

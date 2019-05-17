@@ -159,7 +159,7 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl, pathPrefix }) => 
             return (
               <div key={post.id}>
               <BlogCard image={post.featuredImage ? true : false}>
-                <Link to={`${pathPrefix}/${post.slug}`}>
+                <Link to={`/${pathPrefix}/${post.slug}`}>
                   {image ?
                     <Img
                       alt={post.featuredImage.title}
@@ -186,7 +186,7 @@ const BlogPosts = ({ group, first, last, previousUrl, nextUrl, pathPrefix }) => 
                         className={img}/>
                         <p className={authorName}>{post.author.name}</p>
                       </div>
-                      <Link to={`${pathPrefix}/${post.slug}`} className={link}>
+                      <Link to={`/${pathPrefix}/${post.slug}`} className={link}>
                         <span css="padding: 16px;"> See More </span>
                         <FaLongArrowRight
                           css={css({
