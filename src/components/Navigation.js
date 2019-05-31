@@ -9,6 +9,7 @@ import MobileNav from './MobileNav';
 import media from '../utils/media';
 import { Box } from '.';
 import menusvg from './align-right.svg';
+import HamBurger from '../assets/images/Hamburger.svg';
 
 const svgStyles = css`
   color: ${colors.primary};
@@ -264,21 +265,9 @@ LiItems.defaultProps = {
 
 
 const basicNav = css`
-  display: flex;
-  position: fixed;
-  overflow: visible;
-  top: 0;
-  align-items: center;
-  letter-spacing: 0.1em;
-  color: ${colors.primary};
-  background-color: ${colors.fifth};
-  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
   width: 100%;
-  list-style-type: none;
-  -webkit-box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
-  -moz-box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
-  box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
-  z-index: 9998;
   height: 3.5rem;
 `;
 
@@ -358,39 +347,16 @@ class Navigation extends Component {
 
     const desktopNav = css`
       ${basicNav};
-      background: ${shouldBeHide ? 'transparent' : 'rgba(173,60,203,1)'};
-      transition: background 0.3s ease-out;
-      box-shadow: ${shouldBeHide ? 'none' : '0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12)'};
-      border-top: 4px solid ${colors.tech47pink};
-      a {
-        background-image: none;
-        font-weight: bold;
-      }
       display: none;
       ${media.mid`
-        display: flex;
-      `};
+        display: grid;
+     `};
     `;
 
     // Styles for the mobile View of the navigation
     // the margin within the div below sets the svg menu bar distance from the right end.
     const mobileNav = css`
       ${basicNav};
-      background: ${shouldBeHide ? 'transparent' : 'rgba(173,60,203,1)'};
-      transition: background 0.3s ease-out;
-      box-shadow: ${shouldBeHide ? 'none' : '0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12)'};
-      border-top: 4px solid ${colors.tech47pink};
-
-      & div {
-        margin: 0px 16px 0px auto;
-        font-weight: bold;
-        cursor: pointer;
-      }
-
-      & div img {
-        display: block;
-        margin: auto;
-      }
       ${media.mid`
         display: none;
       `};
@@ -440,9 +406,7 @@ class Navigation extends Component {
               alt="Tech47 Logo"
             />
           </Link>
-          <Menu />
-        </Box>
-        <Box width="100%" px={[3, 3, 4]} className={mobileNav}>
+          <div />
           <Link
             to="/"
             activeStyle={{
@@ -450,12 +414,25 @@ class Navigation extends Component {
             }}
           >
             <img
+              src={HamBurger}
+            />
+          </Link>
+        </Box>
+        <Box width="100%" px={[3, 3, 4]} className={mobileNav}>
+        <Link
+            to="/"
+            activeStyle={{
+              color: colors.primary
+            }}
+          >
+            <img
               className={logoClass}
-              height={20}
-              src={this.props.logo}
+              height={25}
+              src={this.props.logoWhite}
               alt="Tech47 Logo"
             />
           </Link>
+          <div />
           <div
             onClick={this.toggleNav}
             role="button"
@@ -463,7 +440,9 @@ class Navigation extends Component {
             onKeyPress={this.toggleNav}
             css="color: white;"
           >
-            <img src={menusvg} width="24px" alt="Menu" />
+            <img
+              src={HamBurger}
+            />
           </div>
         </Box>
         {this.state.mobileActive && (
