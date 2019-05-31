@@ -2,12 +2,11 @@
 import React from 'react'
 import { css } from 'react-emotion'
 import { push, graphql } from 'gatsby'
-import { Box, Flex } from '../../components/Layout'
+import { Box, Flex, Header } from '../../components'
 import colors from '../../utils/colors'
 import ButtonPrimary from '../../components/Buttons'
-import Layout from '../../layouts'
+import Layout from '../../components/Layout'
 import BigCard from '../../components/BigCard'
-import { Header } from '../../components/Layout';
 
 const input = css`
   display: block;

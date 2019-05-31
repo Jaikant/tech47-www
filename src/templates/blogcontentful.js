@@ -1,11 +1,10 @@
 /* eslint-disable */
 import React from 'react';
 import Link from 'gatsby-link';
-import { Box, Flex, Tags, BlogPosts, SideBar } from '../components/Layout';
+import { Header, Box, Flex, Tags, BlogPosts, SideBar } from '../components';
 import styled, { css } from 'react-emotion';
-import Layout from '../layouts';
+import Layout from '../components/Layout';
 import colors from '../utils/colors';
-import { Header } from '../components/Layout';
 import Helmet from '../components/helmet';
 
 const blogTheme = css`

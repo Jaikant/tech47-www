@@ -5,8 +5,6 @@ Built using
 
 ## What we use in this
 
-
-
 * React 16.
 * CSS-in-JS via [Emotion](https://github.com/emotion-js/emotion).
 * Typography and typefaces 

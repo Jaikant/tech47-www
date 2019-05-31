@@ -1,9 +1,9 @@
 /* eslint-disable no-undef, react/prop-types */
 import React from 'react';
 import { graphql } from "gatsby";
-import { Box } from '../../components/Layout';
+import { Box } from '../../components';
 import colors from '../../utils/colors';
-import Layout from '../../layouts';
+import Layout from '../../components/Layout';
 
 const Terms = ({ data, location }) => {
   const { markdownRemark: remark } = data;

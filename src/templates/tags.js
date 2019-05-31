@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { graphql, Link } from "gatsby";
 import Img from 'gatsby-image';
-import { Box, Flex, Tags } from '../components/Layout';
+import { Box, Flex, Tags } from '../components';
 import colors from '../utils/colors';
 
 const listStyle = css`

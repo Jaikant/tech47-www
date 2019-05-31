@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'react-emotion';
 import colors from '../utils/colors';
 import typography from '../utils/typography';
-import Layout from '../layouts';
+import Layout from '../components/Layout';
 
 const { rhythm } = typography
 
