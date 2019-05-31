@@ -17,7 +17,7 @@ import "../css/prism.css"
 injectGlobal`
   * {
       //font: 16px/1.5em "Source Sans Pro",Arial,sans-serif;
-      font: sans-serif;
+      //font: sans-serif;
       box-sizing: border-box;
   };
   body {
