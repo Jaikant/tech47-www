@@ -84,6 +84,7 @@ const colors = {
   light: '#c0c0c0',
   linkcolor: '#0033CC',
   linkvisited: '#663399',
+  primaryNew: '#101010',
 
   ui: {
     bright: `#e0d6eb`,
