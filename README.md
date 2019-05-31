@@ -1,13 +1,9 @@
 # Tech47.in (https://tech47.in)
 
-
-
 Built using 
 [GatsbyJS](https://github.com/gatsbyjs/gatsby).
 
 ## What we use in this
-
-
 
 * React 16.
 * CSS-in-JS via [Emotion](https://github.com/emotion-js/emotion).
