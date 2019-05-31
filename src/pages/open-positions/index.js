@@ -2,10 +2,9 @@
 import React from 'react';
 import { css } from 'react-emotion';
 import { graphql } from "gatsby";
-import { Box } from '../../components/Layout';
+import { Header, Box } from '../../components';
 import colors from '../../utils/colors';
 import Layout, { NewLayout } from '../../layouts';
-import { Header } from '../../components/Layout';
 import BigCard from '../../components/BigCard';
 
 const blogTheme = css`

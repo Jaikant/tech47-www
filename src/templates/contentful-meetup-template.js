@@ -5,11 +5,11 @@ import Img from 'gatsby-image';
 import Link from 'gatsby-link';
 import ReactHelmet from 'react-helmet'
 import typography from '../utils/typography';
-import { Box, Tags } from '../components/Layout';
+import { Box, Tags } from '../components';
 import colors from '../utils/colors';
 import presets from '../utils/presets';
 import feather from '../utils/feather';
-import EmailCaptureForm from "../components/Layout/email-capture-form"
+import EmailCaptureForm from "../components/email-capture-form"
 import Helmet from '../components/helmet';
 import Layout from '../layouts';
 

@@ -3,7 +3,7 @@ import React from 'react'
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import styled, { css } from 'react-emotion'
-import Card from '../../components/team/card.js'
+import Card from '../../components/team'
 import Layout from '../../layouts';
 import Helmet from '../../components/helmet';
 import Img from 'gatsby-image'
