@@ -5,11 +5,10 @@ action "Build" {
 
 workflow "Merge Reminder" {
   on = "push"
-  resolves = ["Action for Slack"]
+  resolves = ["GitHub Action for Slack"]
 }
 
-action "Action for Slack" {
+action "GitHub Action for Slack" {
   uses = "Ilshidur/action-slack@6aeb2acb39f91da283faf4c76898a723a03b2264"
-  secrets = ["SLACK_WEBHOOK"]
   args = "\"A new commit has been pushed! Do a git pull!\""
 }
