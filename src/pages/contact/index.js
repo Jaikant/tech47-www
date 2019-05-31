@@ -5,7 +5,7 @@ import { push, graphql } from 'gatsby'
 import { Box, Flex, Header } from '../../components'
 import colors from '../../utils/colors'
 import ButtonPrimary from '../../components/Buttons'
-import Layout from '../../layouts'
+import Layout from '../../components/Layout'
 import BigCard from '../../components/BigCard'
 
 const input = css`

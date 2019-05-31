@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import { Header, Box, Flex, Tags, BlogPosts, SideBar } from '../components';
 import styled, { css } from 'react-emotion';
-import Layout from '../layouts';
+import Layout from '../components/Layout';
 import colors from '../utils/colors';
 import Helmet from '../components/helmet';
 

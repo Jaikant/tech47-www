@@ -11,7 +11,7 @@ import presets from '../utils/presets';
 import feather from '../utils/feather';
 import EmailCaptureForm from "../components/email-capture-form"
 import Helmet from '../components/helmet';
-import Layout from '../layouts';
+import Layout from '../components/Layout';
 
 const { rhythm, scale }  = typography
 
