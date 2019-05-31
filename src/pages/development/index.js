@@ -13,7 +13,7 @@ const blogTheme = css`
     color: ${colors.sixth};
   }
   a {
-    color: ${colors.primary};
+    color: ${colors.primaryOld};
   }
 `;
 

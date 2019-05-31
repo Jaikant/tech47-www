@@ -30,13 +30,13 @@ const buttonPrimary = css`
 
 const buttonSecondary = css`
   ${buttonBasic};
-  background-color: ${colors.primary};
+  background-color: ${colors.primaryOld};
   color: ${colors.fifth};
   transition: all 0.3s ease;
 
   &:hover {
     background-color: ${colors.fifth};
-    color: ${colors.primary};
+    color: ${colors.primaryOld};
     cursor: pointer;
   }
 `;

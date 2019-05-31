@@ -11,7 +11,7 @@ import { Box } from '../../components/Layout';
 import menusvg from './align-right.svg';
 
 const svgStyles = css`
-  color: ${colors.primary};
+  color: ${colors.primaryOld};
   transition: opacity 0.15s ease-in;
   transition: color 0.15s ease-in;
 
@@ -28,7 +28,7 @@ const outerstyle = css`
   padding: 5px 10px 0px 10px;
   border-radius: 50%;
   &:hover {
-    background-color: ${colors.primary};
+    background-color: ${colors.primaryOld};
     transition: background-color 0.15s ease-in;
   }
 `;
@@ -240,7 +240,7 @@ const LiItems = ({ to, href, children }) => (
       <Link
         to={to}
         activeStyle={{
-          color: colors.primary
+          color: colors.primaryOld
         }}
       >
         {children}
@@ -270,7 +270,7 @@ const basicNav = css`
   top: 0;
   align-items: center;
   letter-spacing: 0.1em;
-  color: ${colors.primary};
+  color: ${colors.primaryOld};
   background-color: ${colors.fifth};
   margin: 0;
   width: 100%;
@@ -286,7 +286,7 @@ const basicNav = css`
 const mobileStyle = css`
   position: fixed;
   background-color: ${colors.fifth};
-  color: ${colors.primary};
+  color: ${colors.primaryOld};
   display: block;
   padding: 1rem;
   width: 100%;
@@ -430,7 +430,7 @@ class Navigation extends Component {
           <Link
             to="/"
             activeStyle={{
-              color: colors.primary
+              color: colors.primaryOld
             }}
           >
             <img
@@ -446,7 +446,7 @@ class Navigation extends Component {
           <Link
             to="/"
             activeStyle={{
-              color: colors.primary
+              color: colors.primaryOld
             }}
           >
             <img

@@ -16,9 +16,9 @@ const stripeAnimation = keyframes`
 
 const formInputDefaultStyles = css`
   background-color: #fff;
-  border: 1px solid ${presets.colors.primary};
+  border: 1px solid ${presets.colors.primaryOld};
   border-radius: ${presets.radius}px;
-  color: ${presets.colors.primary};
+  color: ${presets.colors.primaryOld};
   font-family: ${options.headerFontFamily.join(`,`)};
   padding: ${rhythm(1 / 2)};
   vertical-align: middle;
@@ -113,7 +113,7 @@ class EmailCaptureHomePage extends React.Component {
     return (
       <div
         css={`
-          border-top: 2px solid ${presets.colors.primary};
+          border-top: 2px solid ${presets.colors.primaryOld};
           margin-top: rhythm(3);
           padding-top: ${rhythm(1)}
         `}
@@ -142,7 +142,7 @@ class EmailCaptureHomePage extends React.Component {
                     &:focus {
                       border-color: presets.colors.lilac;
                       outline: 0;
-                      box-shadow: 0 0 0 0.2rem ${hex2rgba(presets.colors.primary, 0.25)};
+                      box-shadow: 0 0 0 0.2rem ${hex2rgba(presets.colors.primaryOld, 0.25)};
                     }
                   `}
                 />
@@ -151,15 +151,15 @@ class EmailCaptureHomePage extends React.Component {
                   onClick={this._handleFormSubmit}
                   css={`
                     ${formInputDefaultStyles};
-                    border-color: ${presets.colors.primary};
-                    color: ${presets.colors.primary};
+                    border-color: ${presets.colors.primaryOld};
+                    color: ${presets.colors.primaryOld};
                     cursor: pointer;
                     font-weight: bold;
                     margin-left: ${rhythm(1 / 2)};
                     margin-top: ${rhythm(1 / 2)};
                     &:hover, &:focus {
                       background-size: 30px 30px;
-                      background-color: ${presets.colors.primary};
+                      background-color: ${presets.colors.primaryOld};
                       background-image: linear-gradient(45deg, rgba(0,0,0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, transparent 75%, transparent);
                       color: #fff;
                       animation: ${stripeAnimation} 2.8s linear infinite;
@@ -167,7 +167,7 @@ class EmailCaptureHomePage extends React.Component {
                     &:focus {
                       outline: 0;
                       box-shadow: 0 0 0 0.2rem ${hex2rgba(
-                        presets.colors.primary,
+                        presets.colors.primaryOld,
                         0.25
                       )}
                     };

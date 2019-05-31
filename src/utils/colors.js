@@ -75,7 +75,7 @@ const colors = {
   accent: `#0f0f0f`, // "Mustard",
   success: `#37b635`,
   warning: `#ec1818`,
-  primary: '#0f0f0f',
+  primaryOld: '#0f0f0f',
   secondary: '#000000',
   third: '#ffffff',
   fourth: '#0f0f0f',
@@ -84,6 +84,9 @@ const colors = {
   light: '#c0c0c0',
   linkcolor: '#0033CC',
   linkvisited: '#663399',
+  primary: '#101010',
+  primaryLight: '#363636',
+  secondaryLight: '#f0f0f0',
 
   ui: {
     bright: `#e0d6eb`,

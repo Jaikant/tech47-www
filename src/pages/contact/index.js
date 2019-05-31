@@ -24,7 +24,7 @@ const input = css`
   line-height: 1.3333333;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   & :focus {
-    border-color: ${colors.primary};
+    border-color: ${colors.primaryOld};
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
       0 0 8px rgba(59, 89, 152, 0.6);
   }
@@ -153,7 +153,7 @@ const Contact = ({ data, location }) => {
           `}
         >
           <BigCard>
-            <Box bg={colors.primary}>
+            <Box bg={colors.primaryOld}>
               <Box css="margin: 2.5em">
                 <h1>{remark.frontmatter.title}</h1>
                 <div

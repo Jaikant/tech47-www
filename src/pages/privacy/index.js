@@ -9,7 +9,7 @@ const Privacy = ({ data, location }) => {
   const { markdownRemark: remark } = data;
   return (
     <Layout location={location}>
-      <Box bg={colors.primary}>
+      <Box bg={colors.primaryOld}>
         <Box css="margin: 2.5em">
           <h1>{remark.frontmatter.title}</h1>
           <div
