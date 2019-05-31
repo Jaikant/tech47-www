@@ -3,7 +3,7 @@ action "Build" {
   args = "build"
 }
 
-workflow "Merge Reminder" {
+workflow "GitActions" {
   on = "push"
   resolves = ["GitHub Action for Slack"]
 }
