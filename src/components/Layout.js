@@ -9,6 +9,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import colors from '../utils/colors';
 import favicon from '../assets/images/tech47-favicon2.png';
+import LogoFull from '../assets/images/LogoFull.svg';
 import "../css/prism.css"
 
 /* eslint-disable */
@@ -21,7 +22,8 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    background-color: ${colors.tech47background};
+    background-color: ${colors.darkTheme.primary};
+    color: ${colors.darkTheme.secondary}
   };
   a {
     text-decoration: none;
@@ -33,8 +35,8 @@ injectGlobal`
     color: ${colors.gray.calm};
     transition: color 0.15s ease-in;
   };
-  h1, h2, h3, h4, h5, h6 {
-    color: ${colors.secondary}
+  h1, h2, h3, h4, h5, h6, p {
+    color: ${colors.darkTheme.secondary}
   };
 `;
 /* eslint-enable */
@@ -54,7 +56,7 @@ const Layout = ({ children, location }) => {
              title
            }
          }
-        logoImage: imageSharp(fluid: {originalName: { regex: "/Htech47/" }}) {
+        logoImage: imageSharp(fluid: {originalName: { regex: "/LogoFull/" }}) {
           resize(width: 1843, height: 425, cropFocus: CENTER) {
             # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
             src
@@ -74,12 +76,12 @@ const Layout = ({ children, location }) => {
            <link rel="shortcut icon" href={favicon} type="image/x-icon" />
            <link rel="icon" href={favicon} type="image/x-icon" />
          </Helmet>
-         {/* <Navigation
+         <Navigation
            title={data.site.siteMetadata.title}
-           logo={data.logoImage.resize.src}
-           logoWhite={data.logoWhite.resize.src}
+           logo={LogoFull}
+           logoWhite={LogoFull}
            location={location}
-         /> */}
+         />
          {children}
          <Footer title={data.site.siteMetadata.title} />
        </MainDiv>
