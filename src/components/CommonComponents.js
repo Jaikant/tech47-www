@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `
 const Text = styled.div`
     font-size: 18px;
-    color: ${ props => props.black ? '#000000' : '#f0f0f0' };
+    color: ${ props => props.white ? '#f0f0f0' : '#000000' };
     margin-right: 10px;
 `
 
@@ -22,11 +22,11 @@ const PartitionWrapper = styled.div`
 export const ArrowButton = (props) => (
     <Wrapper>
        <Text {...props}>{props.text}</Text>
-       {props.black ? <img src={BlackArrow} width="24" alt="BlackArrow" /> : <img src={Arrow} width="24" alt="Arrow" />}
+       {props.white ? <img src={Arrow} width="24" height="12" alt="Arrow" /> : <img src={BlackArrow} width="24" alt="BlackArrow" />}
     </Wrapper>
 )
 
-export const PartitionEnd = () => (
+export const BottomLine = () => (
     <PartitionWrapper>
        <img src={Partition} width="300" height="3" alt="Partition" />
     </PartitionWrapper>
