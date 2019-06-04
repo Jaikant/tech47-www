@@ -22,7 +22,7 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    background-color: ${colors.darkTheme.primary};
+    // background-color: ${colors.darkTheme.primary};
     color: ${colors.darkTheme.secondary}
   };
   a {
