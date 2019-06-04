@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '../icons/Logo.svg';
-import Menu from '../icons/Menu.svg';
+import Logo from '../assets/icons/Logo.svg';
+import Menu from '../assets/icons/Menu.svg';
 import styled from 'react-emotion';
 import colors from '../utils/colors';
 
