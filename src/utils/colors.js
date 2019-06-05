@@ -86,6 +86,12 @@ const colors = {
   linkvisited: '#663399',
   primaryNew: '#101010',
 
+  darkTheme: {
+    primary: `#101010`,
+    primaryLight: `#363636`,
+    secondary: `#f0f0f0`,
+  },
+  
   ui: {
     bright: `#e0d6eb`,
     light: `#f5f3f7`,
