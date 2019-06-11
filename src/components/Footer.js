@@ -4,25 +4,24 @@ import { Link } from 'gatsby';
 import colors from '../utils/colors';
 
 const FooterDiv = styled.div`
-  text-align: center;
-  margin: 10px 0px;
-  background: ${props => props.light ? colors.tech47white : null};
+  background: ${props => props.white ? colors.tech47white : null};
 `;
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 const FooterText = styled.div`
   font-size: 18px;
-  color: ${props => props.light ? colors.secondary : colors.darkTheme.secondary};
+  color: ${props => props.white ? colors.secondary : colors.darkTheme.secondary};
 `;
 
-const LogoText = styled.text`
+const LogoText = styled.div`
+  text-align: center;
   font-size: 15px;
-  color: ${props => props.light ? colors.footerLogo : colors.darkTheme.secondary};
+  margin-top: 10px;
+  color: ${props => props.white ? colors.footerLogo : colors.darkTheme.secondary};
 `;
 
 const Footer = (props) => (
