@@ -6,8 +6,8 @@ import { BottomLine } from './Common';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
-    grid-column-gap: 4px;
+    grid-template-columns: 1fr 1.65fr 1.5fr 1fr;
+    grid-column-gap: 1px;
     align-items: center;
     justify-items: center;
     height: calc(100vh - 100px);

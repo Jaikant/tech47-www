@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import Layout from '../components/Layout';
 import CommunityLanding from '../components/CommunityLanding';
 
 const community = () => (
-    <div>
-            <NavBar />
-        <CommunityLanding />
-    </div>
+    <Layout>
+      <CommunityLanding />
+      <div style={{minHeight: '100vh', background: 'green'}}/>
+    </Layout>
 )
 
 export default community
