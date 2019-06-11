@@ -45,7 +45,7 @@ const MainDiv = styled.div`
   //display: grid;
   width: 100%;
   min-height: 100vh;
-  background: ${props => props.white ? 'white' : 'black'}
+  background: ${props => props.white ? 'white' : '#101010'}
 `;
 
 const ContentInset = styled.div`
