@@ -23,7 +23,7 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    background-color: ${colors.darkTheme.primary};
+    // background-color: ${colors.darkTheme.primary};
     color: ${colors.darkTheme.secondary}
   };
   a {
@@ -42,10 +42,10 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
-  display: grid;
+  //display: grid;
   width: 100%;
   min-height: 100vh;
-  background: ${props => props.white ? 'white' : 'null'}
+  background: ${props => props.white ? 'white' : 'black'}
 `;
 
 const ContentInset = styled.div`
