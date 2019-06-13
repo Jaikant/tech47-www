@@ -86,6 +86,8 @@ const colors = {
   linkvisited: '#663399',
   primaryNew: '#101010',
   footerLogo: '#C4C4C4',
+  formPlaceholder: 'rgba(54, 54, 54, 0.3)',
+  formvalidationColor: '#FF0000',
 
   darkTheme: {
     primary: `#101010`,
