@@ -85,6 +85,7 @@ const colors = {
   linkcolor: '#0033CC',
   linkvisited: '#663399',
   primaryNew: '#101010',
+  footerLogo: '#C4C4C4',
 
   darkTheme: {
     primary: `#101010`,

@@ -10,7 +10,8 @@ import Footer from '../components/Footer';
 import colors from '../utils/colors';
 import favicon from '../assets/images/tech47-favicon2.png';
 import LogoFull from '../assets/images/LogoFull.svg';
-import "../css/prism.css"
+import "../css/prism.css";
+import NavBar from './NavBar';
 
 /* eslint-disable */
 //import normalize from 'normalize.css';
@@ -22,7 +23,7 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    background-color: ${colors.darkTheme.primary};
+    // background-color: ${colors.darkTheme.primary};
     color: ${colors.darkTheme.secondary}
   };
   a {
@@ -41,12 +42,17 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
-  display: grid;
+  //display: grid;
   width: 100%;
   min-height: 100vh;
+  background: ${props => props.white ? 'white' : '#101010'}
 `;
 
-const Layout = ({ children, location }) => {
+const ContentInset = styled.div`
+  padding: ${props => props.padding ? '0px' : '50px'};
+`
+
+const Layout = ({ children, location, ...props }) => {
   return (
    <StaticQuery
      query={graphql`
@@ -71,19 +77,22 @@ const Layout = ({ children, location }) => {
        }
      `}
      render={data => (
-       <MainDiv>
+       <MainDiv {...props}>
          <Helmet>
            <link rel="shortcut icon" href={favicon} type="image/x-icon" />
            <link rel="icon" href={favicon} type="image/x-icon" />
          </Helmet>
-         <Navigation
+         {/* <Navigation
            title={data.site.siteMetadata.title}
            logo={LogoFull}
            logoWhite={LogoFull}
            location={location}
-         />
+         /> */}
+         <NavBar {...props} />
+         <ContentInset>
          {children}
-         <Footer title={data.site.siteMetadata.title} />
+         </ContentInset>
+         {/* <Footer title={data.site.siteMetadata.title} /> */}
        </MainDiv>
      )}
   />
