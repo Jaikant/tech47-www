@@ -1,12 +1,11 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import Layout from '../components/Layout';
 import BlogLanding from '../components/BlogLanding';
 
 const blogs = () => (
-    <div>
-         <NavBar />
+    <Layout>
         <BlogLanding />
-    </div>
+    </Layout>
 )
 
 export default blogs
