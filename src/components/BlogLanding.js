@@ -6,23 +6,20 @@ import { BottomLine } from './Common';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr 1fr;
-    grid-column-gap: 4px;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
     justify-items: center;
     height: calc(100vh - 195px);
 `;
 
-const Title = styled.h1`
-    font-size: 30px;
-    line-height: 36px;
+const Title = styled.text`
+    font-size: 60px;
     color: ${colors.tech47white};
 `;
 
 const Subtitle = styled.text`
-    font-size: 18px;
-    line-height: 18px;
-    color: ${colors.darkTheme.primaryLight};
+  font-size: 34px;
+  color: ${colors.darkTheme.primaryLight};
 `;
 
 const Text = styled.div`
@@ -33,12 +30,11 @@ const Text = styled.div`
 const BlogLanding = () => (
     <div>
         <Wrapper>
-            <div />
             <Text>
-             <Title>Our views on technology.  </Title>
-             <Subtitle>Because we all have to make informed decisions.</Subtitle>
+                <Title>Our views on technology.  </Title>
+                <Subtitle>Because we all have to make informed decisions.</Subtitle>
             </Text>
-            <img src={Blog} width="200px" height="200px" alt="Social" />
+            <img src={Blog} width="360" height="273.5" alt="Social" />
         </Wrapper>
         <BottomLine />
     </div>
