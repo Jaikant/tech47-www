@@ -49,7 +49,7 @@ const MainDiv = styled.div`
 `;
 
 const ContentInset = styled.div`
-  padding: 50px;
+  padding: 100px;
 `
 
 const Layout = ({ children, location, ...props }) => {

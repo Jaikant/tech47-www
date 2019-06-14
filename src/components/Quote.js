@@ -2,33 +2,41 @@ import React from 'react'
 import styled from 'react-emotion'
 import { BottomLine } from './Common'
 
+const Wrapper = styled.div`
+  height: 100vh;
+`
+
 const Background = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
     url(${props => props.img});
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   padding: 10px;
+  margin: 50px 0px 50px 0px;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  align-items: center;
 `
 
 const QuoteText = styled.div`
   font-size: 48px;
   font-family: Caveat;
   letter-spacing: 5px;
-  line-height: 120%;
+  align-text: center;
 `
 
 const Quote = props => (
-  <div>
+  <Wrapper>
     <Background {...props}>
       <img src={props.logo} width="130" height="131" alt="AlignLogo" />
       <QuoteText>
-        {props.children} <br />
+        {props.children}
+        <br />
         <br />
         {props.author}
       </QuoteText>
     </Background>
     <BottomLine />
-  </div>
+  </Wrapper>
 )
 
 export default Quote

@@ -1,16 +1,14 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { BottomLine } from './Common';
-import Cloud from '../assets/images/cloud.jpg';
+import Cloud from '../assets/images/CloudImage.jpg';
 
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 0.5fr 4fr;
     grid-gap: 50px;
     align-items: center;
-    align-content: center;
     height: 100vh;
-    padding: 0px 80px 0px 40px;
 `
 
 const LeftText = styled.div`
