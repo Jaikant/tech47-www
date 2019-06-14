@@ -13,7 +13,6 @@ export const ConfirmWrapper = styled.div`
 export const ConfirmText = styled.text`
   font-size: 22px;
   line-height: 26px;
-  text-align: center;
   color: ${colors.darkTheme.primaryLight};
-  margin-bottom: 74px;
+  margin-bottom: 60px;
 `;

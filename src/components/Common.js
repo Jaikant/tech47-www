@@ -49,11 +49,9 @@ export const GreyLine = styled.div`
 const EmailWrapper = styled.div`
   display: flex;
   align-items: baseline;
-  justify-content: center;
 `;
 
 const EmailText = styled.text`
-  text-align: center;
   font-size: 18px;
   line-height: 21px;
   color: rgba(54, 54, 54, 0.3);
@@ -63,7 +61,7 @@ const EmailText = styled.text`
 
 export const Email = (props) => (
     <EmailWrapper>
-        <EmailText {...props}>
+        <EmailText>
             {props.text}<Link to=''><u>jai@tech47.in</u></Link>
         </EmailText>
         <img src={Copy} width="11.5" height="15" alt="Logo" />

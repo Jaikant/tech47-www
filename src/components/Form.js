@@ -30,8 +30,7 @@ export const ErrorMessage = styled(FormikErrorMessage)`
   font-size: 0.6em;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-
-  `;
+ `;
 
 const FieldWrapper = styled.div`
   display: flex;
