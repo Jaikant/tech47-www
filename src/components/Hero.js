@@ -2,7 +2,19 @@ import React from 'react'
 import ReactLogo from '../assets/icons/ReactLogo.svg'
 import styled from 'react-emotion'
 import { ArrowButton, BottomLine } from './Common'
-import Cloud from '../assets/images/cloud.jpg'
+import Cloud from '../assets/images/CloudImage.jpg'
+
+const Wrapper = styled.div`
+  display: grid;
+  height: 100vh;
+`
+
+const HeroWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+`
 
 const HeroText = styled.div`
   font-size: 96px;
@@ -20,17 +32,6 @@ const HeroSubText = styled.div`
   line-height: 64px;
 `
 
-const Wrapper = styled.div`
-  position: absolute;
-  top: 20%;
-  left: 17%;
-  right: 17%;
-`
-const HeroWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 const Hero = () => (
   <Wrapper>
     <HeroWrapper>
