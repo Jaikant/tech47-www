@@ -92,7 +92,7 @@ const Layout = ({ children, location, ...props }) => {
          <ContentInset>
          {children}
          </ContentInset>
-         {/* <Footer title={data.site.siteMetadata.title} /> */}
+         {props.footer ?  <Footer {...props} /> : null}
        </MainDiv>
      )}
   />
