@@ -1,28 +1,23 @@
 import React from 'react';
 import styled from 'react-emotion';
-import Social from '../assets/icons/Community.svg';
 import colors from '../utils/colors';
 import { BottomLine } from './Common';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1.65fr 1.5fr 1fr;
-    grid-column-gap: 1px;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
     justify-items: center;
     height: calc(100vh - 100px);
 `;
 
-const Title = styled.h1`
-    font-size: 30px;
-    line-height: 36px;
+const Title = styled.text`
+    font-size: 60px;
     color: ${colors.tech47white};
 `;
 
 const Subtitle = styled.text`
-    font-size: 18px;
-    line-height: 18px;
-    word-spacing: 3px;
+    font-size: 34px;
     color: ${colors.darkTheme.primaryLight};
 `;
 
@@ -31,15 +26,14 @@ const Text = styled.div`
     flex-direction: column;
 `;
 
-const CommunityLanding = () => (
+const CommunityLanding = (props) => (
     <div>
         <Wrapper>
-            <div />
             <Text>
-             <Title>Our community initiatives.  </Title>
-             <Subtitle>Because we are grateful to have recieved so much.</Subtitle>
+             <Title>{props.title}</Title>
+             <Subtitle>{props.subtitle}</Subtitle>
             </Text>
-            <img src={Social} width="200px" height="200px" alt="Social" />
+             {props.image}
         </Wrapper>
         <BottomLine />
     </div>
