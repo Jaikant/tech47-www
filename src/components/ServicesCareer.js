@@ -14,8 +14,7 @@ const Wrapper = styled.div`
 const Upper = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${Career});
-  -webkit-filter: grayscale(100%); //safari
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); 
   background-size: 100% 100%;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -28,11 +27,13 @@ const UpperLeft = styled.div`
 
 const LowerText = styled.div`
   font-size: 48px;
+  line-height: 95.38%;
   color: white;
   background: url(${Cloud});
   background-repeat: no repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
 `
 
 const UpperText = styled(LowerText)`
