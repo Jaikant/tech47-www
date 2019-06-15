@@ -11,9 +11,9 @@ const Background = styled.div`
     url(${props => props.img});
   background-size: cover;
   padding: 10px;
-  margin: 50px 0px 50px 0px;
+  margin: 100px 0px 100px 0px;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1fr 3fr;
   align-items: center;
 `
 
