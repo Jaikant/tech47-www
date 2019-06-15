@@ -41,7 +41,7 @@ export const BottomLine = () => (
 
 export const GreyLine = styled.div`
   height: 1px;
-  margin: 1em 0;
+  margin: 30px 0px 40px 0px;
   width: 150px;
   background:rgba(8, 8, 11, 0.15);
 `;
@@ -55,16 +55,18 @@ const EmailText = styled.text`
   font-size: 18px;
   line-height: 21px;
   color: rgba(54, 54, 54, 0.3);
-  margin-top: 15px;
   margin-right: 4px;
 `;
 
 export const Email = (props) => (
+    <div>
+    <GreyLine />
     <EmailWrapper>
         <EmailText>
             {props.text}<Link to=''><u>jai@tech47.in</u></Link>
         </EmailText>
         <img src={Copy} width="11.5" height="15" alt="Logo" />
     </EmailWrapper>
+    </div>
 )
 
