@@ -11,8 +11,7 @@ const Wrapper = styled.div`
     height: 100vh;
 `
 
-const LeftText = styled.div`
-    font-size: 48px;
+const ImageUnderText = styled.div`
     color: white;
     background: url(${Cloud});
     background-repeat: no repeat;
@@ -20,13 +19,12 @@ const LeftText = styled.div`
     -webkit-text-fill-color: transparent;
 `
 
-const RightText = styled.div`
+const LeftText = styled(ImageUnderText)`
+    font-size: 48px;
+`
+
+const RightText = styled(ImageUnderText)`
     font-size: 36px;
-    color: white;
-    background: url(${Cloud});
-    background-repeat: no repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 `
 
 const WhoWeAre = () => (
