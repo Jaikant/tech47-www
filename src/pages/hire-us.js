@@ -7,8 +7,7 @@ import {
   Form,
   InputField,
   FormText,
-  RowWrapper,
-  SubmitWrapper,
+  RowWrapper
 } from '../components/Form'
 
 const HiringForm = ({ values, onSubmit }) => (
@@ -65,8 +64,10 @@ const HiringForm = ({ values, onSubmit }) => (
                 required
                 placeholder="Give us a short description"
               />
+               </RowWrapper>
+               <RowWrapper>
                <div />
-               <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '20px'}} />
+               <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '50px'}} />
             </RowWrapper>
           </div>
           <Email text="Prefer to send us an email instead?" />
