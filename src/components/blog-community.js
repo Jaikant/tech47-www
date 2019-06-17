@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     grid-template-columns: 2fr 1fr;
     align-items: center;
     justify-items: center;
-    height: calc(100vh - 100px);
+    height: 100vh;
 `;
 
 const Title = styled.text`
