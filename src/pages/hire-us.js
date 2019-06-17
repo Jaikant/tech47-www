@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { ArrowButton, GreyLine, Email } from '../components/Common'
+import { ArrowButton, Email } from '../components/Common'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
 import {
@@ -65,13 +65,11 @@ const HiringForm = ({ values, onSubmit }) => (
                 required
                 placeholder="Give us a short description"
               />
+               <div />
+               <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '20px'}} />
             </RowWrapper>
           </div>
-          <SubmitWrapper>
-            <ArrowButton text="Submit" disabled={isSubmitting} />
-            <GreyLine />
-            <Email text="Prefer to send us an email instead?" />
-          </SubmitWrapper>
+          <Email text="Prefer to send us an email instead?" />
         </Form>
       </Layout>
     )}
