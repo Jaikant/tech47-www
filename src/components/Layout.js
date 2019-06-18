@@ -49,7 +49,7 @@ const MainDiv = styled.div`
 `;
 
 const ContentInset = styled.div`
-  //padding: 50px;
+  padding: ${props => props.padding ? '0px' : '50px'};
 `
 
 const Layout = ({ children, location, ...props }) => {
@@ -92,7 +92,7 @@ const Layout = ({ children, location, ...props }) => {
          <ContentInset>
          {children}
          </ContentInset>
-         {/* <Footer title={data.site.siteMetadata.title} /> */}
+         {props.footer ?  <Footer {...props} /> : null}
        </MainDiv>
      )}
   />

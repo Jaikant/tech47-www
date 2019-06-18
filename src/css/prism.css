@@ -4,6 +4,8 @@
  * @author Lea Verou
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Caveat');
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
