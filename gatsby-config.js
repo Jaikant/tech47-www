@@ -38,6 +38,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `meetupImages`,
+        path: `${__dirname}/src/assets/meetupImages/`
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: ``
