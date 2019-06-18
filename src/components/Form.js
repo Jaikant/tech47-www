@@ -63,7 +63,4 @@ export const RowWrapper = styled.div`
   grid-gap: 26px;
 `;
 
-export const SubmitWrapper = styled.div`
-  margin: 4rem 26rem 0rem 0rem;
-`;
 

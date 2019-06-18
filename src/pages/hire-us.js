@@ -1,14 +1,13 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { ArrowButton, GreyLine, Email } from '../components/Common'
+import { ArrowButton, Email } from '../components/Common'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
 import {
   Form,
   InputField,
   FormText,
-  RowWrapper,
-  SubmitWrapper,
+  RowWrapper
 } from '../components/Form'
 
 const HiringForm = ({ values, onSubmit }) => (
@@ -65,13 +64,13 @@ const HiringForm = ({ values, onSubmit }) => (
                 required
                 placeholder="Give us a short description"
               />
+               </RowWrapper>
+               <RowWrapper>
+               <div />
+               <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '50px'}} />
             </RowWrapper>
           </div>
-          <SubmitWrapper>
-            <ArrowButton text="Submit" disabled={isSubmitting} />
-            <GreyLine />
-            <Email text="Prefer to send us an email instead?" />
-          </SubmitWrapper>
+          <Email text="Prefer to send us an email instead?" />
         </Form>
       </Layout>
     )}
