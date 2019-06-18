@@ -4,6 +4,7 @@ import colors from '../utils/colors';
 export const ConfirmWrapper = styled.div`
   display: flex;
   height: 100vh;
+  background: ${colors.tech47white};
   flex-direction: column;
   justify-content: center;
   align-items: center;

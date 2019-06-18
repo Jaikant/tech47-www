@@ -12,7 +12,7 @@ import LekplatsLogo from '../assets/icons/Lekplats.svg'
 import LekplatsBackground from '../assets/images/lekplats-Background.png'
 
 const Landing = () => (
-  <Layout>
+  <Layout footer>
     <Hero />
     <WhoWeAre />
     <ServicesCareer />
