@@ -45,6 +45,7 @@
     "react-emotion": "^9.0.0",
     "react-icons": "^2.2.7",
     "react-reveal": "^1.2.2",
+    "react-svg-morph": "^0.2.1",
     "react-typist": "^2.0.4",
     "react-typography": "^0.16.13",
     "styled-system": "^3.0.0",
