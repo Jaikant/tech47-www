@@ -11,11 +11,11 @@ import SoundwiseBackground from '../assets/images/soundwise-Background.png'
 import LekplatsLogo from '../assets/icons/Lekplats.svg'
 import LekplatsBackground from '../assets/images/lekplats-Background.png'
 
-const Landing = () => (
+const Landing = ({data}) => (
   <Layout>
     <Hero />
     <WhoWeAre />
-    <ServicesCareer />
+    <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid}/>
     <Quote
       logo={AlignLogo}
       img={AlignBackground}
@@ -47,3 +47,18 @@ const Landing = () => (
 )
 
 export default Landing
+
+export const query = graphql`
+query {
+   image1 : imageSharp(original: {src: {regex: "/Career/"}}) {
+     fluid (maxWidth: 400, maxHeight: 150, quality: 100, grayscale: true){
+         ...GatsbyImageSharpFluid
+   }
+   }
+   image2 : imageSharp(original: {src: {regex: "/TextImage/"}}) {
+      fluid (maxWidth: 400, maxHeight: 150, quality: 100){
+          ...GatsbyImageSharpFluid
+    }
+    }
+ }
+ `
