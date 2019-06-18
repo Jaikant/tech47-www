@@ -1,10 +1,15 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import BlogLanding from '../components/BlogLanding';
+import Blog from '../assets/icons/Blogs.svg';
+import BlogLanding from '../components/blog-community';
 
 const blogs = () => (
     <Layout>
-        <BlogLanding />
+        <BlogLanding
+          title='Our views on technology.'
+          subtitle='Because we all have to make informed decisions.'
+          image={<img src={Blog} width="360" height="273.5" alt="Social" />}
+        />
     </Layout>
 )
 
