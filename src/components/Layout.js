@@ -23,7 +23,7 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    // background-color: ${colors.darkTheme.primary};
+    background-color: ${colors.darkTheme.primary};
     color: ${colors.darkTheme.secondary}
   };
   a {
@@ -42,10 +42,11 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
-  //display: grid;
+  padding: 64px;
   width: 100%;
   min-height: 100vh;
-  background: ${props => props.white ? 'white' : '#101010'}
+  max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
+  background: ${props => props.white ? 'white' : 'none'};
 `;
 
 const ContentInset = styled.div`
@@ -90,7 +91,7 @@ const Layout = ({ children, location, ...props }) => {
          /> */}
          <NavBar {...props} />
          <ContentInset>
-         {children}
+            {children}
          </ContentInset>
          {props.footer ?  <Footer {...props} /> : null}
        </MainDiv>
