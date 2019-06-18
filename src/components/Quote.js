@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 `
 
 const Background = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)),
     url(${props => props.img});
   background-size: cover;
   padding: 10px;
@@ -27,7 +27,7 @@ const QuoteText = styled.div`
 const Quote = props => (
   <Wrapper>
     <Background {...props}>
-      <img src={props.logo} width="130" height="131" alt="AlignLogo" />
+      <img src={props.logo} alt="AlignLogo" />
       <QuoteText>
         {props.children}
         <br />
