@@ -28,7 +28,7 @@ const InnerWrapper = styled.div`
 `
 
 const ServicesCareer = (props) => (
-    <div>
+    <div data-scroll-fade={true}>
       <Wrapper>
          <InnerWrapper>
            <div>

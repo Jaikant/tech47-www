@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'react-emotion';
 import { Link } from 'gatsby';
 import Arrow from '../assets/icons/Arrow.svg';
@@ -33,11 +33,29 @@ export const ArrowButton = (props) => (
     </Wrapper>
 )
 
-export const BottomLine = () => (
-    <PartitionWrapper>
-       <img src={Partition} width="300" height="3" alt="Partition" />
+const animateIn = [
+  { transform: 'translate3d(0px, 96px, 0px)', opacity: '0' },
+  {
+    transform: 'translate3d(0px, 0px, 0px)',
+    opacity: '0.1',
+  },
+]
+  
+export const BottomLine = props => {
+  const lineRef = useRef()
+  useEffect(() => {
+    lineRef.current.animate(animateIn, {
+      duration: 900,
+      fill: 'both',
+      easing: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
+    })
+  })
+  return (
+    <PartitionWrapper innerRef={lineRef} >
+      <img src={Partition} alt="Partition" data-scroll-fade={true}/>
     </PartitionWrapper>
-)
+  )
+}
 
 export const GreyLine = styled.div`
   height: 1px;
