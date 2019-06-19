@@ -7,9 +7,9 @@ import colors from '../utils/colors';
 import styled from 'react-emotion'
 
 const menuConfig = [
-   { title: 'BLOG', url: '/about', submenu: false },
+   { title: 'BLOG', url: '/blogs', submenu: false },
    { title: 'CONTACT', url: '/contact', submenu: false },
-   {title:'WORK WITH US', url:'/work-with-us', submenu: false},
+   {title:'WORK WITH US', url:'/open-positions', submenu: false},
    {title:'HIRE US', url:'/hire-us', submenu: false},
    {title:'COMMUNITY', url:'/community', submenu: false}
  ];
