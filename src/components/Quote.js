@@ -28,7 +28,7 @@ const Quote = props => (
   <Wrapper>
     <Background {...props}>
       <img src={props.logo} alt="AlignLogo" />
-      <QuoteText>
+      <QuoteText data-scroll-fade={true}>
         {props.children}
         <br />
         <br />
