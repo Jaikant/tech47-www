@@ -23,7 +23,7 @@ const Text = styled.div`
 
 const InnerWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
 `
 
@@ -35,7 +35,9 @@ const ServicesCareer = (props) => (
             <Text data-scroll-fade={true}>Hire React Developers & teams</Text>
             <ArrowButton text="Get in touch" white />
           </div>
-          <Img fluid={props.image1} />
+          <div data-scroll-fade={true}>
+            <Img fluid={props.image1}/>
+          </div>
           </InnerWrapper>
         
         <InnerWrapper>
@@ -43,7 +45,9 @@ const ServicesCareer = (props) => (
             <Text data-scroll-fade={true}>Work for tech47</Text>
             <ArrowButton text="Open positions" white />
           </div>
-          <Img fluid={props.image2} />
+          <div data-scroll-fade={true}>
+            <Img fluid={props.image2}/>
+          </div>
         </InnerWrapper>
       </Wrapper>
       <BottomLine />
