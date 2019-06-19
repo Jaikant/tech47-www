@@ -25,10 +25,10 @@ const QuoteText = styled.div`
 `
 
 const Quote = props => (
-  <Wrapper data-scroll-fade={true}>
+  <Wrapper>
     <Background {...props}>
       <img src={props.logo} alt="AlignLogo" />
-      <QuoteText>
+      <QuoteText data-scroll-fade={true}>
         {props.children}
         <br />
         <br />

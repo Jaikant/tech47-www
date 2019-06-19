@@ -28,11 +28,11 @@ const InnerWrapper = styled.div`
 `
 
 const ServicesCareer = (props) => (
-    <div data-scroll-fade={true}>
+    <div>
       <Wrapper>
          <InnerWrapper>
            <div>
-            <Text>Hire React Developers & teams</Text>
+            <Text data-scroll-fade={true}>Hire React Developers & teams</Text>
             <ArrowButton text="Get in touch" white />
           </div>
           <Img fluid={props.image1} />
@@ -40,7 +40,7 @@ const ServicesCareer = (props) => (
         
         <InnerWrapper>
           <div>
-            <Text>Work for tech47</Text>
+            <Text data-scroll-fade={true}>Work for tech47</Text>
             <ArrowButton text="Open positions" white />
           </div>
           <Img fluid={props.image2} />
