@@ -64,127 +64,38 @@ const createTagPages = (createPage, edges) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-    //contentful fragment taken from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js
-    const contentfulPostTemplate = path.resolve(
-      'src/templates/contentful-post-template.js'
-    );
-    await graphql(
-        `
+  //blogs
+  const blogPage = path.resolve(
+    'src/templates/blog-page.js'
+  );
+  await graphql(
+    `
           {
-            allContentfulBlogPost(filter: {featured: {ne: "featured"}}) {
-               edges {
-                 node {
-                   id
-                   featured
-                   title
-                   tags
-                   slug
-                   createdAt
-                   updatedAt(formatString: "MMMM DD YYYY")
-                   description {
-                     id
-                   }
-                   blog {
-                     childMarkdownRemark {
-                       timeToRead
-                       excerpt(pruneLength: 200)
-                     }
-                   }
-                   featuredImage {
-                     title
-                     resolutions(width: 350, height: 175, cropFocus: FACES) {
-                       width
-                       height
-                       src
-                       srcSet
-                     }
-                   }
-                  author{
-                    name
-                    profilePicture{
-                      resolutions(width:50,height:50){
-                        src
-                      }
-                    }
+            allContentfulBlogPost {
+              edges {
+                node {
+                  title
+                description{
+                  description
                   }
-                 }
-               }
-            }
-            contentfulBlogPost(featured: {eq: "featured"}) {
-               id
-               title
-               featured
-               tags
-               slug
-               createdAt
-               updatedAt(formatString: "MMMM DD YYYY")
-               description {
-                 id
-               }
-               blog {
-                 childMarkdownRemark {
-                   timeToRead
-                   excerpt(pruneLength: 300)
-                 }
-               }
-               featuredImage {
-                 title
-                 sizes(maxWidth: 716, maxHeight: 310, quality: 100) {
-                    base64
-                    aspectRatio
-                    src
-                    srcSet
-                    sizes
-                 }
-               }
-              author{
-                    name
-                    profilePicture{
-                      resolutions(width:50,height:50){
-                        src
-                      }
-                    }
-                  }
-             }
-          }
-        `
-      ).then(contentful => {
-          if (contentful.error) {
-            console.log("error is ", contentful.error);
-            reject(contentful.error);
-          }
-
-
-          const contentfulposts = contentful.data.allContentfulBlogPost.edges;
-          if (contentful.data.contentfulBlogPost != null) {
-            contentfulposts.unshift({ node : contentful.data.contentfulBlogPost});
-          }
-          createTagPages(createPage, contentfulposts);
-
-          contentfulposts.forEach((post, index) => {
-
-            createPaginatedPages({
-              edges: contentfulposts,
-              createPage: createPage,
-              pageTemplate: "src/templates/blogcontentful.js",
-              pageLength: 10,
-              pathPrefix: "blog"
-            });
-
-            const prev = index === 0 ? false : contentfulposts[index - 1].node;
-            const next = index === contentfulposts.length - 1 ? false : contentfulposts[index + 1].node;
-            createPage({
-              path: `blog/${post.node.slug}`,
-              component: slash(contentfulPostTemplate),
-              context: {
-                slug: post.node.slug,
-                prev: prev,
-                next: next
+                  slug
+                }
               }
-            });
-          });
-        }
-      );
+            }
+          }
+          `
+  ).then(result => {
+    result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
+      createPage({
+        path: `/blog/${node.slug}`,
+        component: path.resolve(`./src/templates/blog-page.js`),
+        context: {
+          slug: node.slug,
+        },
+      })
+    })
+  })
+
 
   // meetups
     //contentful fragment taken from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js
