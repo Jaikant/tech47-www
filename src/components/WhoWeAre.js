@@ -37,7 +37,7 @@ const RightText = styled(ImageUnderText)`
 const WhoWeAre = () => (
     <div>
         <Wrapper>
-            <LeftText>Who are we</LeftText>
+            <LeftText data-scroll-fade={true}>Who are we</LeftText>
             <RightText data-scroll-fade={true}> You need an agency which understands your business and works as your partner? 
                 <br />
                 <br /> 

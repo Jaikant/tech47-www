@@ -51,8 +51,8 @@ export const BottomLine = props => {
     })
   })
   return (
-    <PartitionWrapper innerRef={lineRef}>
-      <img src={Partition} alt="Partition" />
+    <PartitionWrapper innerRef={lineRef} >
+      <img src={Partition} alt="Partition" data-scroll-fade={true}/>
     </PartitionWrapper>
   )
 }
