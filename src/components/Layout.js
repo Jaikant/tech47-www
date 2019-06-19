@@ -42,7 +42,7 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
-  padding: 64px;
+  padding: 128px;
   width: 100%;
   min-height: 100vh;
   max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
@@ -50,7 +50,7 @@ const MainDiv = styled.div`
 `;
 
 const ContentInset = styled.div`
-  padding: ${props => props.padding ? '0px' : '50px'};
+  padding: ${props => props.padding ? '50px' : '0px'};
 `
 
 const Layout = ({ children, location, ...props }) => {

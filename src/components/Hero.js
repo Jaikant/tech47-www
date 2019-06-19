@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import ReactLogo from '../assets/icons/ReactLogo.svg'
 import styled from 'react-emotion'
 import { ArrowButton, BottomLine } from './Common'
@@ -6,19 +6,22 @@ import Cloud from '../assets/images/CloudImage.jpg'
 
 const Wrapper = styled.div`
   display: grid;
-  height: 100vh;
+  height: calc(100vh - 128px);
 `
 
 const HeroWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-items: center;
 `
+
+const Center = styled.div`
+  justify-self: center;
+`;
 
 const HeroText = styled.div`
   font-size: 96px;
-  line-height: 107.38%;
+  line-height: 110%;
   color: white;
   background: url(${Cloud});
   background-repeat: no repeat;
@@ -36,11 +39,13 @@ const Hero = () => (
   <Wrapper>
     <HeroWrapper>
       <div>
-        <HeroText>We Build React Web Apps</HeroText>
+        <HeroText data-scroll-fade={true}>We Build React Web Apps</HeroText>
         <HeroSubText>Because we love to.</HeroSubText>
         <ArrowButton text="Get in touch" white />
       </div>
-      <img src={ReactLogo} width="268" height="563" alt="ReactLogo" />
+      <Center>
+        <img src={ReactLogo} width="268" height="563" alt="ReactLogo" />
+      </Center>
     </HeroWrapper>
     <BottomLine />
   </Wrapper>
