@@ -51,12 +51,12 @@ export default Landing
 export const query = graphql`
 query {
    image1 : imageSharp(original: {src: {regex: "/Career/"}}) {
-     fluid (maxWidth: 400, maxHeight: 150, quality: 100, grayscale: true){
+     fluid (maxWidth: 600, maxHeight: 200, quality: 100, grayscale: true){
          ...GatsbyImageSharpFluid
    }
    }
    image2 : imageSharp(original: {src: {regex: "/TextImage/"}}) {
-      fluid (maxWidth: 400, maxHeight: 150, quality: 100){
+      fluid (maxWidth: 600, maxHeight: 200, quality: 100){
           ...GatsbyImageSharpFluid
     }
     }

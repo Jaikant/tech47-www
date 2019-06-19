@@ -15,6 +15,8 @@ const Background = styled.div`
   display: grid;
   grid-template-rows: 1fr 3fr;
   align-items: center;
+  border-radius: 5px;
+  padding: 64px;
 `
 
 const QuoteText = styled.div`

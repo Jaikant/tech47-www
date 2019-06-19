@@ -27,7 +27,7 @@ const PartitionWrapper = styled.div`
 `;
 
 export const ArrowButton = (props) => (
-    <Wrapper>
+    <Wrapper data-scroll-fade={true}>
        <Text {...props}>{props.text}</Text>
        {props.white ? <img src={Arrow} width="24" height="12" alt="Arrow" /> : <img src={BlackArrow} width="24" alt="BlackArrow" />}
     </Wrapper>
