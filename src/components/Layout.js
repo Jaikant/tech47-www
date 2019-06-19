@@ -23,7 +23,7 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    background-color: ${colors.darkTheme.primary};
+    background-color: ${colors.tech47white};
     color: ${colors.darkTheme.secondary}
   };
   a {
@@ -46,7 +46,7 @@ const MainDiv = styled.div`
   width: 100%;
   min-height: 100vh;
   max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
-  background: ${props => props.white ? 'white' : 'none'};
+  background: ${props => props.white ? 'white' : colors.darkTheme.primary };
 `;
 
 const ContentInset = styled.div`

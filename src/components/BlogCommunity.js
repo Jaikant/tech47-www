@@ -5,11 +5,10 @@ import { BottomLine } from './Common';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 30px;
+    grid-template-columns: 3fr 1fr;
     align-items: center;
     justify-items: center;
-    height: 100vh;
+    height: calc(100vh - 150px);
 `;
 
 const Title = styled.text`
