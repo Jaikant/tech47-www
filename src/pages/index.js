@@ -12,7 +12,7 @@ import LekplatsLogo from '../assets/icons/Lekplats.svg'
 import LekplatsBackground from '../assets/images/lekplats-Background.png'
 
 const Landing = ({data}) => (
-  <Layout>
+  <Layout footer> 
     <Hero />
     <WhoWeAre />
     <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid}/>

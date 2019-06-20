@@ -27,6 +27,7 @@ const QuoteText = styled.div`
 `
 
 const Quote = props => (
+  <div>
   <Wrapper>
     <Background {...props}>
       <img src={props.logo} alt="AlignLogo" />
@@ -37,8 +38,9 @@ const Quote = props => (
         {props.author}
       </QuoteText>
     </Background>
-    <BottomLine />
   </Wrapper>
+  <BottomLine />
+  </div>
 )
 
 export default Quote

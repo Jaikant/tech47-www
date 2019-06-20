@@ -4,12 +4,11 @@ import { Link } from 'gatsby';
 import colors from '../utils/colors';
 
 const FooterDiv = styled.div`
-  background: ${props => props.light ? colors.tech47white : null};
-`;
+  background: ${props => props.light ? colors.tech47white : colors.darkTheme.primary};
+  margin-top: 50px;
+  `;
 
 const Wrapper = styled.div`
-  // display: flex;
-  // justify-content: space-evenly;
   display: grid;
   justify-items: center;
   grid-column-gap: 5px;
