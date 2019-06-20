@@ -10,16 +10,24 @@ import SoundwiseLogo from '../assets/icons/Soundwise.svg'
 import SoundwiseBackground from '../assets/images/soundwise-Background.png'
 import LekplatsLogo from '../assets/icons/Lekplats.svg'
 import LekplatsBackground from '../assets/images/lekplats-Background.png'
+import { HeroText } from '../components/Common';
+import { ContentInset } from '../components/Layout';
 
 const Landing = ({data}) => (
   <Layout>
     <Hero />
     <WhoWeAre />
     <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid}/>
+    <ContentInset paddingTop="128px">
+      <HeroText data-scroll-fade={true}>
+        Here’s what some of our customers say about our work.
+      </HeroText>
+    </ContentInset>  
     <Quote
       logo={AlignLogo}
       img={AlignBackground}
       author={'Scott Raymond, Founder'}
+      location={'San Francisco, United States'}
     >
       Jai has been instrumental in our project success. He transformed rough
       design specs into running code, with a strong eye toward React best
@@ -29,6 +37,7 @@ const Landing = ({data}) => (
       logo={SoundwiseLogo}
       img={SoundwiseBackground}
       author={'Natasha Che, Founder'}
+      location={'Washington DC, United States'}
     >
       I had a great experience working with Jai. He is technically very
       competent and also is proactive and very good at communicating work needs
@@ -38,6 +47,7 @@ const Landing = ({data}) => (
       logo={LekplatsLogo}
       img={LekplatsBackground}
       author={'Daniel Lapidus, Founder'}
+      location={'Stockholm, Sweden'}
     >
       Jai is a wonderful programmer to work with. Takes responsibility for the
       whole process and communicates very effectively. Can warmly recommend.

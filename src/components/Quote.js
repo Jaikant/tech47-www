@@ -20,7 +20,7 @@ const Background = styled.div`
 `
 
 const QuoteText = styled.div`
-  font-size: 48px;
+  font-size: 40px;
   font-family: Caveat;
   letter-spacing: 5px;
   align-text: center;
@@ -30,12 +30,16 @@ const Quote = props => (
   <Wrapper>
     <Background {...props}>
       <img src={props.logo} alt="AlignLogo" />
-      <QuoteText data-scroll-fade={true}>
-        {props.children}
-        <br />
-        <br />
-        {props.author}
-      </QuoteText>
+      <div data-scroll-fade={true}>
+        <QuoteText >
+          {props.children}
+          <br />
+          <br />
+          {props.author}
+          <br />
+          {props.location}
+        </QuoteText>
+      </div>
     </Background>
     <BottomLine />
   </Wrapper>
