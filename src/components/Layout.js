@@ -8,8 +8,8 @@ import { StaticQuery, graphql } from "gatsby"
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import colors from '../utils/colors';
-import favicon from '../assets/images/tech47-favicon2.png';
 import LogoFull from '../assets/images/LogoFull.svg';
+import SmallLogo from '../assets/images/SmallLogo.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
 
@@ -81,8 +81,8 @@ const Layout = ({ children, location, ...props }) => {
      render={data => (
        <MainDiv {...props}>
          <Helmet>
-           <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-           <link rel="icon" href={favicon} type="image/x-icon" />
+           <link rel="shortcut icon" href={SmallLogo} type="image/x-icon" />
+           <link rel="icon" href={SmallLogo} type="image/x-icon" />
          </Helmet>
          {/* <Navigation
            title={data.site.siteMetadata.title}
