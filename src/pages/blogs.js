@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Blog from '../assets/icons/Blogs.svg';
-import BlogLanding from '../components/blog-community';
+import BlogLanding from '../components/BlogCommunity';
 
 const blogs = () => (
     <Layout>

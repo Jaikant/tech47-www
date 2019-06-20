@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Social from '../assets/icons/Community.svg';
-import CommunityLanding from '../components/blog-community';
+import CommunityLanding from '../components/BlogCommunity';
 import { ImageGalleryText, ImageWrapper, Wrapper } from '../components/ImageGallery';
 import Img from 'gatsby-image';
 import { graphql } from "gatsby";
