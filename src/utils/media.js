@@ -7,8 +7,8 @@ const sizes = {
   VVHd: 1650,
   VHd: 1450,
   Hd: 1200,
-  desktop: 1000,
-  tablet: 750,
+  desktop: 992,
+  tablet: 768,
   phablet: 550,
   mobile: 360,
 };

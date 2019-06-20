@@ -3,15 +3,27 @@ import  ReactLogo from '../assets/icons/ReactLogo.svg'
 import styled from 'react-emotion'
 import { ArrowButton, BottomLine } from './Common'
 import Cloud from '../assets/images/CloudImage.jpg'
+import media from '../utils/media';
 
 const Wrapper = styled.div`
   display: grid;
-  height: calc(100vh - 128px);
+  min-height: calc(100vh - 32px);
+  ${media.tablet`
+    min-height: calc(100vh - 64px);
+  `};
+  ${media.desktop`
+    min-height: calc(100vh - 128px);
+  `};
 `
 
 const HeroWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  ${media.tablet`
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  `};
   align-items: center;
 `
 
@@ -20,7 +32,10 @@ const Center = styled.div`
 `;
 
 const HeroText = styled.div`
-  font-size: 96px;
+  font-size: 64px;
+  ${media.tablet`
+    font-size: 96px;
+  `};
   line-height: 110%;
   color: white;
   background: url(${Cloud});

@@ -2,14 +2,26 @@ import React from 'react';
 import styled from 'react-emotion';
 import { BottomLine } from './Common';
 import Cloud from '../assets/images/CloudImage.jpg';
+import media from '../utils/media';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 2fr 4fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr;
+    ${media.tablet`
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+    `};
     grid-gap: 48px;
     align-items: center;
     padding-top: 128px;
-    height: calc(100vh - 128px);
+    min-height: calc(100vh - 32px);
+    ${media.tablet`
+      min-height: calc(100vh - 64px);
+    `};
+    ${media.desktop`
+      min-height: calc(100vh - 128px);
+    `};  
 `
 
 const ImageUnderText = styled.div`

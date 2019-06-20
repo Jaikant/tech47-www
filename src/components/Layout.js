@@ -12,6 +12,7 @@ import LogoFull from '../assets/images/LogoFull.svg';
 import SmallLogo from '../assets/images/SmallLogo.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
+import media from '../utils/media';
 
 /* eslint-disable */
 //import normalize from 'normalize.css';
@@ -23,7 +24,7 @@ injectGlobal`
       box-sizing: border-box;
   };
   body {
-    background-color: ${colors.tech47white};
+    background-color: ${colors.darkTheme.primary};
     color: ${colors.darkTheme.secondary}
   };
   a {
@@ -42,12 +43,19 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
-  padding: 128px;
+  padding: 32px;
   width: 100%;
   min-height: 100vh;
   max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
   background: ${props => props.white ? 'white' : colors.darkTheme.primary };
+  ${media.tablet`
+    padding: 64px;
+  `};
+  ${media.desktop`
+    padding: 128px;
+  `};
 `;
+
 
 export const ContentInset = styled.div`
   padding-top: ${({paddingTop}) => paddingTop ? paddingTop : '0px'};
