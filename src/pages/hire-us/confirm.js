@@ -1,8 +1,8 @@
 import React from 'react';
-import Confirmation from '../assets/icons/Confirm.svg';
-import { ConfirmText, ConfirmWrapper } from '../components/Content';
-import { FormText as Text } from '../components/Form';
-import { ArrowButton } from '../components/Common';
+import Confirmation from '../../assets/icons/Confirm.svg';
+import { ConfirmText, ConfirmWrapper } from '../../components/Content';
+import { FormText as Text } from '../../components/Form';
+import { ArrowButton } from '../../components/Common';
 import { Link } from 'gatsby';
 
 
