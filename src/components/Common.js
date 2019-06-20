@@ -5,7 +5,7 @@ import Arrow from '../assets/icons/Arrow.svg';
 import BlackArrow from '../assets/icons/BlackArrow.svg';
 import Partition from '../assets/icons/Partition.svg';
 import Copy from '../assets/icons/Copy.svg';
-
+import Cloud from '../assets/images/CloudImage.jpg';
 
 const Wrapper = styled.button`
     display: flex;
@@ -87,4 +87,15 @@ export const Email = (props) => (
     </EmailWrapper>
     </div>
 )
+
+export const HeroText = styled.div`
+  font-size: 48px;
+  line-height: 110%;
+  color: white;
+  background: url(${Cloud});
+  max-width: 780px;
+  background-repeat: no repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
 

@@ -49,8 +49,9 @@ const MainDiv = styled.div`
   background: ${props => props.white ? 'white' : 'none'};
 `;
 
-const ContentInset = styled.div`
-  padding: ${props => props.padding ? '50px' : '0px'};
+export const ContentInset = styled.div`
+  padding-top: ${({paddingTop}) => paddingTop ? paddingTop : '0px'};
+  padding-bottom: ${({paddingBottom}) => paddingBottom ? paddingBottom : '0px'};
 `
 
 const Layout = ({ children, location, ...props }) => {

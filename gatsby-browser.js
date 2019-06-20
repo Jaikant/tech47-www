@@ -1,29 +1,7 @@
 import objectFitImages from 'object-fit-images';
+import getWindowDimensions from './src/utils/getWindowDimensions';
 const throttle = require('lodash/throttle');
 
-const getWindowDimensions = () => {
-  if (typeof window !== 'undefined') {
-    const width =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth
-
-    const height =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body.clientHeight
-
-    return {
-      height,
-      width,
-    }
-  }
-
-  return {
-    width: 0,
-    height: 0,
-  }
-}
 
 function handleFadeInAndOutOnScroll() {
   const clamp = value => Math.min(Math.max(value, 0), 1)
