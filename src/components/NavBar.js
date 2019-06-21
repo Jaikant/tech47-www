@@ -29,13 +29,13 @@ const menuConfig = [
 `
 
 const MenuItem = styled.ul`
-  display: none;  
+  display: flex;  
   ${media.tablet`
     display: flex;
   `};
+  width: 50%;
   list-style-type: none;
   margin: 0;
-  width: 50%;
   font-size: 0.7em;
   margin-left: auto;
 `;

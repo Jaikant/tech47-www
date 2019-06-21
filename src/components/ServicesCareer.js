@@ -7,7 +7,6 @@ import { useSpring, animated } from 'react-spring'
 import { HeroText, ContentInset } from '../components/Common';
 import Cloud from '../assets/images/CloudImage.jpg';
 import Img from "gatsby-image";
-import { ContentInset } from '../components/Common';
 import getWindowDimensions from '../utils/getWindowDimensions';
 import media from '../utils/media';
 

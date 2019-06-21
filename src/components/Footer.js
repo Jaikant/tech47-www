@@ -10,32 +10,29 @@ const FooterDiv = styled.div`
 const Wrapper = styled.div`
   display: grid;
   justify-items: center;
-  grid-column-gap: 5px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 `;
 
 const FooterText = styled.div`
-  font-size: 18px;
   color: ${props => props.light ? colors.secondary : colors.darkTheme.secondary};
 `;
 
 const LogoText = styled.div`
+  font-size: 8px;
   text-align: center;
-  font-size: 15px;
-  margin-top: 10px;
   color: ${props => props.light ? colors.footerLogo : colors.darkTheme.secondary};
 `;
 
 const Footer = (props) => (
      <FooterDiv {...props}>  
-      <Wrapper>
-      <Link to='/'><FooterText {...props}>Blog</FooterText></Link>
-      <Link to='/'><FooterText {...props}>Contact</FooterText></Link>
-      <Link to='/work-with-us'><FooterText {...props}>Work with us</FooterText></Link>
-      <Link to='/hire-us'><FooterText {...props}>Hire Us</FooterText></Link>
-      <Link to='/'><FooterText {...props}>Community</FooterText></Link>
-      </Wrapper>
-    <LogoText {...props}>{`©2019tech47`}</LogoText>
+        <Wrapper>
+        {/* <Link to='/'><FooterText {...props}>Blog</FooterText></Link>
+        <Link to='/'><FooterText {...props}>Contact</FooterText></Link> */}
+        {/* <Link to='/work-with-us'><FooterText {...props}>Work with us</FooterText></Link>
+        <Link to='/hire-us'><FooterText {...props}>Hire Us</FooterText></Link> */}
+        {/* <Link to='/'><FooterText {...props}>Community</FooterText></Link> */}
+        </Wrapper>
+        <LogoText {...props}>{`© 2019 Tech47`}</LogoText>
     </FooterDiv> 
 );
 
