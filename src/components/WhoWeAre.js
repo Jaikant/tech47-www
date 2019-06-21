@@ -6,15 +6,22 @@ import media from '../utils/media';
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr;
     ${media.tablet`
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr;
     `};
     grid-gap: 48px;
     align-items: center;
-    padding-top: 128px;
+    padding-top: 32px;
+    ${media.tablet`
+        padding-top: 64px;
+    `};
+    ${media.desktop`
+        padding-top: 128px;
+    `};  
+
     min-height: calc(100vh - 32px);
     ${media.tablet`
       min-height: calc(100vh - 64px);
@@ -50,18 +57,18 @@ const WhoWeAre = () => (
         <Wrapper>
             <LeftText data-scroll-fade={true}>Who are we</LeftText>
             <div>
-                <RightText data-scroll-fade={true}> 
+                <RightText data-scroll-fade-early={true}> 
                     You need an agency which understands your business and works as your partner? 
                 </RightText>
                 <br />
                 <br /> 
-                <RightText data-scroll-fade={true}> 
+                <RightText data-scroll-fade-early={true}> 
                     We are a group of developers who have built great products which scale. 
                     Our teams come with a mix of experience to give the perfect balance.
                 </RightText>
                 <br />
                 <br /> 
-                <RightText data-scroll-fade={true}> 
+                <RightText data-scroll-fade-early={true}> 
                     We love the modern web. We are open source contributors. 
                     We also run a community of developers to share and spread knowledge.
                 </RightText>

@@ -5,13 +5,21 @@ import { Link } from 'gatsby';
 import { css } from 'emotion';
 import colors from '../utils/colors';
 import styled from 'react-emotion'
+import media from '../utils/media';
+
+
+const Title = styled.text`
+&:hover {
+   color: white;
+ }
+`
 
 const menuConfig = [
-   { title: 'BLOG', url: '/blogs', submenu: false },
-   { title: 'CONTACT', url: '/contact', submenu: false },
+   // { title: 'BLOG', url: '/blogs', submenu: false },
+   // { title: 'CONTACT', url: '/contact', submenu: false },
    {title:'WORK WITH US', url:'/open-positions', submenu: false},
    {title:'HIRE US', url:'/hire-us', submenu: false},
-   {title:'COMMUNITY', url:'/community', submenu: false}
+   // {title:'COMMUNITY', url:'/community', submenu: false}
  ];
 
  const NavWrapper = styled.div`
@@ -21,12 +29,15 @@ const menuConfig = [
 `
 
 const MenuItem = styled.ul`
-   list-style-type: none;
-   display: flex;
-   margin: 0;
-   width: 50%;
-   font-size: 0.7em;
-   margin-left: auto;
+  display: none;  
+  ${media.tablet`
+    display: flex;
+  `};
+  list-style-type: none;
+  margin: 0;
+  width: 50%;
+  font-size: 0.7em;
+  margin-left: auto;
 `;
 
  const MenuItems = React.forwardRef((props, ref) => (
@@ -54,9 +65,10 @@ const MenuItem = styled.ul`
      ) : (
        <Link
          to={to}
-         activeStyle={{
-           color: colors.darkTheme.primary
-         }}
+         style={{color: colors.tech47white}}
+         // activeStyle={{
+         //   color: colors.tech47white,
+         // }}
        >
          {children}
        </Link>
@@ -102,7 +114,6 @@ const animateIn = [
    { width: '50%', transform: 'initial', opacity: '0.5' },
  ]
  
-
 const MenuBar = ({ menuRef }) => {
   const [open, setOpen] = useState(false);
 
@@ -144,7 +155,9 @@ const NavBar = props => {
 
   return (
     <NavWrapper {...props}>
-      <LogoImg src={Logo} width="110" height="30" alt="Logo" />
+      <Link to="/">
+        <LogoImg src={Logo} width="110" height="30" alt="Logo" /> 
+      </Link>
       <MenuItems ref={menuRef}/>
       <MenuBar menuRef={menuRef} />
     </NavWrapper>

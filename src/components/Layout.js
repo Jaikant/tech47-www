@@ -21,7 +21,10 @@ injectGlobal`
   * {
       //font: 16px/1.5em "Source Sans Pro",Arial,sans-serif;
       font: sans-serif;
-      box-sizing: padding-box;
+      box-sizing: border-box;
+      // background: #000 !important;
+      // color: #0f0 !important;
+      // outline: solid #f00 1px !important;
   };
   body {
     background-color: ${colors.darkTheme.primary};
@@ -43,17 +46,27 @@ injectGlobal`
 `;
 /* eslint-enable */
 const MainDiv = styled.div`
+  display: grid;
+  grid-gap: 16px;
+  ${media.tablet`
+    grid-gap: 32px;
+  `};
+  ${media.desktop`
+    grid-gap: 64px;
+  `};
+
   padding: 32px;
-  width: 100%;
-  min-height: 100vh;
-  max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
-  background: ${props => props.white ? 'white' : colors.darkTheme.primary };
   ${media.tablet`
     padding: 64px;
   `};
   ${media.desktop`
     padding: 128px;
   `};
+
+  width: 100%;
+  min-height: 100vh;
+  max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
+  background: ${props => props.white ? 'white' : colors.darkTheme.primary };
 `;
 
 const Layout = ({ children, location, ...props }) => {
@@ -86,14 +99,8 @@ const Layout = ({ children, location, ...props }) => {
            <link rel="shortcut icon" href={SmallLogo} type="image/x-icon" />
            <link rel="icon" href={SmallLogo} type="image/x-icon" />
          </Helmet>
-         {/* <Navigation
-           title={data.site.siteMetadata.title}
-           logo={LogoFull}
-           logoWhite={LogoFull}
-           location={location}
-         /> */}
          <NavBar {...props} />
-            {children}
+         {children}
          {props.footer ?  <Footer {...props} /> : null}
        </MainDiv>
      )}

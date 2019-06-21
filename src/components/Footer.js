@@ -5,11 +5,9 @@ import colors from '../utils/colors';
 
 const FooterDiv = styled.div`
   background: ${props => props.light ? colors.tech47white : null};
-`;
+  `;
 
 const Wrapper = styled.div`
-  // display: flex;
-  // justify-content: space-evenly;
   display: grid;
   justify-items: center;
   grid-column-gap: 5px;
@@ -31,11 +29,11 @@ const LogoText = styled.div`
 const Footer = (props) => (
      <FooterDiv {...props}>  
       <Wrapper>
-      <Link to='/blog'><FooterText {...props}>Blog</FooterText></Link>
-      <Link to='/contact'><FooterText {...props}>Contact</FooterText></Link>
+      <Link to='/'><FooterText {...props}>Blog</FooterText></Link>
+      <Link to='/'><FooterText {...props}>Contact</FooterText></Link>
       <Link to='/work-with-us'><FooterText {...props}>Work with us</FooterText></Link>
       <Link to='/hire-us'><FooterText {...props}>Hire Us</FooterText></Link>
-      <Link to='/community'><FooterText {...props}>Community</FooterText></Link>
+      <Link to='/'><FooterText {...props}>Community</FooterText></Link>
       </Wrapper>
     <LogoText {...props}>{`©2019tech47`}</LogoText>
     </FooterDiv> 

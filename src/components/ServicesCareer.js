@@ -1,15 +1,25 @@
 import React, { useRef, useEffect } from 'react';
 import throttle from 'lodash/throttle';
 import styled from 'react-emotion'
+import { Link } from 'gatsby';
 import { ArrowButton, BottomLine } from '../components/Common'
 import { useSpring, animated } from 'react-spring'
 import { HeroText, ContentInset } from '../components/Common';
 import Cloud from '../assets/images/CloudImage.jpg';
 import Img from "gatsby-image";
+import { ContentInset } from '../components/Common';
 import getWindowDimensions from '../utils/getWindowDimensions';
+import media from '../utils/media';
 
 const Wrapper = styled.div`
-  height: 100vh;
+  min-height: calc(100vh - 32px);
+  ${media.tablet`
+    min-height: calc(100vh - 64px);
+  `};
+  ${media.desktop`
+    min-height: calc(100vh - 128px);
+  `};  
+
   display: grid;
   align-content: center;
 `
@@ -27,7 +37,13 @@ const Text = styled.div`
 
 const InnerWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  ${media.tablet`
+    grid-template-columns: 1fr 2fr;
+  `};
+  ${media.desktop`
+    grid-template-columns: 1fr 2fr;
+  `};  
   align-items: center;
 `
 
@@ -74,22 +90,26 @@ const ServicesCareer = (props) => {
           </HeroText>
         </ContentInset>
       </animated.div>
-
+      <div style={{padding: '32px'}}/>
       <Wrapper>
         <InnerWrapper>
           <div>
             <Text data-scroll-fade={true}>Hire React Developers & teams</Text>
+            <Link to='/hire-us'>
             <ArrowButton text="Get in touch" white />
+            </Link>
           </div>
           <div data-scroll-fade={true}>
             <Img fluid={props.image1} style={{ opacity: '0.3' }} />
           </div>
         </InnerWrapper>
-
+        <div style={{padding: '16px'}}/>
         <InnerWrapper>
           <div>
             <Text data-scroll-fade={true}>Work for tech47</Text>
+            <Link to='/open-positions'>
             <ArrowButton text="Open positions" white />
+            </Link>
           </div>
           <div data-scroll-fade={true}>
             <Img fluid={props.image2} />

@@ -5,26 +5,23 @@ import WhoWeAre from '../components/WhoWeAre'
 import ServicesCareer from '../components/ServicesCareer'
 import Quote from '../components/Quote'
 import AlignLogo from '../assets/icons/Align.svg'
-import AlignBackground from '../assets/images/align-Background.jpg'
 import SoundwiseLogo from '../assets/icons/Soundwise.svg'
-import SoundwiseBackground from '../assets/images/soundwise-Background.png'
 import LekplatsLogo from '../assets/icons/Lekplats.svg'
-import LekplatsBackground from '../assets/images/lekplats-Background.png'
 import { HeroText, ContentInset } from '../components/Common';
 
 const Landing = ({data}) => (
-  <Layout>
+  <Layout footer>
     <Hero />
     <WhoWeAre />
     <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid}/>
-    <ContentInset paddingTop="128px">
+    <ContentInset>
       <HeroText data-scroll-fade={true}>
         Here’s what some of our customers say about our work.
       </HeroText>
     </ContentInset>  
     <Quote
       logo={AlignLogo}
-      img={AlignBackground}
+      img={data.image3.fluid}
       author={'Scott Raymond, Founder'}
       location={'San Francisco, United States'}
     >
@@ -34,7 +31,7 @@ const Landing = ({data}) => (
     </Quote>
     <Quote
       logo={SoundwiseLogo}
-      img={SoundwiseBackground}
+      img={data.image4.fluid}
       author={'Natasha Che, Founder'}
       location={'Washington DC, United States'}
     >
@@ -44,7 +41,7 @@ const Landing = ({data}) => (
     </Quote>
     <Quote
       logo={LekplatsLogo}
-      img={LekplatsBackground}
+      img={data.image5.fluid}
       author={'Daniel Lapidus, Founder'}
       location={'Stockholm, Sweden'}
     >
@@ -66,6 +63,21 @@ query {
    }
    image2 : imageSharp(original: {src: {regex: "/TextImage/"}}) {
       fluid (maxWidth: 600, maxHeight: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+    }
+    }
+    image3 : imageSharp(original: {src: {regex: "/align-Background/"}}) {
+      fluid (maxWidth: 800, quality: 100){
+          ...GatsbyImageSharpFluid
+    }
+    }
+    image4 : imageSharp(original: {src: {regex: "/soundwise-Background/"}}) {
+      fluid (maxWidth: 800,  quality: 100){
+          ...GatsbyImageSharpFluid
+    }
+    }
+    image5 : imageSharp(original: {src: {regex: "/lekplats-Background/"}}) {
+      fluid (maxWidth: 800, quality: 100){
           ...GatsbyImageSharpFluid
     }
     }
