@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import  ReactLogo from '../assets/icons/ReactLogo.svg'
 import styled from 'react-emotion'
+import { Link } from 'gatsby'
 import { ArrowButton, BottomLine } from './Common'
 import Cloud from '../assets/images/CloudImage.jpg'
 import media from '../utils/media';
@@ -56,7 +57,9 @@ const Hero = () => (
       <div>
         <HeroText data-scroll-fade={true}>We Build React Web Apps</HeroText>
         <HeroSubText data-scroll-fade={true}>Because we love to.</HeroSubText>
+        <Link to='/hire-us'>
         <ArrowButton data-scroll-fade={true} text="Get in touch" white />
+        </Link>
       </div>
       <Center>
         <img data-scroll-fade={true} src={ReactLogo} width="268" height="563" alt="ReactLogo" />

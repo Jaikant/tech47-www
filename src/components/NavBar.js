@@ -7,12 +7,19 @@ import colors from '../utils/colors';
 import styled from 'react-emotion'
 import media from '../utils/media';
 
+
+const Title = styled.text`
+&:hover {
+   color: white;
+ }
+`
+
 const menuConfig = [
-   { title: 'BLOG', url: '/blogs', submenu: false },
-   { title: 'CONTACT', url: '/contact', submenu: false },
+   // { title: 'BLOG', url: '/blogs', submenu: false },
+   // { title: 'CONTACT', url: '/contact', submenu: false },
    {title:'WORK WITH US', url:'/open-positions', submenu: false},
    {title:'HIRE US', url:'/hire-us', submenu: false},
-   {title:'COMMUNITY', url:'/community', submenu: false}
+   // {title:'COMMUNITY', url:'/community', submenu: false}
  ];
 
  const NavWrapper = styled.div`
@@ -58,9 +65,10 @@ const MenuItem = styled.ul`
      ) : (
        <Link
          to={to}
-         activeStyle={{
-           color: colors.darkTheme.primary
-         }}
+         style={{color: colors.tech47white}}
+         // activeStyle={{
+         //   color: colors.tech47white,
+         // }}
        >
          {children}
        </Link>

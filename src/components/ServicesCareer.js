@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import throttle from 'lodash/throttle';
 import styled from 'react-emotion'
+import { Link } from 'gatsby';
 import { ArrowButton, BottomLine } from '../components/Common'
 import { useSpring, animated } from 'react-spring'
 import { HeroText } from '../components/Common';
@@ -94,7 +95,9 @@ const ServicesCareer = (props) => {
         <InnerWrapper>
           <div>
             <Text data-scroll-fade={true}>Hire React Developers & teams</Text>
+            <Link to='/hire-us'>
             <ArrowButton text="Get in touch" white />
+            </Link>
           </div>
           <div data-scroll-fade={true}>
             <Img fluid={props.image1} style={{ opacity: '0.3' }} />
@@ -104,7 +107,9 @@ const ServicesCareer = (props) => {
         <InnerWrapper>
           <div>
             <Text data-scroll-fade={true}>Work for tech47</Text>
+            <Link to='/open-positions'>
             <ArrowButton text="Open positions" white />
+            </Link>
           </div>
           <div data-scroll-fade={true}>
             <Img fluid={props.image2} />
