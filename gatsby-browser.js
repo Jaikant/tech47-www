@@ -9,6 +9,7 @@ function handleFadeInAndOutOnScroll() {
   const handleScroll = throttle(() => {
     const { height } = getWindowDimensions()
     const elements = Array.from(document.querySelectorAll('[data-scroll-fade]'))
+    const elementsEarly = Array.from(document.querySelectorAll('[data-scroll-fade-early]'))
 
     elements.forEach(element => {
       const box = element.getBoundingClientRect()
@@ -23,6 +24,21 @@ function handleFadeInAndOutOnScroll() {
         element.style.opacity = clamp((1 - box.top / height) * 1.66)
       }
     })
+
+    //Get a circular effect of fade-in/out, fade out 300px before top.
+    elementsEarly.forEach(element => {
+      const box = element.getBoundingClientRect()
+      if (box.top  < height / 2) {
+        // Fade out the element when it reaches the top 2/3 of the page
+        element.style.opacity = clamp(
+          ((box.top - 300) + element.offsetHeight) / (height / 2)
+        )
+      } else {
+        // Fade in the element from the bottom of the page
+        element.style.opacity = clamp((1 - box.top / height))
+      }
+    })
+
   }, 15)
 
   window.addEventListener('scroll', handleScroll)

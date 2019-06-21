@@ -12,6 +12,7 @@
     "feather-icons": "^4.0.0",
     "formik": "^1.5.7",
     "gatsby": "^2.7.5",
+    "gatsby-background-image": "^0.7.2",
     "gatsby-image": "^2.1.2",
     "gatsby-paginate": "git://github.com/Jaikant/gatsby-paginate.git",
     "gatsby-plugin-emotion": "2.0.7",
