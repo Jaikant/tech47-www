@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `
 
 const BlogPage = ({ data }) => (
-  <Layout white footer>
+  <Layout white footer light>
     <Wrapper>
       <ArrowButton text="Go back" />
       <Blog

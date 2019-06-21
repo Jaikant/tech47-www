@@ -10,7 +10,7 @@ import LekplatsLogo from '../assets/icons/Lekplats.svg'
 import { HeroText, ContentInset } from '../components/Common';
 
 const Landing = ({data}) => (
-  <Layout>
+  <Layout footer>
     <Hero />
     <WhoWeAre />
     <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid}/>
