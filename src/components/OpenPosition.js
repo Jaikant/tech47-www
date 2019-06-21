@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion';
+import media from '../utils/media';
+
 
 const Box = styled.div`
     box-shadow: 1px 5px 8px #cccccc;
@@ -11,8 +13,12 @@ const Box = styled.div`
 
 const PositionWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-gap: 80px;
+    grid-template-rows: 1fr;
+    ${media.tablet`
+      grid-template-columns:  1fr 4fr;
+      grid-gap: 80px;
+    `}
+    grid-gap: 50px;
 `
 
 const PositionName = styled.div`

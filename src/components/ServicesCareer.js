@@ -4,7 +4,7 @@ import styled from 'react-emotion'
 import { Link } from 'gatsby';
 import { ArrowButton, BottomLine } from '../components/Common'
 import { useSpring, animated } from 'react-spring'
-import { HeroText } from '../components/Common';
+import { HeroText, ContentInset } from '../components/Common';
 import Cloud from '../assets/images/CloudImage.jpg';
 import Img from "gatsby-image";
 import { ContentInset } from '../components/Common';

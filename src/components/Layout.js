@@ -28,7 +28,7 @@ injectGlobal`
   };
   body {
     background-color: ${colors.darkTheme.primary};
-    color: ${colors.darkTheme.secondary}
+    color: ${colors.darkTheme.secondary};
   };
   a {
     text-decoration: none;
@@ -68,8 +68,6 @@ const MainDiv = styled.div`
   max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
   background: ${props => props.white ? 'white' : colors.darkTheme.primary };
 `;
-
-
 
 const Layout = ({ children, location, ...props }) => {
   return (
