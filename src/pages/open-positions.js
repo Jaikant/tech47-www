@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'react-emotion'
 import { ArrowButton } from '../components/Common'
 import OpenPosition from '../components/OpenPosition'
-import openpositions from './positions.js'
+import openpositions from '../data/positions.js'
 import Layout from '../components/Layout'
 import { Email } from '../components/Common'
 
