@@ -7,7 +7,7 @@ import Img from 'gatsby-image';
 import { graphql } from "gatsby";
 
 const community = ({data}) => (
-    <Layout footer fixedHeight light>
+    <Layout footer fixedHeight light >
       <CommunityLanding 
         title='Our community initiatives'
         subtitle='Because we are grateful to have recieved so much'
@@ -36,7 +36,7 @@ export const query = graphql`
         edges{
           node{
             childImageSharp {
-               fluid(maxWidth: 380, maxHeight: 287){
+               fluid(maxWidth: 380){
                  ...GatsbyImageSharpFluid
                }
              }

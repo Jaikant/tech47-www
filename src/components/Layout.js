@@ -21,11 +21,11 @@ injectGlobal`
   * {
       //font: 16px/1.5em "Source Sans Pro",Arial,sans-serif;
       font: sans-serif;
-      box-sizing: border-box;
+      box-sizing: padding-box;
   };
   body {
     background-color: ${colors.darkTheme.primary};
-    color: ${colors.darkTheme.secondary}
+    color: ${colors.darkTheme.secondary};
   };
   a {
     text-decoration: none;
@@ -55,12 +55,6 @@ const MainDiv = styled.div`
     padding: 128px;
   `};
 `;
-
-
-export const ContentInset = styled.div`
-  padding-top: ${({paddingTop}) => paddingTop ? paddingTop : '0px'};
-  padding-bottom: ${({paddingBottom}) => paddingBottom ? paddingBottom : '0px'};
-`
 
 const Layout = ({ children, location, ...props }) => {
   return (
@@ -99,9 +93,7 @@ const Layout = ({ children, location, ...props }) => {
            location={location}
          /> */}
          <NavBar {...props} />
-         <ContentInset>
             {children}
-         </ContentInset>
          {props.footer ?  <Footer {...props} /> : null}
        </MainDiv>
      )}

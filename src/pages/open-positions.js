@@ -6,6 +6,7 @@ import openpositions from './positions.js'
 import Layout from '../components/Layout'
 import { Email } from '../components/Common'
 
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;

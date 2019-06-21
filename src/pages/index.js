@@ -10,8 +10,7 @@ import SoundwiseLogo from '../assets/icons/Soundwise.svg'
 import SoundwiseBackground from '../assets/images/soundwise-Background.png'
 import LekplatsLogo from '../assets/icons/Lekplats.svg'
 import LekplatsBackground from '../assets/images/lekplats-Background.png'
-import { HeroText } from '../components/Common';
-import { ContentInset } from '../components/Layout';
+import { HeroText, ContentInset } from '../components/Common';
 
 const Landing = ({data}) => (
   <Layout>

@@ -2,22 +2,45 @@ import React from 'react';
 import styled from 'react-emotion';
 import colors from '../utils/colors';
 import { BottomLine } from './Common';
+import media from '../utils/media';
+
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    align-items: center;
-    justify-items: center;
-    height: calc(100vh - 150px);
+    min-height: calc(100vh - 32px);
+    ${media.desktop`
+    min-height: calc(100vh - 128px);
+    `};
+    ${media.tablet`
+    min-height: calc(100vh - 64px);
+    `};
 `;
 
+const SubWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    ${media.tablet`
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    `};
+    align-items: center;
+    justify-items: center;
+    `
+
 const Title = styled.text`
-    font-size: 60px;
+    font-size: 40px;
+    ${media.tablet`
+     font-size: 60px;
+    `};
     color: ${colors.tech47white};
 `;
 
 const Subtitle = styled.text`
-    font-size: 34px;
+    font-size: 26px;
+    ${media.tablet`
+     font-size: 34px;
+    `};
     color: ${colors.darkTheme.primaryLight};
 `;
 
@@ -27,16 +50,16 @@ const Text = styled.div`
 `;
 
 const CommunityLanding = (props) => (
-    <div>
         <Wrapper>
+            <SubWrapper>
             <Text>
              <Title>{props.title}</Title>
              <Subtitle>{props.subtitle}</Subtitle>
             </Text>
              {props.image}
-        </Wrapper>
-        <BottomLine />
-    </div>
+             </SubWrapper>
+             <BottomLine />
+        </Wrapper>  
 )
 
 export default CommunityLanding

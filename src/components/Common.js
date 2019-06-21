@@ -99,3 +99,8 @@ export const HeroText = styled.div`
   -webkit-text-fill-color: transparent;
 `
 
+export const ContentInset = styled.div`
+  padding-top: ${({paddingTop}) => paddingTop ? paddingTop : '0px'};
+  padding-bottom: ${({paddingBottom}) => paddingBottom ? paddingBottom : '0px'};
+`
+
