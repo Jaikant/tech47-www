@@ -6,13 +6,13 @@ import IntersectionObserver from '../components/IntersectionObserver'
 
 const Wrapper = styled.div`
   display: grid;
+  grid-gap: 48px;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   ${media.tablet`
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
     `};
-  grid-gap: 48px;
   align-items: center;
   min-height: 100vh;
 `
@@ -28,7 +28,7 @@ const ImageUnderText = styled.div`
 const LeftTextWrapper = styled.div`
   position: sticky;
   top: 0px;
-  padding-bottom: 128px;
+  padding-bottom: 32px;
   padding-top: 32px;
 `
 
@@ -39,7 +39,10 @@ const LeftText = styled.div`
 
 const RightText = styled(ImageUnderText)`
   align-self: flex-start;
-  font-size: 32px;
+  font-size: 24px;
+  ${media.tablet`
+    font-size: 32px;
+  `};
   opacity: ${p => p.opacity};
 `
 

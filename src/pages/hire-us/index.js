@@ -11,6 +11,13 @@ import {
   RowWrapper
 } from '../../components/Form'
 
+
+const encode = data =>
+  Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&')
+
+
 const HiringForm = ({ values, onSubmit, location }) => (
   <Formik
     initialValues={values}
@@ -24,15 +31,27 @@ const HiringForm = ({ values, onSubmit, location }) => (
       description: Yup.string().required('Required'),
     })}
     onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        //alert(JSON.stringify(values, null, 2));
-        setSubmitting(false)
-        navigate(
-          `hire-us/confirm/`,
-          { replace: true }
-        )
-      }, 400)
-      console.log('submitted', values)
+      setSubmitting(true)
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+           ...values
+        }),
+      })
+      .then(() => { 
+          setSubmitting(false)
+          console.log('submitted', values)
+          navigate(
+            `hire-us/confirm/`,
+            { replace: true }
+          )  
+        })
+      .catch(error => {
+          setSubmitting(false)
+          alert(error)
+        })
     }}
   >
     {({ isSubmitting }) => (
