@@ -56,7 +56,17 @@ const HiringForm = ({ values, onSubmit, location }) => (
   >
     {({ isSubmitting }) => (
       <Layout white>
-        <Form>
+        <Form
+         name="contact"
+         method="post"
+         data-netlify="true"
+         data-netlify-honeypot="bot-field"
+        >
+          <p hidden>
+            <label htmlFor="botField">
+              Don’t fill this out: <input name="bot-field" />
+            </label>
+          </p>
           <div>
             <RowWrapper>
               <FormText>Tell us about you</FormText>
