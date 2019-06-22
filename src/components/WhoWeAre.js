@@ -1,11 +1,8 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import styled from 'react-emotion'
 import Cloud from '../assets/images/CloudImage.jpg'
 import media from '../utils/media'
 import IntersectionObserver from '../components/IntersectionObserver'
-import { useSpring, animated } from 'react-spring'
-import throttle from 'lodash/throttle';
-import getWindowDimensions from '../utils/getWindowDimensions';
 
 const Wrapper = styled.div`
   display: grid;
@@ -32,6 +29,7 @@ const LeftTextWrapper = styled.div`
   position: sticky;
   top: 0px;
   padding-bottom: 128px;
+  padding-top: 32px;
 `
 
 const LeftText = styled.div`
@@ -45,45 +43,11 @@ const RightText = styled(ImageUnderText)`
   opacity: ${p => p.opacity};
 `
 
-const calcTransform = (offset) => `translateY(${offset * 180}px)`;
 
 const HeaderWhoAreWe = () => {
-  const config = { mass: 2, tension: 300, friction: 120 }
-
-  const [args, set] = useSpring(() => ({
-    offset: 1,
-    config,
-  }))
-
-  const animatedStyles = {
-    transform: args.offset.interpolate(calcTransform),
-    position: 'relative',
-    zIndex: 2,
-    pointerEvents: 'none',
-  }
-
-  const heading = useRef();
-
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      if (heading.current) {
-        const { height } = getWindowDimensions()
-        const offset = heading.current.getBoundingClientRect().top
-        set({ offset: 1 - offset / height })
-      }
-    })
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <LeftTextWrapper data-scroll-fade={true} innerRef={heading}>
-          <animated.div style={animatedStyles}>
-
+    <LeftTextWrapper data-scroll-fade={true}>
       <LeftText>Who are we</LeftText>
-      </animated.div>
-
     </LeftTextWrapper>
   )
 }
