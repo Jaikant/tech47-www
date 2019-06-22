@@ -36,7 +36,7 @@ const HiringForm = ({ values, onSubmit, location }) => (
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          'form-name': 'contact',
+          'form-name': 'tech47',
            ...values
         }),
       })
@@ -57,7 +57,7 @@ const HiringForm = ({ values, onSubmit, location }) => (
     {({ isSubmitting }) => (
       <Layout white>
         <Form
-         name="contact"
+         name="tech47"
          method="post"
          data-netlify="true"
          data-netlify-honeypot="bot-field"
