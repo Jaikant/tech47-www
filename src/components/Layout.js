@@ -9,7 +9,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import colors from '../utils/colors';
 import LogoFull from '../assets/images/LogoFull.svg';
-import SmallLogo from '../assets/images/SmallLogo.png';
+import Favicon from '../assets/images/favicon.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
 import media from '../utils/media';
@@ -85,7 +85,7 @@ const Layout = ({ children, location, ...props }) => {
             src
           }
         }
-        logoWhite: imageSharp(fluid: {originalName: { regex: "/Htech47-white/" }}) {
+        logoWhite: imageSharp(fluid: {originalName: { regex: "/LogoWhite/" }}) {
           resize(width: 1843, height: 425, cropFocus: CENTER) {
             # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
             src
@@ -96,8 +96,8 @@ const Layout = ({ children, location, ...props }) => {
      render={data => (
        <MainDiv {...props}>
          <Helmet>
-           <link rel="shortcut icon" href={SmallLogo} type="image/x-icon" />
-           <link rel="icon" href={SmallLogo} type="image/x-icon" />
+           <link rel="shortcut icon" href={Favicon} type="image/x-icon" />
+           <link rel="icon" href={Favicon} type="image/x-icon" />
          </Helmet>
          <NavBar {...props} />
          {children}

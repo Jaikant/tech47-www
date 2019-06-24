@@ -1,16 +1,21 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'react-emotion';
-import { Link } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import Arrow from '../assets/icons/Arrow.svg';
 import BlackArrow from '../assets/icons/BlackArrow.svg';
 import Partition from '../assets/icons/Partition.svg';
 import Copy from '../assets/icons/Copy.svg';
 import Cloud from '../assets/images/CloudImage.jpg';
 
+export const Link = styled(GatsbyLink)`
+  cursor: pointer;
+`;
+
 const Wrapper = styled.button`
     display: flex;
     align-items: baseline;
     background-color: transparent;
+    cursor: pointer;
     border: none;
     outline: none;
 `;

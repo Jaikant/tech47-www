@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'react-emotion'
-import { ArrowButton } from '../components/Common'
+import { Link, ArrowButton, Email } from '../components/Common'
 import OpenPosition from '../components/OpenPosition'
 import openpositions from '../data/positions.js'
 import Layout from '../components/Layout'
-import { Email } from '../components/Common'
-
 
 const Wrapper = styled.div`
   display: grid;
@@ -21,7 +19,9 @@ const InnerWrapper = styled.div`
 const OpenPositions = () => (
   <Layout white>
     <Wrapper>
-      <ArrowButton text="Go back" />
+      <Link to='/'>
+        <ArrowButton text="Go back" />
+      </Link>
       <InnerWrapper>
         {openpositions.map(openposition => (
           <OpenPosition

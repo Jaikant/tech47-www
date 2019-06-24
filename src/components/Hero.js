@@ -58,7 +58,7 @@ const Hero = () => (
         <HeroText data-scroll-fade={true}>We Build React Web Apps</HeroText>
         <HeroSubText data-scroll-fade={true}>Because we love to.</HeroSubText>
         <Link to='/hire-us'>
-        <ArrowButton data-scroll-fade={true} text="Get in touch" white />
+         <ArrowButton data-scroll-fade={true} text="Get in touch" white />
         </Link>
       </div>
       <Center>
