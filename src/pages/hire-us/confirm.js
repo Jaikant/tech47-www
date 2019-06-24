@@ -7,7 +7,7 @@ import { ArrowButton, Link } from '../../components/Common'
 const Confirm = props => (
   <ConfirmWrapper>
     <img src={Confirmation} width="90" height="90" alt="Logo" />
-    <Text>Thank you, {props.location.state.values.name}</Text>
+    <Text>Thank you, {props.location.state ? props.location.state.values.name : 'very much!'}</Text>
     <ConfirmText>We will get back to you shortly.</ConfirmText>
     <Link>
       <ArrowButton text="Go back" style={{ fontWeight: 'bold' }} />
