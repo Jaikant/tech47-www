@@ -45,7 +45,9 @@ const HiringForm = ({ values, onSubmit, location }) => (
           console.log('submitted', values)
           navigate(
             `hire-us/confirm/`,
-            { replace: true }
+            { replace: true, 
+              state: { values }
+            }
           )  
         })
       .catch(error => {
