@@ -32,10 +32,16 @@ const MobileMenu = styled.div`
 `;
 
 const MobileUl = styled.ul`
-  position: relative;
+  position: absolute;
+  top: 80px;
+  left: -32px;
   display: block;
+  width: 100%;
+  height: ${p => p.open ? '100%' : '0px'};
+  background: #101010;
   padding: 0px 40px 0;
   list-style: none;
+  transition: height 0.6s ease-out;
 `;
 
 const MobileLi = styled.li`
@@ -56,50 +62,50 @@ const MobileLi = styled.li`
   transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   &:nth-child(1) {
-    transition-delay: ${p => p.open ? '0.05s' : '0.35s'};
+    transition-delay: ${p => p.open ? '0.05s' : '0.28s'};
   }
   &:nth-child(2) {
-    transition-delay: ${p => p.open ? '0.1s' : '0.3s'};
+    transition-delay: ${p => p.open ? '0.1s' : '0.24s'};
   }
   &:nth-child(3) {
-    transition-delay: ${p => p.open ? '0.15s' : '0.25s'};
+    transition-delay: ${p => p.open ? '0.15s' : '0.20s'};
   }
   &:nth-child(4) {
-    transition-delay: ${p => p.open ? '0.20s' : '0.20s'};
+    transition-delay: ${p => p.open ? '0.20s' : '0.16s'};
   }
   &:nth-child(5) {
-    transition-delay: ${p => p.open ? '0.25s' : '0.15s'};
+    transition-delay: ${p => p.open ? '0.25s' : '0.12s'};
   }
   &:nth-child(6) {
-    transition-delay: ${p => p.open ? '0.30s' : '0.10s'};
+    transition-delay: ${p => p.open ? '0.30s' : '0.08s'};
   }
   &:nth-child(7) {
-    transition-delay: ${p => p.open ? '0.35s' : '0.05s'};
+    transition-delay: ${p => p.open ? '0.35s' : '0.04s'};
   }
 `;
 
 const MobileMenuItems = (props) => (
   <MobileMenu>
-    <MobileUl>
+    <MobileUl {...props}>
       <MobileLi {...props}>
         <a href="#">Mac</a>
       </MobileLi>
-      <MobileLi>
+      <MobileLi {...props}>
         <a href="#">iPad</a>
       </MobileLi>
-      <MobileLi>
+      <MobileLi {...props}>
         <a href="#">iPhone</a>
       </MobileLi>
-      <MobileLi>
+      <MobileLi {...props}>
         <a href="#">Watch</a>
       </MobileLi>
-      <MobileLi>
+      <MobileLi {...props}>
         <a href="#">TV</a>
       </MobileLi>
-      <MobileLi>
+      <MobileLi {...props}>
         <a href="#">Music</a>
       </MobileLi>
-      <MobileLi>
+      <MobileLi {...props}>
         <a href="#">Support</a>
       </MobileLi>
     </MobileUl>
@@ -108,7 +114,7 @@ const MobileMenuItems = (props) => (
 
 
 const MenuItem = styled.ul`
-  display: flex;  
+  display: none;  
   opacity: 0;
   ${media.tablet`
     display: flex;
@@ -252,6 +258,7 @@ const NavBar = props => {
       {props.white ? null : 
         <>
           <MenuItems ref={menuRef} open={open}/>
+          <MobileMenuItems open={open} />
           <MenuBarWrapper onClick={showMenu}>
             <MenuBar open={open} />
           </MenuBarWrapper>
