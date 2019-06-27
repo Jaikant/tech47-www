@@ -96,13 +96,6 @@ const Layout = ({ children, location, ...props }) => {
      `}
      render={data => (
        <MainDiv {...props}>
-         {/* <Helmet>
-           <link rel="shortcut icon" href={Favicon} type="image/x-icon" />
-           <link rel="icon" href={Favicon} type="image/x-icon" />
-         </Helmet> */}
-
-
-
          <Helmet>
           {/* <!-- Primary Meta Tags --> */}
           <title>We Build React Web Apps.Because we love to.</title>
@@ -132,10 +125,6 @@ const Layout = ({ children, location, ...props }) => {
           " />
           <meta property="twitter:image" content={`https://www.tech47.in/${Tech47Image}`} />
         </Helmet> 
-
-
-
-
          <NavBar {...props} />
          {children}
          {props.footer ?  <Footer {...props} /> : null}
