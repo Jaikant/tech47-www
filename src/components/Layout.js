@@ -105,23 +105,32 @@ const Layout = ({ children, location, ...props }) => {
 
          <Helmet>
           {/* <!-- Primary Meta Tags --> */}
-          <title>Tech47</title>
-          <meta name="title" content="Tech47" />
-          <meta name="description" content="We Build React Web Apps" />
+          <title>We Build React Web Apps.Because we love to.</title>
+          <meta name="title" content="We Build React Web Apps.Because we love to." />
+          <meta name="description" content="You need an agency which understands your business and works as your partner?
+          We are a group of developers who have built great products which scale.
+          Our teams come with a mix of experience to give the perfect balance.
+          " />
 
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.tech47.in/" />
-          <meta property="og:title" content="Tech47" />
-          <meta property="og:description" content="We Build React Web Apps" />
-          <meta property="og:image" content={Tech47Image} />
+          <meta property="og:title" content="We Build React Web Apps.Because we love to." />
+          <meta property="og:description" content="You need an agency which understands your business and works as your partner?
+          We are a group of developers who have built great products which scale.
+          Our teams come with a mix of experience to give the perfect balance.
+          " />
+          <meta property="og:image" content={`https://www.tech47.in/${Tech47Image}`} />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://www.tech47.in/" />
-          <meta property="twitter:title" content="Tech47" />
-          <meta property="twitter:description" content="We Build React Web Apps" />
-          <meta property="twitter:image" content={Tech47Image} />
+          <meta property="twitter:title" content="We Build React Web Apps.Because we love to." />
+          <meta property="twitter:description" content="You need an agency which understands your business and works as your partner?
+          We are a group of developers who have built great products which scale.
+          Our teams come with a mix of experience to give the perfect balance.
+          " />
+          <meta property="twitter:image" content={`https://www.tech47.in/${Tech47Image}`} />
         </Helmet> 
 
 
