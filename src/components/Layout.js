@@ -13,6 +13,7 @@ import Favicon from '../assets/images/favicon.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
 import media from '../utils/media';
+import Home from '../assets/images/Home.png'; 
 
 /* eslint-disable */
 //import normalize from 'normalize.css';
@@ -113,14 +114,14 @@ const Layout = ({ children, location, ...props }) => {
           <meta property="og:url" content="http://localhost:8000/" />
           <meta property="og:title" content="Tech47" />
           <meta property="og:description" content="We Build React Web Apps" />
-          <meta property="og:image" content="http://localhost:8000/assets/Home.png" />
+          <meta property="og:image" content="Home" />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="http://localhost:8000/" />
           <meta property="twitter:title" content="Tech47" />
           <meta property="twitter:description" content="We Build React Web Apps" />
-          <meta property="twitter:image" content="http://localhost:8000/assets/Home.png" />
+          <meta property="twitter:image" content="Home" />
         </Helmet> 
 
 
