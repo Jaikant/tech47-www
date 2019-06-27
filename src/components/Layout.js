@@ -13,7 +13,7 @@ import Favicon from '../assets/images/favicon.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
 import media from '../utils/media';
-import Home from '../assets/images/Home.png'; 
+import Tech47Image from '../assets/images/Tech47.png'; 
 
 /* eslint-disable */
 //import normalize from 'normalize.css';
@@ -111,17 +111,17 @@ const Layout = ({ children, location, ...props }) => {
 
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="http://localhost:8000/" />
+          <meta property="og:url" content="https://www.tech47.in/" />
           <meta property="og:title" content="Tech47" />
           <meta property="og:description" content="We Build React Web Apps" />
-          <meta property="og:image" content="Home" />
+          <meta property="og:image" content={Tech47Image} />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="http://localhost:8000/" />
+          <meta property="twitter:url" content="https://www.tech47.in/" />
           <meta property="twitter:title" content="Tech47" />
           <meta property="twitter:description" content="We Build React Web Apps" />
-          <meta property="twitter:image" content="Home" />
+          <meta property="twitter:image" content={Tech47Image} />
         </Helmet> 
 
 
