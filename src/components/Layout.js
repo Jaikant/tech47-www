@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { injectGlobal } from 'react-emotion';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import 'typeface-quattrocento-sans';
 import 'typeface-work-sans';
@@ -13,6 +13,7 @@ import Favicon from '../assets/images/favicon.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
 import media from '../utils/media';
+import Tech47Image from '../assets/images/Tech47.png'; 
 
 /* eslint-disable */
 //import normalize from 'normalize.css';
@@ -96,9 +97,34 @@ const Layout = ({ children, location, ...props }) => {
      render={data => (
        <MainDiv {...props}>
          <Helmet>
-           <link rel="shortcut icon" href={Favicon} type="image/x-icon" />
-           <link rel="icon" href={Favicon} type="image/x-icon" />
-         </Helmet>
+          {/* <!-- Primary Meta Tags --> */}
+          <title>We Build React Web Apps.Because we love to.</title>
+          <meta name="title" content="We Build React Web Apps.Because we love to." />
+          <meta name="description" content="You need an agency which understands your business and works as your partner?
+          We are a group of developers who have built great products which scale.
+          Our teams come with a mix of experience to give the perfect balance.
+          " />
+
+          {/* <!-- Open Graph / Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.tech47.in/" />
+          <meta property="og:title" content="We Build React Web Apps.Because we love to." />
+          <meta property="og:description" content="You need an agency which understands your business and works as your partner?
+          We are a group of developers who have built great products which scale.
+          Our teams come with a mix of experience to give the perfect balance.
+          " />
+          <meta property="og:image" content={`https://www.tech47.in${Tech47Image}`} />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://www.tech47.in/" />
+          <meta property="twitter:title" content="We Build React Web Apps.Because we love to." />
+          <meta property="twitter:description" content="You need an agency which understands your business and works as your partner?
+          We are a group of developers who have built great products which scale.
+          Our teams come with a mix of experience to give the perfect balance.
+          " />
+          <meta property="twitter:image" content={`https://www.tech47.in${Tech47Image}`} />
+        </Helmet> 
          <NavBar {...props} />
          {children}
          {props.footer ?  <Footer {...props} /> : null}
