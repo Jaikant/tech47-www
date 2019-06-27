@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { injectGlobal } from 'react-emotion';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import 'typeface-quattrocento-sans';
 import 'typeface-work-sans';
@@ -95,10 +95,37 @@ const Layout = ({ children, location, ...props }) => {
      `}
      render={data => (
        <MainDiv {...props}>
-         <Helmet>
+         {/* <Helmet>
            <link rel="shortcut icon" href={Favicon} type="image/x-icon" />
            <link rel="icon" href={Favicon} type="image/x-icon" />
-         </Helmet>
+         </Helmet> */}
+
+
+
+         <Helmet>
+          {/* <!-- Primary Meta Tags --> */}
+          <title>Tech47</title>
+          <meta name="title" content="Tech47" />
+          <meta name="description" content="We Build React Web Apps" />
+
+          {/* <!-- Open Graph / Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="http://localhost:8000/" />
+          <meta property="og:title" content="Tech47" />
+          <meta property="og:description" content="We Build React Web Apps" />
+          <meta property="og:image" content="http://localhost:8000/assets/Home.png" />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="http://localhost:8000/" />
+          <meta property="twitter:title" content="Tech47" />
+          <meta property="twitter:description" content="We Build React Web Apps" />
+          <meta property="twitter:image" content="http://localhost:8000/assets/Home.png" />
+        </Helmet> 
+
+
+
+
          <NavBar {...props} />
          {children}
          {props.footer ?  <Footer {...props} /> : null}
