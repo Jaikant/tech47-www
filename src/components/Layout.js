@@ -113,7 +113,7 @@ const Layout = ({ children, location, ...props }) => {
           We are a group of developers who have built great products which scale.
           Our teams come with a mix of experience to give the perfect balance.
           " />
-          <meta property="og:image" content={`https://www.tech47.in/${Tech47Image}`} />
+          <meta property="og:image" content={`https://www.tech47.in${Tech47Image}`} />
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
@@ -123,7 +123,7 @@ const Layout = ({ children, location, ...props }) => {
           We are a group of developers who have built great products which scale.
           Our teams come with a mix of experience to give the perfect balance.
           " />
-          <meta property="twitter:image" content={`https://www.tech47.in/${Tech47Image}`} />
+          <meta property="twitter:image" content={`https://www.tech47.in${Tech47Image}`} />
         </Helmet> 
          <NavBar {...props} />
          {children}
