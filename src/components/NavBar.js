@@ -7,6 +7,11 @@ import { css } from 'emotion';
 import colors from '../utils/colors';
 import styled from 'react-emotion'
 import media from '../utils/media';
+import { ArrowButton } from '../components/Common';
+import Partition from '../assets/icons/Partition.svg';
+import VerticalPartition from '../assets/icons/VerticalPartition.svg';
+import Arrow from '../assets/icons/Arrow.svg';
+
 
 const menuConfig = [
    // { title: 'BLOG', url: '/blogs', submenu: false },
@@ -31,87 +36,140 @@ const MobileMenu = styled.div`
   `};
 `;
 
-const MobileUl = styled.ul`
+const MenuWrapper = styled.div`
   position: absolute;
   top: 80px;
   left: -32px;
   display: block;
-  width: 100%;
-  height: ${p => p.open ? '100%' : '0px'};
+  height: ${p => p.open ? '100vh' : '0px'};
   background: #101010;
   padding: 0px 40px 0;
   list-style: none;
   transition: height 0.6s ease-out;
+  z-index: 11;
 `;
 
-const MobileLi = styled.li`
-  border-bottom: 1px solid #333;
-  margin-top: 5px;
-  & > a {
-    display: block;
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 2.8;
-    width: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
+const Wrapper = styled.div`
   opacity: ${p => p.open ? 1 : 0};
-  transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  &:nth-child(1) {
-    transition-delay: ${p => p.open ? '0.05s' : '0.28s'};
+  margin-left: 35px;
+`
+const InnerWrapper = styled.div`
+  margin: 15px 0px 15px 0px;
+`
+
+const Text = styled.div`
+  font-size: 23px;
+`
+
+const First = (props) => (
+    <InnerWrapper>
+    <Text>{props.uppertext}</Text>
+    <ArrowButton text={props.text} white/>
+    </InnerWrapper>
+  )
+
+const LastWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr 4fr;
+  align-items: center;
+  margin-top: 15px;
+`
+const LastRightWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+`
+
+const LastRight = (props) => (
+  <LastRightWrapper>
+  <Text>{props.text}</Text>
+  <img src={Arrow} width="24" height="12" alt="Arrow" />
+  </LastRightWrapper>
+)
+
+const Last = () => (
+  <div>
+  <Text>We are</Text>
+  </div>
+)
+
+// disable scroll start
+
+var keys = [32,33,34,35,36,37,38,39,40];
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function keydown(e) {
+    for (var i = keys.length; i--;) {
+        if (e.keyCode === keys[i]) {
+            preventDefault(e);
+            return;
+        }
+    }
+}
+
+function wheel(e) {
+  preventDefault(e);
+}
+
+function disable_scroll() {
+  if (window.addEventListener) {
+      window.addEventListener('DOMMouseScroll', wheel, false);
   }
-  &:nth-child(2) {
-    transition-delay: ${p => p.open ? '0.1s' : '0.24s'};
-  }
-  &:nth-child(3) {
-    transition-delay: ${p => p.open ? '0.15s' : '0.20s'};
-  }
-  &:nth-child(4) {
-    transition-delay: ${p => p.open ? '0.20s' : '0.16s'};
-  }
-  &:nth-child(5) {
-    transition-delay: ${p => p.open ? '0.25s' : '0.12s'};
-  }
-  &:nth-child(6) {
-    transition-delay: ${p => p.open ? '0.30s' : '0.08s'};
-  }
-  &:nth-child(7) {
-    transition-delay: ${p => p.open ? '0.35s' : '0.04s'};
-  }
-`;
+  window.onmousewheel = document.onmousewheel = wheel;
+  document.onkeydown = keydown;
+  disable_scroll_mobile();
+}
+
+function enable_scroll() {
+    if (window.removeEventListener) {
+        window.removeEventListener('DOMMouseScroll', wheel, false);
+    }
+    window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
+  	enable_scroll_mobile();
+}
+
+// My improvement
+
+// MOBILE
+function disable_scroll_mobile(){
+  document.addEventListener('touchmove',preventDefault, false);
+}
+function enable_scroll_mobile(){
+  document.removeEventListener('touchmove',preventDefault, false);
+}
+
+// scroll code ends
+
 
 const MobileMenuItems = (props) => (
   <MobileMenu>
-    <MobileUl {...props}>
-      <MobileLi {...props}>
-        <a href="#">Mac</a>
-      </MobileLi>
-      <MobileLi {...props}>
-        <a href="#">iPad</a>
-      </MobileLi>
-      <MobileLi {...props}>
-        <a href="#">iPhone</a>
-      </MobileLi>
-      <MobileLi {...props}>
-        <a href="#">Watch</a>
-      </MobileLi>
-      <MobileLi {...props}>
-        <a href="#">TV</a>
-      </MobileLi>
-      <MobileLi {...props}>
-        <a href="#">Music</a>
-      </MobileLi>
-      <MobileLi {...props}>
-        <a href="#">Support</a>
-      </MobileLi>
-    </MobileUl>
+    <MenuWrapper {...props}>
+    <Wrapper {...props}>
+      <First uppertext="We build React Web Apps" text="Get in touch" {...props}/>
+      <img src={Partition} />
+      <First uppertext="Hire React Developers & teams" text="Get in touch" {...props}/>
+      <First uppertext="Work for tech47" text="Open positions" {...props}/>
+      <img src={Partition} />
+      <LastWrapper>
+      <Last />
+      <img src={VerticalPartition} height="200" />
+      <div>
+      <LastRight text="experts" />
+      <LastRight text="community contributors" />
+      <LastRight text="OSS contributors" />
+      </div>
+      </LastWrapper>
+      <img src={Partition} />
+      </Wrapper>
+    </MenuWrapper>
   </MobileMenu>
 )
-
 
 const MenuItem = styled.ul`
   display: none;  
@@ -258,6 +316,7 @@ const NavBar = props => {
       {props.white ? null : 
         <>
           <MenuItems ref={menuRef} open={open}/>
+          {open ? disable_scroll() : enable_scroll()}
           <MobileMenuItems open={open} />
           <MenuBarWrapper onClick={showMenu}>
             <MenuBar open={open} />
