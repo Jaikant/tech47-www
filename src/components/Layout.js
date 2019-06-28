@@ -13,7 +13,7 @@ import Favicon from '../assets/images/favicon.png';
 import "../css/prism.css";
 import NavBar from './NavBar';
 import media from '../utils/media';
-import Tech47Image from '../assets/images/Tech47.jpg'; 
+import Tech47Image from '../assets/images/Tech47Image.jpg'; 
 
 /* eslint-disable */
 //import normalize from 'normalize.css';
