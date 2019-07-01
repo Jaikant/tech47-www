@@ -11,87 +11,7 @@ import { ArrowButton } from '../components/Common';
 import Partition from '../assets/icons/Partition.svg';
 import VerticalPartition from '../assets/icons/VerticalPartition.svg';
 import Arrow from '../assets/icons/Arrow.svg';
-
-
-const menuConfig = [
-   // { title: 'BLOG', url: '/blogs', submenu: false },
-   // { title: 'CONTACT', url: '/contact', submenu: false },
-   {title:'WORK WITH US', url:'/open-positions', submenu: false},
-   {title:'HIRE US', url:'/hire-us', submenu: false},
-   // {title:'COMMUNITY', url:'/community', submenu: false}
- ];
-
- const NavWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: ${p => p.open ? 'all 0.45s ease-out, background 0.8s ease-out' :
-    'all 0.4s ease-out, background 1s ease-out'};
-`;
-
-const MobileMenu = styled.div`
-  display: block;
-  ${media.tablet`
-    display: none;
-  `};
-`;
-
-const MenuWrapper = styled.div`
-  position: absolute;
-  top: 80px;
-  left: -32px;
-  display: block;
-  height: ${p => p.open ? '100vh' : '0px'};
-  background: #101010;
-  padding: 0px 40px 0;
-  list-style: none;
-  transition: height 0.6s ease-out;
-  z-index: 11;
-`;
-
-const Wrapper = styled.div`
-  opacity: ${p => p.open ? 1 : 0};
-  margin-left: 35px;
-`
-const InnerWrapper = styled.div`
-  margin: 15px 0px 15px 0px;
-`
-
-const Text = styled.div`
-  font-size: 23px;
-`
-
-const First = (props) => (
-    <InnerWrapper>
-    <Text>{props.uppertext}</Text>
-    <ArrowButton text={props.text} white/>
-    </InnerWrapper>
-  )
-
-const LastWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1.5fr 0.5fr 4fr;
-  align-items: center;
-  margin-top: 15px;
-`
-const LastRightWrapper = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-`
-
-const LastRight = (props) => (
-  <LastRightWrapper>
-  <Text>{props.text}</Text>
-  <img src={Arrow} width="24" height="12" alt="Arrow" />
-  </LastRightWrapper>
-)
-
-const Last = () => (
-  <div>
-  <Text>We are</Text>
-  </div>
-)
+import Cloud from '../assets/images/CloudImage.jpg';
 
 // disable scroll start
 
@@ -147,26 +67,104 @@ function enable_scroll_mobile(){
 // scroll code ends
 
 
+
+const menuConfig = [
+   // { title: 'BLOG', url: '/blogs', submenu: false },
+   // { title: 'CONTACT', url: '/contact', submenu: false },
+   {title:'WORK WITH US', url:'/open-positions', submenu: false},
+   {title:'HIRE US', url:'/hire-us', submenu: false},
+   // {title:'COMMUNITY', url:'/community', submenu: false}
+ ];
+
+ const NavWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: ${p => p.open ? 'all 0.45s ease-out, background 0.8s ease-out' :
+    'all 0.4s ease-out, background 1s ease-out'};
+`;
+
+const MobileMenu = styled.div`
+  display: block;
+  ${media.tablet`
+    display: none;
+  `};
+`;
+
+const MenuWrapper = styled.div`
+  position: absolute;
+  top: 80px;
+  left: -32px;
+  display: block;
+  height: ${p => p.open ? '100vh' : '0px'};
+  background: #101010;
+  padding: 0px 40px 0;
+  list-style: none;
+  transition: height 0.6s ease-out;
+  z-index: 11;
+  opacity: ${p => p.open ? 1 : 0};
+  margin-left: 35px;
+`;
+
+const MenuComponentWrapper = styled.div`
+  margin: 15px 0px 15px 0px;
+`
+
+const Text = styled.div`
+  font-size: 23px;
+  color: white;
+  background: url(${Cloud});
+  background-repeat: no repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
+
+const MenuComponent = (props) => (
+    <MenuComponentWrapper>
+    <Text>{props.uppertext}</Text>
+    <Link to={props.to}>
+    <ArrowButton text={props.text} white/>
+    </Link>
+    </MenuComponentWrapper>
+  )
+
+const WeAreComponent = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr 4fr;
+  align-items: center;
+  margin-top: 15px;
+`
+const WeAreRightWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+`
+
+const WeAreRight = (props) => (
+  <WeAreRightWrapper>
+  <Text>{props.text}</Text>
+  <img src={Arrow} width="24" height="12" alt="Arrow" />
+  </WeAreRightWrapper>
+)
+
 const MobileMenuItems = (props) => (
   <MobileMenu>
     <MenuWrapper {...props}>
-    <Wrapper {...props}>
-      <First uppertext="We build React Web Apps" text="Get in touch" {...props}/>
+      <MenuComponent uppertext="We build React Web Apps" text="Get in touch" to='/hire-us' {...props}/>
       <img src={Partition} />
-      <First uppertext="Hire React Developers & teams" text="Get in touch" {...props}/>
-      <First uppertext="Work for tech47" text="Open positions" {...props}/>
+      <MenuComponent uppertext="Hire React Developers & teams" text="Get in touch" to='/hire-us' {...props}/>
+      <MenuComponent uppertext="Work for tech47" text="Open positions" to='/open-positions' {...props}/>
       <img src={Partition} />
-      <LastWrapper>
-      <Last />
+      <WeAreComponent>
+      <Text>We are</Text>
       <img src={VerticalPartition} height="200" />
       <div>
-      <LastRight text="experts" />
-      <LastRight text="community contributors" />
-      <LastRight text="OSS contributors" />
+      <WeAreRight text="experts" />
+      <WeAreRight text="community contributors" />
+      <WeAreRight text="OSS contributors" />
       </div>
-      </LastWrapper>
+      </WeAreComponent>
       <img src={Partition} />
-      </Wrapper>
     </MenuWrapper>
   </MobileMenu>
 )
@@ -306,7 +304,7 @@ const NavBar = props => {
    const showMenu = () => {
      console.log('...')
      setOpen(current => !current)
-   }
+    }
  
   return (
     <NavWrapper {...props} open={open}>
