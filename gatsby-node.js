@@ -64,7 +64,7 @@ const createTagPages = (createPage, edges) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  //blogs
+  //blog-pages
   const blogPage = path.resolve(
     'src/templates/blog-page.js'
   );
@@ -96,6 +96,59 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  //blogs
+  const blogs = path.resolve(
+    'src/templates/blogs.js'
+  );
+  await graphql(
+    `
+    {
+      allContentfulBlogPost{
+        edges{
+          node{
+            title
+            slug
+            tags
+            author{
+              name
+              profilePicture{
+                fixed{
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+          `
+  ).then(result => {
+    createPaginatedPages({
+      edges: result.data.allContentfulBlogPost.edges,
+      createPage: createPage,
+      pageTemplate: 'src/templates/blogs.js',
+      pageLength: 1,
+      pathPrefix: 'blogs',
+      buildPath: (index, pathPrefix) =>
+        index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+    })
+
+    result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
+      
+      // // const prev = index === 0 ? false : contentfulposts[index - 1].node;
+      // // const next = index === contentfulposts.length - 1 ? false : contentfulposts[index + 1].node;
+      createPage({
+        path: `/blogs/${node.slug}`,
+        component: path.resolve(`./src/templates/blogs.js`),
+        context: {
+          slug: node.slug,
+          // prev: prev,
+          // next: next
+        },
+      })
+    })
+  })
+  
 
   // meetups
     //contentful fragment taken from https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-contentful/src/fragments.js

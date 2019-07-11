@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'react-emotion'
 import Layout from '../components/Layout';
 import Blog from '../assets/icons/Blogs.svg';
 import BlogLanding from '../components/BlogCommunity';
 import Jai from '../assets/images/jai.jpeg'
 import { ArrowButton } from '../components/Common'
+import { Link } from 'gatsby';
 
 const TagButton = styled.button`
     font-size: 20px;
@@ -38,11 +39,11 @@ const TagName = styled.div`
 `
 
 const BlogTitle = styled.div`
-font-size: 36px;
-font-weight: bold;
-line-height: 42px;
-text-align: center;
-color: #363636;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
+    text-align: center;
+    color: #363636;
 `
 
 const InnerWrapper = styled.div`
@@ -65,10 +66,24 @@ const AuthorName = styled.text`
     font-size: 18px;
     color: #101010;
 `
+const NavLink = props => {
+    if (!props.test) {
+      return <Link to={props.url}>{props.text}</Link>
+    } else {
+      return <span>{props.text}</span>
+    }
+  }
 
-
-const blogs = ({ data }) => {
+const blogs = ({ data, pageContext }) => {
+    const [tagname, changeTagname] = useState("");
+    console.log("pageContext", pageContext);
+    const { group, index, first, last, pageCount } = pageContext;
+    const previousUrl = index - 1 == 1 ? '/' : (index - 1).toString();
+    const nextUrl = (index + 1).toString();
     console.log("data", data);
+    const tags = data.allContentfulBlogPost.edges.map( ({node}) => node.tags[0] );
+    const uniquetags = Array.from(new Set(tags));
+
     return (
         <Layout footer fixedHeight light>
             <BlogLanding
@@ -78,13 +93,14 @@ const blogs = ({ data }) => {
             />
             <div style={{ display: 'grid', gridTemplateRows: '1fr 6fr 1fr' }}>
             <div>
-                {data.allContentfulBlogPost.edges.map(({ node }) =>
-                    <TagButton>{node.tags}</TagButton>
-                )}
+                { uniquetags.map( tag => <TagButton onClick={() => changeTagname({tag})} >{tag}</TagButton> ) }
                 </div>
+                {console.log("tagname outside", tagname.tag)}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: '23px' }}>
-                    {data.allContentfulBlogPost.edges.map(({ node }) =>
-                        <BlogCard>
+                    {/* </div> {data.allContentfulBlogPost.edges.filter(({node}) => node.tags == (tagname.tag === undefined ? node.tags : tagname.tag)).map(({node}, index) =>  */}
+                    {group.map(({ node }, index) => (
+                        <Link to={`/blog/${node.slug}`}>
+                        <BlogCard key={index}>
                             <TagName>{node.tags}</TagName>
                             <BlogTitle>{node.title}</BlogTitle>
                             <InnerWrapper>
@@ -95,8 +111,15 @@ const blogs = ({ data }) => {
                                 <ArrowButton text="See More" />
                             </InnerWrapper>
                         </BlogCard>
+                        </Link>
+                    ))}
+                    <div style={{color: 'black'}}>
+        <NavLink test={first} url={`/blogs/${previousUrl}`} text="Go to Previous Page" />
+      </div>
+      <div style={{color: 'black'}}>
+        <NavLink test={last} url={`/blogs/${nextUrl}`} text="Go to Next Page" />
+      </div>
 
-                    )}
                 </div>
             </div>
         </Layout>
@@ -111,6 +134,7 @@ export const query = graphql`
           edges{
             node{
               title
+              slug
               tags
               author{
                 name
