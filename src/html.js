@@ -11,6 +11,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations-next.min.js" />
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -18,7 +20,6 @@ export default function HTML(props) {
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.
         </noscript>
-        <script src="https://rawgit.com/web-animations/web-animations-js/master/web-animations.min.js"></script>
         <div
           key={`body`}
           id="___gatsby"
