@@ -1,114 +1,193 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Logo from '../assets/icons/Logo.svg'
 import LogoWhite from '../assets/icons/LogoWhite.svg'
-import { MorphReplaceResize } from 'react-svg-morph';
-import { Link } from 'gatsby';
-import { css } from 'emotion';
-import colors from '../utils/colors';
+import { MorphReplaceResize } from 'react-svg-morph'
+import { Link } from 'gatsby'
+import { css } from 'emotion'
+import colors from '../utils/colors'
 import styled from 'react-emotion'
-import media from '../utils/media';
+import media from '../utils/media'
+import { ArrowButton } from '../components/Common'
+import Partition from '../assets/icons/Partition.svg'
+import VerticalPartition from '../assets/icons/VerticalPartition.svg'
+import Arrow from '../assets/icons/Arrow.svg'
+import Cloud from '../assets/images/CloudImage.jpg'
+
+// disable scroll start
+
+var keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]
+
+function preventDefault(e) {
+  e = e || window.event
+  if (e.preventDefault) {
+    e.preventDefault()
+  }
+  e.returnValue = false
+}
+
+function keydown(e) {
+  for (var i = keys.length; i--; ) {
+    if (e.keyCode === keys[i]) {
+      preventDefault(e)
+      return
+    }
+  }
+}
+
+function wheel(e) {
+  preventDefault(e)
+}
+
+function disable_scroll() {
+  if (window.addEventListener) {
+    window.addEventListener('DOMMouseScroll', wheel, {capture: true, passive: true})
+  }
+  window.onmousewheel = document.onmousewheel = wheel
+  document.onkeydown = keydown
+  disable_scroll_mobile()
+}
+
+function enable_scroll() {
+  if (window.removeEventListener) {
+    window.removeEventListener('DOMMouseScroll', wheel, false)
+  }
+  window.onmousewheel = document.onmousewheel = document.onkeydown = null
+  enable_scroll_mobile()
+}
+
+// My improvement
+
+// MOBILE
+function disable_scroll_mobile() {
+  document.addEventListener('touchmove', preventDefault, {capture: true, passive: true})
+}
+function enable_scroll_mobile() {
+  document.removeEventListener('touchmove', preventDefault, false)
+}
+
+// scroll code ends
 
 const menuConfig = [
-   // { title: 'BLOG', url: '/blogs', submenu: false },
-   // { title: 'CONTACT', url: '/contact', submenu: false },
-   {title:'WORK WITH US', url:'/open-positions', submenu: false},
-   {title:'HIRE US', url:'/hire-us', submenu: false},
-   // {title:'COMMUNITY', url:'/community', submenu: false}
- ];
+  // { title: 'BLOG', url: '/blogs', submenu: false },
+  // { title: 'CONTACT', url: '/contact', submenu: false },
+  { title: 'WORK WITH US', url: '/open-positions', submenu: false },
+  { title: 'HIRE US', url: '/hire-us', submenu: false },
+  // {title:'COMMUNITY', url:'/community', submenu: false}
+]
 
- const NavWrapper = styled.div`
+const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: ${p => p.open ? 'all 0.45s ease-out, background 0.8s ease-out' :
-    'all 0.4s ease-out, background 1s ease-out'};
-`;
+  transition: ${p =>
+    p.open
+      ? 'all 0.45s ease-out, background 0.8s ease-out'
+      : 'all 0.4s ease-out, background 1s ease-out'};
+`
 
 const MobileMenu = styled.div`
   display: block;
   ${media.tablet`
     display: none;
   `};
-`;
+`
 
-const MobileUl = styled.ul`
-  position: relative;
+const MenuWrapper = styled.div`
+  position: absolute;
+  top: 80px;
+  left: -32px;
   display: block;
+  height: ${p => (p.open ? '100vh' : '0px')};
+  background: #101010;
   padding: 0px 40px 0;
   list-style: none;
-`;
+  transition: height 0.6s ease-out;
+  z-index: 11;
+  opacity: ${p => (p.open ? 1 : 0)};
+  margin-left: 35px;
+`
 
-const MobileLi = styled.li`
-  border-bottom: 1px solid #333;
-  margin-top: 5px;
-  & > a {
-    display: block;
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 2.8;
-    width: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
-  opacity: ${p => p.open ? 1 : 0};
-  transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  &:nth-child(1) {
-    transition-delay: ${p => p.open ? '0.05s' : '0.35s'};
-  }
-  &:nth-child(2) {
-    transition-delay: ${p => p.open ? '0.1s' : '0.3s'};
-  }
-  &:nth-child(3) {
-    transition-delay: ${p => p.open ? '0.15s' : '0.25s'};
-  }
-  &:nth-child(4) {
-    transition-delay: ${p => p.open ? '0.20s' : '0.20s'};
-  }
-  &:nth-child(5) {
-    transition-delay: ${p => p.open ? '0.25s' : '0.15s'};
-  }
-  &:nth-child(6) {
-    transition-delay: ${p => p.open ? '0.30s' : '0.10s'};
-  }
-  &:nth-child(7) {
-    transition-delay: ${p => p.open ? '0.35s' : '0.05s'};
-  }
-`;
+const MenuComponentWrapper = styled.div`
+  margin: 15px 0px 15px 0px;
+`
 
-const MobileMenuItems = (props) => (
+const Text = styled.div`
+  font-size: 23px;
+  color: white;
+  background: url(${Cloud});
+  background-repeat: no repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
+
+const MenuComponent = props => (
+  <MenuComponentWrapper>
+    <Text>{props.uppertext}</Text>
+    <Link to={props.to}>
+      <ArrowButton text={props.text} white />
+    </Link>
+  </MenuComponentWrapper>
+)
+
+const WeAreComponent = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr 4fr;
+  align-items: center;
+  margin-top: 15px;
+`
+const WeAreRightWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+`
+
+const WeAreRight = props => (
+  <WeAreRightWrapper>
+    <Text>{props.text}</Text>
+    <img src={Arrow} width="24" height="12" alt="Arrow" />
+  </WeAreRightWrapper>
+)
+
+const MobileMenuItems = props => (
   <MobileMenu>
-    <MobileUl>
-      <MobileLi {...props}>
-        <a href="#">Mac</a>
-      </MobileLi>
-      <MobileLi>
-        <a href="#">iPad</a>
-      </MobileLi>
-      <MobileLi>
-        <a href="#">iPhone</a>
-      </MobileLi>
-      <MobileLi>
-        <a href="#">Watch</a>
-      </MobileLi>
-      <MobileLi>
-        <a href="#">TV</a>
-      </MobileLi>
-      <MobileLi>
-        <a href="#">Music</a>
-      </MobileLi>
-      <MobileLi>
-        <a href="#">Support</a>
-      </MobileLi>
-    </MobileUl>
+    <MenuWrapper {...props}>
+      <MenuComponent
+        uppertext="We build React Web Apps"
+        text="Get in touch"
+        to="/hire-us"
+        {...props}
+      />
+      <img src={Partition} />
+      <MenuComponent
+        uppertext="Hire React Developers & teams"
+        text="Get in touch"
+        to="/hire-us"
+        {...props}
+      />
+      <img src={Partition} />
+      <MenuComponent
+        uppertext="Work for tech47"
+        text="Open positions"
+        to="/open-positions"
+        {...props}
+      />
+      <img src={Partition} />
+      {/* <WeAreComponent>
+        <Text>We are</Text>
+        <img src={VerticalPartition} height="200" />
+        <div>
+          <WeAreRight text="experts" />
+          <WeAreRight text="community contributors" />
+          <WeAreRight text="OSS contributors" />
+        </div>
+      </WeAreComponent>
+      <img src={Partition} /> */}
+    </MenuWrapper>
   </MobileMenu>
 )
 
-
 const MenuItem = styled.ul`
-  display: flex;  
+  display: none;
   opacity: 0;
   ${media.tablet`
     display: flex;
@@ -119,14 +198,14 @@ const MenuItem = styled.ul`
   margin: 0;
   font-size: 0.7em;
   margin-left: auto;
-`;
+`
 
 const animateClose = [
   { width: '50%', transform: 'initial', opacity: '0.5' },
   {
     width: '40%',
     transform: 'translate3d(-3px, 0px, 0px)',
-    opacity: '0'
+    opacity: '0',
   },
 ]
 
@@ -134,129 +213,159 @@ const animateOpen = [
   {
     width: '40%',
     transform: 'translate3d(3px, 0px, 0px)',
-    opacity: '0'
+    opacity: '0',
   },
   { width: '50%', transform: 'initial', opacity: '0.5' },
 ]
 
- const MenuItems = React.forwardRef(({open = false}, ref) => {
-  const mount = useRef();
+const MenuItems = React.forwardRef(({ open = false }, ref) => {
+  const mount = useRef()
 
-  useEffect(() => {
-    if (open) {
-      ref.current.animate(animateOpen, {
-        duration: 900,
-        fill: 'both',
-        easing: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
-      })
-    }  
-    //mount.current prevents a closing animation on componentDidMount
-    if (!open && mount.current){
-      ref.current.animate(animateClose, {
-        duration: 900,
-        fill: 'both',
-        easing: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
-      })
-    }
+  useEffect(
+    () => {
+      if (open) {
+        ref.current.animate(animateOpen, {
+          duration: 900,
+          fill: 'both',
+          easing: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
+        })
+      }
+      //mount.current prevents a closing animation on componentDidMount
+      if (!open && mount.current) {
+        ref.current.animate(animateClose, {
+          duration: 900,
+          fill: 'both',
+          easing: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
+        })
+      }
 
-    mount.current = true;
-  },[open]);
+      mount.current = true
+    },
+    [open]
+  )
   return (
     <MenuItem innerRef={ref}>
-      {menuConfig.map(
-        menu => (
-            <LiItems key={menu.title} to={menu.url} href={menu.href}>
-              {menu.title}
-            </LiItems>
-        )
-      )}
+      {menuConfig.map(menu => (
+        <LiItems key={menu.title} to={menu.url} href={menu.href}>
+          {menu.title}
+        </LiItems>
+      ))}
     </MenuItem>
- )});
+  )
+})
 
- const LiItem = styled.li`
+const LiItem = styled.li`
   margin: auto;
-`;
+`
 
- const LiItems = ({ to, href, children }) => (
-   <LiItem>
-     {to === '' ? (
-       <a href={href} target="_blank">
-         {children}
-       </a>
-     ) : (
-       <Link
-         to={to}
-         style={{color: colors.tech47white}}
-         // activeStyle={{
-         //   color: colors.tech47white,
-         // }}
-       >
-         {children}
-       </Link>
-     )}
-   </LiItem>
- );
- 
+const LiItems = ({ to, href, children }) => (
+  <LiItem>
+    {to === '' ? (
+      <a href={href} target="_blank">
+        {children}
+      </a>
+    ) : (
+      <Link
+        to={to}
+        style={{ color: colors.tech47white }}
+        // activeStyle={{
+        //   color: colors.tech47white,
+        // }}
+      >
+        {children}
+      </Link>
+    )}
+  </LiItem>
+)
+
 class Menu extends React.Component {
-   render() {
-       return (
-         <svg width="24" height="9" viewBox="0 0 24 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 3H30V0H0V3ZM9.00626 11.5H29.0063V8.5H9.00626V11.5Z" fill="#F0F0F0"/>
-         </svg>
-       );
-   }
+  render() {
+    return (
+      <svg
+        width="24"
+        height="9"
+        viewBox="0 0 24 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M0 3H30V0H0V3ZM9.00626 11.5H29.0063V8.5H9.00626V11.5Z"
+          fill="#F0F0F0"
+        />
+      </svg>
+    )
+  }
 }
 
 class MenuVertical extends React.Component {
-   render() {
-       return (
-         <svg width="9" height="24" viewBox="0 0 9 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V24H1V0H0ZM8 0V24H9V0H8Z" fill="#F0F0F0"/>
-         </svg>         
-       );
-   }
+  render() {
+    return (
+      <svg
+        width="9"
+        height="24"
+        viewBox="0 0 9 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M0 0V24H1V0H0ZM8 0V24H9V0H8Z"
+          fill="#F0F0F0"
+        />
+      </svg>
+    )
+  }
 }
- 
-const MenuBar = ({ open }) => {  
+
+const MenuBar = ({ open }) => {
   return (
-   <div>
-      <MorphReplaceResize width="16" height="16" rotation={"none"}>
-         {open ? <MenuVertical key="open"/> : <Menu key="closed"/>}
+    <div>
+      <MorphReplaceResize width="16" height="16" rotation={'none'}>
+        {open ? <MenuVertical key="open" /> : <Menu key="closed" />}
       </MorphReplaceResize>
-   </div>
+    </div>
   )
 }
 
 const MenuBarWrapper = styled.div`
   cursor: pointer;
-`;
+`
 
 const LogoImg = styled.img`
-   margin-bottom: 0;
-`;
+  margin-bottom: 0;
+`
 
 const NavBar = props => {
-   const menuRef = useRef();
-   const [open, setOpen] = useState(false);
+  const menuRef = useRef()
+  const [open, setOpen] = useState(false)
 
-   const showMenu = () => {
-     console.log('...')
-     setOpen(current => !current)
-   }
- 
+  const showMenu = () => {
+    setOpen(current => !current)
+  }
+
   return (
     <NavWrapper {...props} open={open}>
       <Link to="/">
-        <LogoImg src={props.white ? LogoWhite : Logo} width="110" height="30" alt="Logo" /> 
+        <LogoImg
+          src={props.white ? LogoWhite : Logo}
+          width="110"
+          height="30"
+          alt="Logo"
+        />
       </Link>
-      {props.white ? null : 
+      {props.white ? null : (
         <>
-          <MenuItems ref={menuRef} open={open}/>
+          <MenuItems ref={menuRef} open={open} />
+          {open ? disable_scroll() : enable_scroll()}
+          <MobileMenuItems open={open} />
           <MenuBarWrapper onClick={showMenu}>
             <MenuBar open={open} />
           </MenuBarWrapper>
         </>
-      }
+      )}
     </NavWrapper>
   )
 }
