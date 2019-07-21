@@ -19,7 +19,9 @@ var keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]
 
 function preventDefault(e) {
   e = e || window.event
-  if (e.preventDefault) e.preventDefault()
+  if (e.preventDefault) {
+    e.preventDefault()
+  }
   e.returnValue = false
 }
 
@@ -38,7 +40,7 @@ function wheel(e) {
 
 function disable_scroll() {
   if (window.addEventListener) {
-    window.addEventListener('DOMMouseScroll', wheel, false)
+    window.addEventListener('DOMMouseScroll', wheel, {capture: true, passive: true})
   }
   window.onmousewheel = document.onmousewheel = wheel
   document.onkeydown = keydown
@@ -57,7 +59,7 @@ function enable_scroll() {
 
 // MOBILE
 function disable_scroll_mobile() {
-  document.addEventListener('touchmove', preventDefault, false)
+  document.addEventListener('touchmove', preventDefault, {capture: true, passive: true})
 }
 function enable_scroll_mobile() {
   document.removeEventListener('touchmove', preventDefault, false)
@@ -162,6 +164,7 @@ const MobileMenuItems = props => (
         to="/hire-us"
         {...props}
       />
+      <img src={Partition} />
       <MenuComponent
         uppertext="Work for tech47"
         text="Open positions"
@@ -169,7 +172,7 @@ const MobileMenuItems = props => (
         {...props}
       />
       <img src={Partition} />
-      <WeAreComponent>
+      {/* <WeAreComponent>
         <Text>We are</Text>
         <img src={VerticalPartition} height="200" />
         <div>
@@ -178,7 +181,7 @@ const MobileMenuItems = props => (
           <WeAreRight text="OSS contributors" />
         </div>
       </WeAreComponent>
-      <img src={Partition} />
+      <img src={Partition} /> */}
     </MenuWrapper>
   </MobileMenu>
 )
@@ -340,7 +343,6 @@ const NavBar = props => {
   const [open, setOpen] = useState(false)
 
   const showMenu = () => {
-    console.log('...')
     setOpen(current => !current)
   }
 
