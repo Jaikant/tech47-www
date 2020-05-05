@@ -64,10 +64,18 @@ const MainDiv = styled.div`
     padding: 128px;
   `};
 
-  width: 100%;
-  min-height: 100vh;
-  max-height: ${props => props.fixedHeight ? '100vh' : 'none'};
+  min-height: ${props => props.fixedHeight ? '100vh' : 'none'};
+  // @media (min-width: 768px) {
+  //   min-height: ${props => props.fixedHeight ? 'calc(100vh - 32px)' : 'none'};
+  // }
+  // @media (min-width: 768px) {
+  //   min-height: ${props => props.fixedHeight ? 'calc(100vh - 64px)' : 'none'};
+  // }
+  // @media (min-width: 992px) {
+  //   min-height: ${props => props.fixedHeight ? '100vh' : 'none'};
+  // }
   background: ${props => props.white ? 'white' : colors.darkTheme.primary };
+
 `;
 
 const Layout = ({ children, location, ...props }) => {
@@ -127,7 +135,7 @@ const Layout = ({ children, location, ...props }) => {
         </Helmet> 
          <NavBar {...props} />
          {children}
-         {props.footer ?  <Footer {...props} /> : null}
+         {/* {props.footer ?  <Footer {...props} /> : null} */}
        </MainDiv>
      )}
   />

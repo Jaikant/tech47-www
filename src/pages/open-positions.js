@@ -31,7 +31,7 @@ const OpenPositions = () => (
         ))}
       </InnerWrapper>
       <InnerWrapper>
-        <Email text="Send us an email" />
+        <Email text={`Send us an email  `} />
       </InnerWrapper>
     </Wrapper>
   </Layout>

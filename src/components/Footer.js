@@ -18,7 +18,7 @@ const FooterText = styled.div`
 `;
 
 const LogoText = styled.div`
-  font-size: 8px;
+  font-size: 14px;
   text-align: center;
   color: ${props => props.light ? colors.footerLogo : colors.darkTheme.secondary};
 `;
@@ -32,7 +32,7 @@ const Footer = (props) => (
         <Link to='/hire-us'><FooterText {...props}>Hire Us</FooterText></Link> */}
         {/* <Link to='/'><FooterText {...props}>Community</FooterText></Link> */}
         </Wrapper>
-        <LogoText {...props}>{`© 2019 Tech47`}</LogoText>
+        <LogoText {...props}>{`© 2020 Tech47`}</LogoText>
     </FooterDiv> 
 );
 

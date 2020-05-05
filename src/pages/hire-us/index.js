@@ -106,7 +106,7 @@ const HiringForm = ({ values, onSubmit, location }) => (
                <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '50px'}} />
             </RowWrapper>
           </div>
-          <Email text="Prefer to send us an email instead?" />
+          <Email text="Prefer to send us an email instead? " />
         </Form>
       </Layout>
     )}

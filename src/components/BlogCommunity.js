@@ -7,13 +7,6 @@ import media from '../utils/media';
 
 const Wrapper = styled.div`
     display: grid;
-    min-height: calc(100vh - 32px);
-    ${media.desktop`
-    min-height: calc(100vh - 128px);
-    `};
-    ${media.tablet`
-    min-height: calc(100vh - 64px);
-    `};
 `;
 
 const SubWrapper = styled.div`
