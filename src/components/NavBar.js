@@ -71,8 +71,9 @@ const menuConfig = [
   // { title: 'BLOG', url: '/blogs', submenu: false },
   // { title: 'CONTACT', url: '/contact', submenu: false },
   { title: 'WORK WITH US', url: '/open-positions', submenu: false },
+  { title: 'BLOGS', url: '/blogs', submenu: false },
   { title: 'HIRE US', url: '/hire-us', submenu: false },
-  // {title:'COMMUNITY', url:'/community', submenu: false}
+  {title:'COMMUNITY', url:'/community', submenu: false}
 ]
 
 const NavWrapper = styled.div`
@@ -196,7 +197,7 @@ const MenuItem = styled.ul`
   width: 50%;
   list-style-type: none;
   margin: 0;
-  font-size: 0.7em;
+  font-size: 0.8em;
   margin-left: auto;
 `
 

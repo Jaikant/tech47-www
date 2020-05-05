@@ -3,14 +3,11 @@ import media from '../utils/media';
 
 
 export const ImageGalleryText = styled.div`
+  padding: 32px;
   font-weight: bold;
-  font-size: 34px;
+  font-size: 24px;
   ${media.tablet`
-    font-size: 64px;
-  `};
-  line-height: 35px;
-  ${media.tablet`
-  line-height: 75px;
+    font-size: 24px;
   `};
   text-align: center;
   color: #101010;

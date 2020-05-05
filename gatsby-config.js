@@ -17,6 +17,17 @@ module.exports = {
         path: `${__dirname}/src/pages/`
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Tech47`,
+        short_name: `Tech47`,
+        start_url: `/`,
+        background_color: `#000`,
+        theme_color: `#fff`,
+        icon: 'src/assets/images/logo-small.png'
+      },
+    },
    {
       resolve: `gatsby-plugin-typography`,
       options: {
