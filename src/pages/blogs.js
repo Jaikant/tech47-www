@@ -10,6 +10,7 @@ import ContentfulBlogIndex from '../templates/blogcontentful';
 
 const BlogTitle = styled.h2`
 color: #0366d6;
+display: inline-block;
 a {
     color: #0366d6;
     text-decoration: none;
@@ -18,6 +19,15 @@ a {
   a:hover {
     text-decoration: underline;
   }
+`;
+
+const TagBlock = styled.span`
+ margin-left: 1em;
+ padding: 3px 8px 4px 8px;
+ border-radius: 8px;
+ font-size: 0.7em;
+ background-color: blue;
+ color: white;
 `;
 
 const blogs = (props) => (
@@ -30,9 +40,10 @@ const blogs = (props) => (
       />
     </Layout>
     <MainDiv fixedHeight white>
-      {props.data.allContentfulBlogPost.edges.map((b,i) => <> 
-      <BlogTitle> {i+1}. <Link to={`/blog/${b.node.slug}`}> { b.node.title } </Link>  </BlogTitle>
-      </>)}
+      {props.data.allContentfulBlogPost.edges.map((b,i) => <div> 
+      <BlogTitle> <span> {i+1}. </span> <Link to={`/blog/${b.node.slug}`}> { b.node.title } </Link>  </BlogTitle>
+      {b.node.tags.map(t => <TagBlock> { t } </TagBlock>)} 
+      </div>)}
     </MainDiv>
   </div>
 )
@@ -46,6 +57,7 @@ export const query = graphql`
       node {
         id
         title
+        tags
         slug
         createdAt
         updatedAt
