@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 import colors from '../utils/colors';
 import LogoFull from '../assets/images/LogoFull.svg';
 import Favicon from '../assets/images/favicon.png';
-import "../css/prism.css";
 import NavBar from './NavBar';
 import media from '../utils/media';
 import Tech47Image from '../assets/images/Tech47Image.jpg'; 
@@ -20,12 +19,10 @@ import Tech47Image from '../assets/images/Tech47Image.jpg';
 
 injectGlobal`
   * {
-      //font: 16px/1.5em "Source Sans Pro",Arial,sans-serif;
-      font: sans-serif;
-      box-sizing: border-box;
-      // background: #000 !important;
-      // color: #0f0 !important;
-      // outline: solid #f00 1px !important;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;  
   };
   body {
     background-color: ${colors.darkTheme.primary};
@@ -46,9 +43,9 @@ injectGlobal`
   };
 `;
 /* eslint-enable */
-const MainDiv = styled.div`
-  display: grid;
-  grid-gap: 16px;
+export const MainDiv = styled.div`
+  overflow: hidden;
+  max-width: 100%;
   ${media.tablet`
     grid-gap: 32px;
   `};

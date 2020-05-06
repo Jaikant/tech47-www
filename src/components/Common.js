@@ -18,6 +18,7 @@ const Wrapper = styled.button`
     cursor: pointer;
     border: none;
     outline: none;
+    padding-left: 0px;
 `;
 
 const Text = styled.div`

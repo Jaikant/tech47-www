@@ -1,6 +1,7 @@
 import objectFitImages from 'object-fit-images';
 import getWindowDimensions from './src/utils/getWindowDimensions';
 const throttle = require('lodash/throttle');
+// require('./src/css/prism.css');
 
 
 function handleFadeInAndOutOnScroll() {

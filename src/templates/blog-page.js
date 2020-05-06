@@ -5,21 +5,17 @@ import Blog from '../components/Blog'
 import { ArrowButton } from '../components/Common'
 import { graphql } from 'gatsby'
 
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-`
 
 const BlogPage = ({ data }) => (
-  <Layout white footer light>
-    <Wrapper>
-      <ArrowButton text="Go back" />
+  <Layout white>
+      {/* <ArrowButton text="Go back" /> */}
       <Blog
         title={data.contentfulBlogPost.title}
         description={data.contentfulBlogPost.description.description}
+        html={data.contentfulBlogPost.blog.childMarkdownRemark.html}
       />
+      <div style={{margin: "16px"}} />
       <ArrowButton text="Go back" />
-    </Wrapper>
   </Layout>
 )
 
@@ -32,6 +28,12 @@ export const contentfulBlogPostQuery = graphql`
       description {
         id
         description
+      }
+      blog {
+        childMarkdownRemark {
+          id
+          html
+        }
       }
     }
   }

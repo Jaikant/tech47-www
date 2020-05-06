@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import { ArrowButton, BottomLine } from './Common'
 import Cloud from '../assets/images/CloudImage.jpg'
 import media from '../utils/media';
+import Typist from 'react-typist';
 
 const Wrapper = styled.div`
   display: grid;
@@ -21,7 +22,7 @@ const HeroWrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr;
-  ${media.desktop`
+  ${media.Hd`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
   `};
@@ -46,17 +47,33 @@ const HeroText = styled.div`
 `
 
 const HeroSubText = styled.div`
-  font-size: 36px;
+  font-size: 24px;
+  ${media.tablet`
+    font-size: 36px;
+  `}; 
   color: #363636;
   line-height: 64px;
 `
+
+const cursor = {
+  show: true,
+  blink: true,
+  element: '|',
+  hideWhenDone: true,
+  hideWhenDoneDelay: 1000,
+}
 
 const Hero = () => (
   <Wrapper>
     <HeroWrapper>
       <div>
         <HeroText data-scroll-fade={true}>We Build React Web Apps</HeroText>
-        <HeroSubText data-scroll-fade={true}>Because we love to.</HeroSubText>
+        <HeroSubText data-scroll-fade={true}>
+          <Typist cursor={cursor}>
+            <Typist.Delay ms={1000} />
+            Because we love to.
+          </Typist>
+        </HeroSubText>
         <Link to='/hire-us'>
          <ArrowButton data-scroll-fade={true} text="Get in touch" white />
         </Link>

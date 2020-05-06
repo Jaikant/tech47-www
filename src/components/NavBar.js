@@ -39,20 +39,24 @@ function wheel(e) {
 }
 
 function disable_scroll() {
+  if (typeof window != 'undefined') {
   if (window.addEventListener) {
     window.addEventListener('DOMMouseScroll', wheel, {capture: true, passive: true})
   }
   window.onmousewheel = document.onmousewheel = wheel
   document.onkeydown = keydown
   disable_scroll_mobile()
+  }
 }
 
 function enable_scroll() {
-  if (window.removeEventListener) {
-    window.removeEventListener('DOMMouseScroll', wheel, false)
-  }
-  window.onmousewheel = document.onmousewheel = document.onkeydown = null
-  enable_scroll_mobile()
+  if (typeof window != 'undefined') {
+    if (window.removeEventListener) {
+     window.removeEventListener('DOMMouseScroll', wheel, false)
+    }
+    window.onmousewheel = document.onmousewheel = document.onkeydown = null
+    enable_scroll_mobile()
+ }
 }
 
 // My improvement
@@ -79,6 +83,7 @@ const menuConfig = [
 const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 32px;
   align-items: center;
   transition: ${p =>
     p.open

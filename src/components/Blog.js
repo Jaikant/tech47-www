@@ -1,36 +1,40 @@
 import React from 'react'
 import styled from 'react-emotion'
 import media from '../utils/media'
+import BlogContent from './BlogContent';
 
 
 const Wrapper = styled.div`
-  display: grid;
-  justify-items: center;
+  ${media.desktop`
+    max-width: 980px;
+  `};
 `
 
 const Title = styled.div`
-  font-size: 44px;
-  line-height: 55px;
+  font-size: 2em;
+  margin-bottom: 24px;
   ${media.tablet`
-   font-size: 64px;
-   line-height: 75px;
-   margin-bottom: 20px;
+    font-size: 3em;
   `}
   color: #101010;
   font-weight: bold;
-  margin-bottom: 10px;
 `
 
-const Content = styled.div`
-  font-size: 24px;
-  line-height: 36px;
+const Description = styled.div`
+  font-size: 1.5em;
+  font-style: italic;
   color: #101010;
+  margin-bottom: 16px;
 `
+
+//BlogContent has styling like github markdown. To acitivate code styling in prism, uncomment
+//prism in gatsby.browser.js:
 
 const Blog = (props) => (
   <Wrapper>
-    <Title>{props.title}</Title>
-    <Content>{props.description}</Content>
+    <Title> {props.title} </Title>
+    <Description> {props.description} </Description>
+     <BlogContent dangerouslySetInnerHTML={{__html: props.html}}/>
   </Wrapper>
 )
 
