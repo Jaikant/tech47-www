@@ -40,33 +40,45 @@ function wheel(e) {
 
 function disable_scroll() {
   if (typeof window != 'undefined') {
-  if (window.addEventListener) {
-    window.addEventListener('DOMMouseScroll', wheel, {capture: true, passive: true})
-  }
-  window.onmousewheel = document.onmousewheel = wheel
-  document.onkeydown = keydown
-  disable_scroll_mobile()
+    if (window.addEventListener) {
+      //https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
+      let supportsPassive = false;
+      try {
+        window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+          get: function () { supportsPassive = true; } 
+        }));
+      } catch(e) {}      
+      let wheelOpt = supportsPassive ? { passive: false } : false;
+      let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+      window.addEventListener('DOMMouseScroll', wheel, {capture: true, passive: true})
+      window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+      document.addEventListener('touchmove', preventDefault, wheelOpt) // mobile
+    }
+    window.onmousewheel = document.onmousewheel = wheel
+    document.onkeydown = keydown
   }
 }
 
 function enable_scroll() {
   if (typeof window != 'undefined') {
     if (window.removeEventListener) {
+
+      let supportsPassive = false;
+      try {
+        window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+          get: function () { supportsPassive = true; } 
+        }));
+      } catch(e) {}      
+      let wheelOpt = supportsPassive ? { passive: false } : false;
+      let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
      window.removeEventListener('DOMMouseScroll', wheel, false)
+     window.removeEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+     document.removeEventListener('touchmove', preventDefault, wheelOpt)
     }
     window.onmousewheel = document.onmousewheel = document.onkeydown = null
-    enable_scroll_mobile()
  }
-}
-
-// My improvement
-
-// MOBILE
-function disable_scroll_mobile() {
-  document.addEventListener('touchmove', preventDefault, {capture: true, passive: true})
-}
-function enable_scroll_mobile() {
-  document.removeEventListener('touchmove', preventDefault, false)
 }
 
 // scroll code ends
@@ -114,11 +126,11 @@ const MenuWrapper = styled.div`
 `
 
 const MenuComponentWrapper = styled.div`
-  margin: 15px 0px 15px 0px;
+  margin: 8px 0px 8px 0px;
 `
 
 const Text = styled.div`
-  font-size: 23px;
+  font-size: 18px;
   color: white;
   background: url(${Cloud});
   background-repeat: no repeat;
@@ -158,23 +170,30 @@ const MobileMenuItems = props => (
   <MobileMenu>
     <MenuWrapper {...props}>
       <MenuComponent
-        uppertext="We build React Web Apps"
+        uppertext="We build React web apps"
         text="Get in touch"
         to="/hire-us"
         {...props}
       />
       <img src={Partition} />
       <MenuComponent
-        uppertext="Hire React Developers & teams"
-        text="Get in touch"
-        to="/hire-us"
-        {...props}
-      />
-      <img src={Partition} />
-      <MenuComponent
-        uppertext="Work for tech47"
+        uppertext="Work for Tech47"
         text="Open positions"
         to="/open-positions"
+        {...props}
+      />
+      <img src={Partition} />
+      <MenuComponent
+        uppertext="Community initiatives"
+        text="Giving back"
+        to="/community"
+        {...props}
+      />
+      <img src={Partition} />
+      <MenuComponent
+        uppertext="Views on technology"
+        text="Blog"
+        to="/blogs"
         {...props}
       />
       <img src={Partition} />
