@@ -86,7 +86,7 @@ function enable_scroll() {
 const menuConfig = [
   // { title: 'BLOG', url: '/blogs', submenu: false },
   // { title: 'CONTACT', url: '/contact', submenu: false },
-  { title: 'WORK WITH US', url: '/open-positions', submenu: false },
+  { title: 'TALK TO US', url: '/video-call', submenu: false },
   { title: 'BLOGS', url: '/blogs', submenu: false },
   { title: 'HIRE US', url: '/hire-us', submenu: false },
   {title:'COMMUNITY', url:'/community', submenu: false}
@@ -176,10 +176,17 @@ const MobileMenuItems = props => (
         {...props}
       />
       <img src={Partition} />
-      <MenuComponent
+      {/* <MenuComponent
         uppertext="Work for Tech47"
         text="Open positions"
         to="/open-positions"
+        {...props}
+      />
+      <img src={Partition} /> */}
+      <MenuComponent
+        uppertext="Talk to us"
+        text="Video call us now"
+        to="/video-call"
         {...props}
       />
       <img src={Partition} />
