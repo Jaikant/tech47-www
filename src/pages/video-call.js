@@ -5,5 +5,10 @@ import VideoCall from '../components/VideoCall/VideoCall';
 import BrowserUnsupported from '../components/VideoCall/BrowserUnsupported'
 
 
-export default () => DailyIframe.supportedBrowser().supported ? <VideoCall /> : (
-<Layout> <BrowserUnsupported /> </Layout>)
+export default () =>  {
+  if (typeof window != 'undefined') {
+    return DailyIframe.supportedBrowser().supported ? <VideoCall /> : (
+      <Layout> <BrowserUnsupported /> </Layout>)
+  }
+  return <Layout> <BrowserUnsupported /> </Layout>
+}
