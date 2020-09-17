@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 //From https://github.com/sindresorhus/github-markdown-css/blob/gh-pages/github-markdown.css
 const BlogContent = styled.div`

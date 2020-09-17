@@ -1,8 +1,9 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
-import FaChevronDown from "react-icons/lib/fa/chevron-down";
+import FaChevronDown from 'react-icons/lib/fa/chevron-down';
 import feather from '../utils/feather';
 import colors from '../utils/colors';
 import MobileNav from './MobileNav';
@@ -41,7 +42,6 @@ const menuConfig = [
   //     { title: 'Serverless Apps', url: '/serverless' },
   //     { title: 'Fullstack', url: '/fullstack' },
   //     { title: 'AWS Cloud', url: '/aws' }
-
   //   ],
   //   submenu: true
   // },
@@ -202,7 +202,7 @@ const DropDownMenu = ({ menu }) => (
         fontSize: `1.7em`,
         padding: `4px`,
         color: `rgba(255,255,255,1)`,
-        userSelect: `none`,
+        userSelect: `none`
       })}
     />
     <div>
@@ -263,7 +263,6 @@ LiItems.defaultProps = {
   href: ''
 };
 
-
 const basicNav = css`
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
@@ -299,7 +298,7 @@ class Navigation extends Component {
     super(props);
     this.state = {
       mobileActive: false,
-      isScrolled: false,
+      isScrolled: false
     };
     this.toggleNav = this.toggleNav.bind(this);
     this.onScroll = this.onScroll.bind(this);
@@ -317,18 +316,20 @@ class Navigation extends Component {
     const JUDGE_POSITION_Y = 50;
 
     const supportPageOffset = window.pageYOffset !== undefined;
-    const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
-    const css1compatY = isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+    const isCSS1Compat = (document.compatMode || '') === 'CSS1Compat';
+    const css1compatY = isCSS1Compat
+      ? document.documentElement.scrollTop
+      : document.body.scrollTop;
     const scrollY = supportPageOffset ? window.pageYOffset : css1compatY;
 
     if (scrollY > JUDGE_POSITION_Y) {
       this.setState({
-        isScrolled: true,
-      })
+        isScrolled: true
+      });
     } else {
       this.setState({
-        isScrolled: false,
-      })
+        isScrolled: false
+      });
     }
   }
 
@@ -361,7 +362,6 @@ class Navigation extends Component {
         display: none;
       `};
     `;
-
 
     // Menu Style
     const menuStyle = css`
@@ -413,13 +413,11 @@ class Navigation extends Component {
               color: colors.primary
             }}
           >
-            <img
-              src={HamBurger}
-            />
+            <img src={HamBurger} />
           </Link>
         </Box>
         <Box width="100%" px={[3, 3, 4]} className={mobileNav}>
-        <Link
+          <Link
             to="/"
             activeStyle={{
               color: colors.primary
@@ -440,9 +438,7 @@ class Navigation extends Component {
             onKeyPress={this.toggleNav}
             css="color: white;"
           >
-            <img
-              src={HamBurger}
-            />
+            <img src={HamBurger} />
           </div>
         </Box>
         {this.state.mobileActive && (
@@ -462,7 +458,7 @@ class Navigation extends Component {
 Navigation.propTypes = {
   logo: PropTypes.string,
   logoWhite: PropTypes.string,
-  location: PropTypes.object,
+  location: PropTypes.object
 };
 
 Navigation.defaultProps = {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import TrayButton, {
   TYPE_MUTE_CAMERA,
   TYPE_MUTE_MIC,

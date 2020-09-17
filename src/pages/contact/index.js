@@ -1,12 +1,12 @@
-/* eslint-disable no-undef, react/prop-types */
-import React from 'react'
-import { css } from 'react-emotion'
-import { push, graphql } from 'gatsby'
-import { Box, Flex, Header } from '../../components'
-import colors from '../../utils/colors'
-import ButtonPrimary from '../../components/Buttons'
-import Layout from '../../components/Layout'
-import BigCard from '../../components/BigCard'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+import React from 'react';
+import { push, graphql } from 'gatsby';
+import { Box, Flex, Header } from '../../components';
+import colors from '../../utils/colors';
+import ButtonPrimary from '../../components/Buttons';
+import Layout from '../../components/Layout';
+import BigCard from '../../components/BigCard';
 
 const input = css`
   display: block;
@@ -27,38 +27,38 @@ const input = css`
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
       0 0 8px rgba(59, 89, 152, 0.6);
   }
-`
+`;
 
 const label = css`
   display: inline-block;
   text-align: left;
   margin-bottom: 16px;
   width: 100%;
-`
+`;
 
 const encode = data =>
   Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&')
+    .join('&');
 
 class ContactForm extends React.Component {
   state = {
     name: '',
     email: '',
-    message: '',
-  }
+    message: ''
+  };
 
-  expiredCallback = () => push('/Contact')
+  expiredCallback = () => push('/Contact');
 
   handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (
       !e.target.name.value ||
       !e.target.email.value ||
       !e.target.message.value
     ) {
-      return alert('Kindly fill all fields')
+      return alert('Kindly fill all fields');
     }
 
     return fetch('/', {
@@ -68,17 +68,17 @@ class ContactForm extends React.Component {
         'form-name': 'contact',
         name: this.state.name,
         email: this.state.email,
-        message: this.state.message,
-      }),
+        message: this.state.message
+      })
     })
       .then(() => push('/thanks'))
-      .catch(error => alert(error))
-  }
+      .catch(error => alert(error));
+  };
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value })
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { name, email, message } = this.state
+    const { name, email, message } = this.state;
     return (
       <Flex>
         <form
@@ -128,17 +128,17 @@ class ContactForm extends React.Component {
           </ButtonPrimary>
         </form>
       </Flex>
-    )
+    );
   }
 }
 
 const Contact = ({ data, location }) => {
-  const { markdownRemark: remark } = data
+  const { markdownRemark: remark } = data;
   return (
-    <Layout location={location}>
+    <div>
       <Header />
       <div
-        css={`
+        css={css`
           display: grid;
           -ms-transform: translate(0px, -16vh);
           -webkit-transform: translate(0px, -16vh);
@@ -146,7 +146,7 @@ const Contact = ({ data, location }) => {
         `}
       >
         <div
-          css={`
+          css={css`
             justify-self: center;
             max-width: 732px;
           `}
@@ -164,9 +164,9 @@ const Contact = ({ data, location }) => {
           </BigCard>
         </div>
       </div>
-    </Layout>
-  )
-}
+    </div>
+  );
+};
 
 export const contactQuery = graphql`
   query contactQ {
@@ -179,6 +179,6 @@ export const contactQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Contact
+export default Contact;

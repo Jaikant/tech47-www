@@ -1,19 +1,20 @@
-/* eslint-disable no-undef, react/prop-types, react/no-danger */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import React from 'react';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import Link from 'gatsby-link';
-import ReactHelmet from 'react-helmet'
+import ReactHelmet from 'react-helmet';
 import typography from '../utils/typography';
 import { Box, Tags } from '../components';
 import colors from '../utils/colors';
 import presets from '../utils/presets';
 import feather from '../utils/feather';
-import EmailCaptureForm from "../components/email-capture-form"
+import EmailCaptureForm from '../components/email-capture-form';
 import Helmet from '../components/helmet';
-import Layout from '../components/Layout';
+import { MainDiv } from '../components/Layout';
 
-const { rhythm, scale }  = typography
+const { rhythm, scale } = typography;
 
 const blogTheme = css`
   margin-top: ${rhythm(4)};
@@ -67,8 +68,6 @@ const prevNextLabelStyles = css`
   line-height: 1;
 `;
 
-
-
 const outerStyles = css`
   display: inline-block;
   vertical-align: middle;
@@ -93,49 +92,51 @@ const Styledp = styled.p`
   color: ${colors.light};
 `;
 
-const AuthorInfo = ({ post }) =>  (
-   <div css={`
-          border-top: solid; 
-          border-width: thin; 
-          margin: ${ rhythm(1) }; 
-          padding: ${ rhythm(1) };
+const AuthorInfo = ({ post }) => (
+  <div
+    css={css`
+      border-top: solid;
+      border-width: thin;
+      margin: ${rhythm(1)};
+      padding: ${rhythm(1)};
+    `}
+  >
+    <div
+      css={css`
+        display: flex;
+        ${presets.Mobile} {
+          justify-content: center;
+          flex-direction: column;
+        }
+        ${presets.Tablet} {
+          justify-content: left;
+          flex-direction: row;
+        }
+      `}
+    >
+      <Img
+        css="border-radius: 100%;"
+        alt={post.author.profilePicture.title}
+        resolutions={post.author.profilePicture.resolutions}
+      />
+      <div
+        css={css`
+          display: flex;
+          padding: ${rhythm(1)};
+          flex-grow: 1;
+          align-items: center;
         `}
-   >
-      <div css={`
-             display: flex; 
-             ${presets.Mobile} {
-               justify-content: center;
-               flex-direction: column;
-             };
-             ${presets.Tablet} {
-               justify-content: left;
-               flex-direction: row;
-             };
-           `}
       >
-        <Img
-          css="border-radius: 100%;"
-          alt={post.author.profilePicture.title}
-          resolutions={post.author.profilePicture.resolutions}
-        />
-        <div css={`
-               display: flex; 
-               padding: ${ rhythm(1) }; 
-               flex-grow: 1; 
-               align-items: center;
-               `}
-        >
-          <span>
-            <strong>
-              {post.author.name} {` `}
-            </strong>
-            <p> {post.author.authorBio} </p>
-          </span>
-        </div>
+        <span>
+          <strong>
+            {post.author.name} {` `}
+          </strong>
+          <p> {post.author.authorBio} </p>
+        </span>
       </div>
-   </div>
-  );
-
+    </div>
+  </div>
+);
 
 const Template = ({ data, location, pageContext }) => {
   const { node: post } = data.allContentfulMeetUps.edges[0];
@@ -148,17 +149,17 @@ const Template = ({ data, location, pageContext }) => {
   }
 
   return (
-    <Layout location={location}>
-        <Helmet
-          title={`Tech47 - ${post.title}`}
-          description={post.description.description}
-          image={post.featuredImage ? post.featuredImage.resize.src : null}
-          pathname={location.pathname}
-          absoluteUrl={true}
-        />
-          <ReactHelmet>
-            <script>
-              {`
+    <MainDiv location={location}>
+      <Helmet
+        title={`Tech47 - ${post.title}`}
+        description={post.description.description}
+        image={post.featuredImage ? post.featuredImage.resize.src : null}
+        pathname={location.pathname}
+        absoluteUrl={true}
+      />
+      <ReactHelmet>
+        <script>
+          {`
                 (function(w, d){
                  var id='embedly-platform', n = 'script';
                  if (!d.getElementById(id)){
@@ -170,8 +171,8 @@ const Template = ({ data, location, pageContext }) => {
                  }
                 })(window, document);
               `}
-            </script>
-          </ReactHelmet>
+        </script>
+      </ReactHelmet>
       <div className={blogTheme}>
         <Box>
           <h1>{post.title}</h1>
@@ -190,11 +191,12 @@ const Template = ({ data, location, pageContext }) => {
             css="text-align: left;"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-          <div css={`
-                 display: flex; 
-                 justify-content: center;
-                 margin-bottom: ${ rhythm(1) }
-               `}
+          <div
+            css={css`
+              display: flex;
+              justify-content: center;
+              margin-bottom: ${rhythm(1)};
+            `}
           >
             <Tags list={post.tags || []} />
           </div>
@@ -202,37 +204,47 @@ const Template = ({ data, location, pageContext }) => {
           <AuthorInfo post={post} />
           <div css="display: flex; width: 100%;">
             <div css="width: 50%; text-align: left;">
-            {prev && (
-              <span>
-              <h4 className={prevNextLabelStyles}>Previous</h4>
-              <Link
-                to={prev.slug}
-                css="width: 50%; text-align: left; font-size: 0.8em; font-weight: 700;"
-              >
-                {feather('chevron-left', ['30', '30'], svgStyles, outerStyles)}
-                {prev.title}
-              </Link>
-              </span>
-            )}
+              {prev && (
+                <span>
+                  <h4 className={prevNextLabelStyles}>Previous</h4>
+                  <Link
+                    to={prev.slug}
+                    css="width: 50%; text-align: left; font-size: 0.8em; font-weight: 700;"
+                  >
+                    {feather(
+                      'chevron-left',
+                      ['30', '30'],
+                      svgStyles,
+                      outerStyles
+                    )}
+                    {prev.title}
+                  </Link>
+                </span>
+              )}
             </div>
             <div css="width: 50%; text-align: right;">
-            {next && (
-              <span>
-              <h4 className={prevNextLabelStyles}>Next</h4>
-              <Link
-                to={next.slug}
-                css="width: 50%; text-align: right; font-size: 0.8em; font-weight: 700;"
-              >
-                {next.title}
-                {feather('chevron-right', ['30', '30'], svgStyles, outerStyles)}
-              </Link>
-              </span>
-            )}
+              {next && (
+                <span>
+                  <h4 className={prevNextLabelStyles}>Next</h4>
+                  <Link
+                    to={next.slug}
+                    css="width: 50%; text-align: right; font-size: 0.8em; font-weight: 700;"
+                  >
+                    {next.title}
+                    {feather(
+                      'chevron-right',
+                      ['30', '30'],
+                      svgStyles,
+                      outerStyles
+                    )}
+                  </Link>
+                </span>
+              )}
             </div>
           </div>
         </Box>
       </div>
-    </Layout>
+    </MainDiv>
   );
 };
 

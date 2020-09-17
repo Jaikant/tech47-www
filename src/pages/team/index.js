@@ -1,26 +1,27 @@
 /*eslint-disable */
-import React from 'react'
+import React from 'react';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import styled, { css } from 'react-emotion'
-import Card from '../../components/team'
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import Card from '../../components/team';
 import Layout from '../../components/Layout';
 import Helmet from '../../components/helmet';
-import Img from 'gatsby-image'
+import Img from 'gatsby-image';
 
-const teamCards =css`
- 		display:flex;
- 		flex-wrap:wrap;
- 		flex-direction:row;
- 		justify-content:center;
- 		align-items:center;
- 		margin-top:60px;
- 		margin-bottom:60px;
-`
+const teamCards = css`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+`;
 const Wrapper = styled.section`
   position: relative;
   margin: 0;
-`
+`;
 const BgImg = styled(Img)`
   position: absolute;
   margin-top: 0px;
@@ -39,7 +40,7 @@ const BgImg = styled(Img)`
   }
   &:before {
     content: '';
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     position: absolute;
     top: 0;
     left: 0;
@@ -49,7 +50,7 @@ const BgImg = styled(Img)`
     width: 100%;
     z-index: 1;
   }
-`
+`;
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -81,80 +82,80 @@ const Line = styled.h1`
   height: 2em;
 `;
 
-
-const BannerSection = (props) => (
+const BannerSection = props => (
   <Wrapper>
-    <BgImg height={props.height} sizes={props.image.sizes} position={`50% ${props.position}%`}/>
-    { props.title && <Line /> }
-    { props.title && <Title>{props.title}</Title> }
+    <BgImg
+      height={props.height}
+      sizes={props.image.sizes}
+      position={`50% ${props.position}%`}
+    />
+    {props.title && <Line />}
+    {props.title && <Title>{props.title}</Title>}
   </Wrapper>
-)
-class TeamPage extends React.Component{
-render(){
-	const we= this.props.data.TeamImages.edges['0'].node.teamImages;
-	const bannerImage = this.props.data.BannerImage.edges['0'].node.teamBanner;
-	const yAxisForCoverImage = 20;
-	console.log(this.props)
-	return(
-		<Layout location={this.props.location}>
-			<Helmet
-	          title='Tech47 | team'
-	          description='Tech47-team'
-	          image={bannerImage.sizes}
-	          pathname={this.props.location.pathname}
-	          absoluteUrl={true}
-        	/>
-        	 <BannerSection
-       		 	title='Our Team'
-        		image={bannerImage}
-        		height={'50vh'}
-        		position={yAxisForCoverImage}
-        	/>
+);
+class TeamPage extends React.Component {
+  render() {
+    const we = this.props.data.TeamImages.edges['0'].node.teamImages;
+    const bannerImage = this.props.data.BannerImage.edges['0'].node.teamBanner;
+    const yAxisForCoverImage = 20;
+    return (
+      <div>
+        <Helmet
+          title="Tech47 | team"
+          description="Tech47-team"
+          image={bannerImage.sizes}
+          pathname={this.props.location.pathname}
+          absoluteUrl={true}
+        />
+        <BannerSection
+          title="Our Team"
+          image={bannerImage}
+          height={'50vh'}
+          position={yAxisForCoverImage}
+        />
 
-			
-			<div className={teamCards} >
-			 { 
-			 	we.map((team) => (<Card key={team.title}  
-			 		description={team.description}
-			 		pictureUrl={team.resolutions}
-			 		fullName={team.title}/>))
-			 }	
-			</div>	
-		</Layout>)
-}
-
+        <div className={teamCards}>
+          {we.map(team => (
+            <Card
+              key={team.title}
+              description={team.description}
+              pictureUrl={team.resolutions}
+              fullName={team.title}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export const contentfulTeamQuery = graphql`
   query TeamQuery {
-  TeamImages:allContentfulTeamImages{
-   	edges{
-      node{
-        teamImages{
-          title
-          description
-          resolutions(width:150, height: 150){
-           ...GatsbyContentfulResolutions
+    TeamImages: allContentfulTeamImages {
+      edges {
+        node {
+          teamImages {
+            title
+            description
+            resolutions(width: 150, height: 150) {
+              ...GatsbyContentfulResolutions
+            }
+          }
+        }
+      }
+    }
+    BannerImage: allContentfulTeamBanner {
+      edges {
+        node {
+          teamBanner {
+            sizes(maxWidth: 1800, quality: 100) {
+              ...GatsbyContentfulSizes_noBase64
+            }
           }
         }
       }
     }
   }
-  BannerImage:allContentfulTeamBanner{
-    edges{
-      node{
-        teamBanner{
-        	sizes(maxWidth: 1800, quality:100) {
-        ...GatsbyContentfulSizes_noBase64
-      }
-        }
-      }
-    }
-  }
-}
 `;
 
 export default TeamPage;
-
-
-

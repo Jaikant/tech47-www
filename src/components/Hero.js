@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import  ReactLogo from '../assets/icons/ReactLogo.svg'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { ArrowButton, BottomLine } from './Common'
 import Cloud from '../assets/images/CloudImage.jpg'

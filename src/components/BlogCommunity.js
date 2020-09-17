@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import colors from '../utils/colors'
 import { BottomLine } from './Common'
 import media from '../utils/media'

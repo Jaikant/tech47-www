@@ -92,9 +92,9 @@ const colors = {
   darkTheme: {
     primary: `#101010`,
     primaryLight: `#363636`,
-    secondary: `#f0f0f0`,
+    secondary: `#f0f0f0`
   },
-  
+
   ui: {
     bright: `#e0d6eb`,
     light: `#f5f3f7`,
@@ -128,4 +128,4 @@ colorStr
     }
   });
 
-export default colors
+export default colors;

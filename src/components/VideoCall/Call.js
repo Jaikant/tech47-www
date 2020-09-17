@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useReducer } from "react";
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import Tile from "./Tile";
 import CallObjectContext from "./CallObjectContext";
 import CallMessage from "./CallMessage";

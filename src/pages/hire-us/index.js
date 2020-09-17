@@ -1,22 +1,15 @@
-import React from 'react'
-import { navigate } from "gatsby"
-import Layout from '../../components/Layout'
-import { ArrowButton, Email } from '../../components/Common'
-import * as Yup from 'yup'
-import { Formik } from 'formik'
-import {
-  Form,
-  InputField,
-  FormText,
-  RowWrapper
-} from '../../components/Form'
-
+import React from 'react';
+import { navigate } from 'gatsby';
+import { MainDiv } from '../../components/Layout';
+import { ArrowButton, Email } from '../../components/Common';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
+import { Form, InputField, FormText, RowWrapper } from '../../components/Form';
 
 const encode = data =>
   Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&')
-
+    .join('&');
 
 const HiringForm = ({ values, onSubmit, location }) => (
   <Formik
@@ -28,41 +21,38 @@ const HiringForm = ({ values, onSubmit, location }) => (
         .email('Invalid email address')
         .required('Required'),
       company: Yup.string(),
-      description: Yup.string().required('Required'),
+      description: Yup.string().required('Required')
     })}
     onSubmit={(values, { setSubmitting }) => {
-      setSubmitting(true)
+      setSubmitting(true);
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
           'form-name': 'tech47',
-           ...values
-        }),
+          ...values
+        })
       })
-      .then(() => { 
-          setSubmitting(false)
-          console.log('submitted', values)
-          navigate(
-            `hire-us/confirm/`,
-            { replace: true, 
-              state: { values }
-            }
-          )  
+        .then(() => {
+          setSubmitting(false);
+          navigate(`hire-us/confirm/`, {
+            replace: true,
+            state: { values }
+          });
         })
-      .catch(error => {
-          setSubmitting(false)
-          alert(error)
-        })
+        .catch(error => {
+          setSubmitting(false);
+          alert(error);
+        });
     }}
   >
     {({ isSubmitting }) => (
-      <Layout white>
+      <MainDiv white>
         <Form
-         name="tech47"
-         method="post"
-         data-netlify="true"
-         data-netlify-honeypot="bot-field"
+          name="tech47"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
           <p hidden>
             <label htmlFor="botField">
@@ -100,17 +90,21 @@ const HiringForm = ({ values, onSubmit, location }) => (
                 required
                 placeholder="Give us a short description"
               />
-               </RowWrapper>
-               <RowWrapper>
-               <div />
-               <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '50px'}} />
+            </RowWrapper>
+            <RowWrapper>
+              <div />
+              <ArrowButton
+                text="Submit"
+                disabled={isSubmitting}
+                style={{ marginTop: '50px' }}
+              />
             </RowWrapper>
           </div>
           <Email text="Prefer to send us an email instead? " />
         </Form>
-      </Layout>
+      </MainDiv>
     )}
   </Formik>
-)
+);
 
-export default HiringForm
+export default HiringForm;

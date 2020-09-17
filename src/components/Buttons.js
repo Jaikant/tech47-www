@@ -1,4 +1,5 @@
-import styled, { css, keyframes } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css, keyframes } from '@emotion/core';
 import colors from '../utils/colors';
 
 const buttonBasic = css`
@@ -19,13 +20,23 @@ const buttonPrimary = css`
   color: ${colors.third};
   transition: all 0.3s ease;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     cursor: pointer;
     background-color: ${colors.tech47purple};
-    background-image: linear-gradient(45deg, rgba(0,0,0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.1) 75%,
+      transparent 75%,
+      transparent
+    );
     color: ${colors.fifth};
     animation: ${stripeAnimation} 2.8s linear infinite;
-  };
+  }
 `;
 
 const buttonSecondary = css`

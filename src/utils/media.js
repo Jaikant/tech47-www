@@ -1,4 +1,4 @@
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 
 const sizes = {
   large: 1024,
@@ -10,11 +10,11 @@ const sizes = {
   desktop: 992,
   tablet: 768,
   phablet: 550,
-  mobile: 360,
+  mobile: 360
 };
 
 // Iterate through the sizes and create a media template
-//meida return an object, the keys in the object are the sizes and they have functions as values.
+// media return an object, the keys in the object are the sizes and they have functions as values.
 const media = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media (min-width: ${sizes[label] / 16}em) {

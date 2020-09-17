@@ -1,6 +1,9 @@
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css, keyframes } from 'react-emotion';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
 import { Link } from 'gatsby';
 import colors from '../utils/colors';
 import ButtonPrimary from './Buttons';
@@ -73,11 +76,10 @@ const imgWrapper = css`
 `;
 
 export const H3 = styled.h3`
-   -webkit-box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
-   -moz-box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
-   box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
+  -webkit-box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
+  -moz-box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
+  box-shadow: 0px 0px 1px 0px ${colors.gray.calm};
 `;
-
 
 const ServiceCard = ({ name, image, service, urltext, url }) => (
   <div className={wrapperOne}>

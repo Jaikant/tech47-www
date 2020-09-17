@@ -1,13 +1,15 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import React from 'react';
 import jsonp from 'jsonp';
 import { validate } from 'email-validator';
-import { css, keyframes } from 'react-emotion';
+import { keyframes } from '@emotion/core';
 import hex2rgba from 'hex2rgba';
 import typography from '../utils/typography';
 import presets from '../utils/presets';
 import colors from '../utils/colors';
 
-const { rhythm, options }  = typography
+const { rhythm, options } = typography;
 
 const stripeAnimation = keyframes`
   0%: { background-position: 0 0 };
@@ -33,7 +35,9 @@ const formInputDefaultStyles = css`
   padding: ${rhythm(1 / 5)};
   padding-left: ${rhythm(1)};
   vertical-align: middle;
-  transition: all ${presets.animation.speedDefault} ${presets.animation.curveDefault};
+  transition: all ${presets.animation.speedDefault} ${
+  presets.animation.curveDefault
+};
   &::placeholder {
     color: ${colors.tech47date};
     opacity: 1;
@@ -123,13 +127,15 @@ class EmailCaptureForm extends React.Component {
   render() {
     return (
       <div
-        css={`
+        css={css`
           margin-top: rhythm(2);
-          padding-top: ${rhythm(0.5)}
+          padding-top: ${rhythm(0.5)};
         `}
       >
         {this.state.status === `success` ? (
-          <div className={bodyStyle}>Thank you! Youʼll receive your first email shortly.</div>
+          <div className={bodyStyle}>
+            Thank you! Youʼll receive your first email shortly.
+          </div>
         ) : (
           <div>
             <form
@@ -144,39 +150,47 @@ class EmailCaptureForm extends React.Component {
                   name="email"
                   placeholder="email address"
                   onChange={this._handleEmailChange}
-                  css={`
+                  css={css`
                     ${formInputDefaultStyles};
                     &:focus {
                       border-color: ${colors.tech47pink};
                       outline: 0;
-                      box-shadow: 0 0 0 0.2rem ${hex2rgba(colors.tech47pinkhex, 0.25)};
+                      box-shadow: 0 0 0 0.2rem
+                        ${hex2rgba(colors.tech47pinkhex, 0.25)};
                     }
                   `}
                 />
                 <button
                   type="submit"
                   onClick={this._handleFormSubmit}
-                  css={`
+                  css={css`
                     ${formInputDefaultStyles};
                     color: ${colors.tech47white};
                     background-color: ${colors.tech47pink};
                     border-color: ${colors.tech47pink};
                     cursor: pointer;
                     margin-top: ${rhythm(1 / 2)};
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                       background-size: 30px 30px;
                       background-color: ${colors.tech47purple};
-                      background-image: linear-gradient(45deg, rgba(0,0,0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, transparent 75%, transparent);
+                      background-image: linear-gradient(
+                        45deg,
+                        rgba(0, 0, 0, 0.1) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(0, 0, 0, 0.1) 50%,
+                        rgba(0, 0, 0, 0.1) 75%,
+                        transparent 75%,
+                        transparent
+                      );
                       color: #fff;
                       animation: ${stripeAnimation} 2.8s linear infinite;
-                    };
+                    }
                     &:focus {
                       outline: 0;
-                      box-shadow: 0 0 0 0.2rem ${hex2rgba(
-                        colors.primary,
-                        0.25
-                      )}
-                    };
+                      box-shadow: 0 0 0 0.2rem ${hex2rgba(colors.primary, 0.25)};
+                    }
                   `}
                 >
                   Subscribe

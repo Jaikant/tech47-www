@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import throttle from 'lodash/throttle';
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby';
 import { ArrowButton, BottomLine } from '../components/Common'
 import { useSpring, animated } from 'react-spring'

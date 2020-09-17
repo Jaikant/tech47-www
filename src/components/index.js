@@ -1,5 +1,7 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import React from 'react';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
 import Typist from 'react-typist';
 import FaHeart from 'react-icons/lib/fa/heart';
 import colors from '../utils/colors';
@@ -22,11 +24,15 @@ export const Flex = styled.div`
   justify-content: center;
 `;
 
-
 const bgColor = css`
   width: 100%;
-	height: 50vh;
-  background-image: linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%);
+  height: 50vh;
+  background-image: linear-gradient(
+    -225deg,
+    #65379b 0%,
+    #886aea 53%,
+    #6457c6 100%
+  );
 `;
 
 const cursor = {
@@ -34,22 +40,26 @@ const cursor = {
   blink: true,
   element: '|',
   hideWhenDone: true,
-  hideWhenDoneDelay: 1000,
-}
+  hideWhenDoneDelay: 1000
+};
 
 export const Header = () => (
   <div className={bgColor}>
-    <div css={`
+    <div
+      css={css`
         padding-top: 17vh;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         color: white;
         font-size: 1.2em;
-      `}>
-      <div css={`
-            padding: 0px 32px;
-        `}>
+      `}
+    >
+      <div
+        css={css`
+          padding: 0px 32px;
+        `}
+      >
         <Typist cursor={cursor}>
           <span> We love to build technology </span>
           {/* <Typist.Backspace count={58} delay={1000} /> */}
@@ -59,17 +69,15 @@ export const Header = () => (
               cursor: `pointer`,
               fontSize: `1em`,
               color: `${colors.tech47pink}`,
-              userSelect: `none`,
+              userSelect: `none`
             })}
-          />
-          {' '}
+          />{' '}
           {/* startups. */}
         </Typist>
       </div>
     </div>
   </div>
-)
-
+);
 
 export const Tags = tags;
 export const ServiceCard = servicecard;

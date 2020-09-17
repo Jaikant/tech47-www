@@ -1,25 +1,26 @@
-import React from 'react'
-import styled from 'react-emotion'
-import Layout from '../components/Layout'
-import Blog from '../components/Blog'
-import { ArrowButton } from '../components/Common'
-import { graphql } from 'gatsby'
-
+import React from 'react';
+import styled from '@emotion/styled';
+import { MainDiv } from '../components/Layout';
+import Blog from '../components/Blog';
+import { ArrowButton } from '../components/Common';
+import { graphql, navigate } from 'gatsby';
 
 const BlogPage = ({ data }) => (
-  <Layout white>
-      {/* <ArrowButton text="Go back" /> */}
-      <Blog
-        title={data.contentfulBlogPost.title}
-        description={data.contentfulBlogPost.description.description}
-        html={data.contentfulBlogPost.blog.childMarkdownRemark.html}
-      />
-      <div style={{margin: "16px"}} />
+  <MainDiv white>
+    {/* <ArrowButton text="Go back" /> */}
+    <Blog
+      title={data.contentfulBlogPost.title}
+      description={data.contentfulBlogPost.description.description}
+      html={data.contentfulBlogPost.blog.childMarkdownRemark.html}
+    />
+    <div style={{ marginBottom: '64px' }} />
+    <div onClick={() => navigate('/blogs')}>
       <ArrowButton text="Go back" />
-  </Layout>
-)
+    </div>
+  </MainDiv>
+);
 
-export default BlogPage
+export default BlogPage;
 
 export const contentfulBlogPostQuery = graphql`
   query($slug: String!) {
@@ -37,4 +38,4 @@ export const contentfulBlogPostQuery = graphql`
       }
     }
   }
-`
+`;

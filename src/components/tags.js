@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import colors from '../utils/colors';
 
 const ulStyle = css`
@@ -19,8 +19,8 @@ const linkStyle = css`
   margin: 0.8em;
   color: ${colors.tech47category};
   &:hover {
-      color: ${colors.tech47categoryhover};
-  };
+    color: ${colors.tech47categoryhover};
+  }
 `;
 
 const liStyle = css`

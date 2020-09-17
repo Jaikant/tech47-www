@@ -1,6 +1,7 @@
-/* eslint-disable no-undef, react/prop-types */
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import React from 'react';
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby';
 import { Box } from '../../components';
 import colors from '../../utils/colors';
 import Layout from '../../components/Layout';
@@ -8,7 +9,7 @@ import Layout from '../../components/Layout';
 const Terms = ({ data, location }) => {
   const { markdownRemark: remark } = data;
   return (
-    <Layout location={location}>
+    <div>
       <Box bg={colors.primary}>
         <Box css="margin: 2.5em">
           <h1>{remark.frontmatter.title}</h1>
@@ -18,7 +19,7 @@ const Terms = ({ data, location }) => {
           />
         </Box>
       </Box>
-    </Layout>
+    </div>
   );
 };
 

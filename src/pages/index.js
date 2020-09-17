@@ -1,24 +1,24 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import Hero from '../components/Hero'
-import WhoWeAre from '../components/WhoWeAre'
-import ServicesCareer from '../components/ServicesCareer'
-import Quote from '../components/Quote'
-import AlignLogo from '../assets/icons/Align.svg'
-import SoundwiseLogo from '../assets/icons/Soundwise.svg'
-import LekplatsLogo from '../assets/icons/Lekplats.svg'
+import React from 'react';
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
+import WhoWeAre from '../components/WhoWeAre';
+import ServicesCareer from '../components/ServicesCareer';
+import Quote from '../components/Quote';
+import AlignLogo from '../assets/icons/Align.svg';
+import SoundwiseLogo from '../assets/icons/Soundwise.svg';
+import LekplatsLogo from '../assets/icons/Lekplats.svg';
 import { HeroText, ContentInset } from '../components/Common';
 
-const Landing = ({data}) => (
-  <Layout footer>
+const Landing = ({ data }) => (
+  <div>
     <Hero />
     <WhoWeAre />
-    <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid}/>
+    <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid} />
     <ContentInset>
       <HeroText data-scroll-fade={true}>
         Here’s what some of our customers say about our work.
       </HeroText>
-    </ContentInset>  
+    </ContentInset>
     <Quote
       logo={AlignLogo}
       img={data.image3.fluid}
@@ -49,37 +49,37 @@ const Landing = ({data}) => (
       whole process and communicates very effectively. Can warmly recommend.
       Will rehire.
     </Quote>
-  </Layout>
-)
+  </div>
+);
 
-export default Landing
+export default Landing;
 
 export const query = graphql`
-query {
-   image1 : imageSharp(original: {src: {regex: "/Career/"}}) {
-     fluid (maxWidth: 600, maxHeight: 200, quality: 100, grayscale: true){
-         ...GatsbyImageSharpFluid
-   }
-   }
-   image2 : imageSharp(original: {src: {regex: "/TextImage/"}}) {
-      fluid (maxWidth: 600, maxHeight: 200, quality: 100){
-          ...GatsbyImageSharpFluid
+  query {
+    image1: imageSharp(original: { src: { regex: "/Career/" } }) {
+      fluid(maxWidth: 600, maxHeight: 200, quality: 100, grayscale: true) {
+        ...GatsbyImageSharpFluid
+      }
     }
+    image2: imageSharp(original: { src: { regex: "/TextImage/" } }) {
+      fluid(maxWidth: 600, maxHeight: 200, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
     }
-    image3 : imageSharp(original: {src: {regex: "/align-Background/"}}) {
-      fluid (maxWidth: 800, quality: 100){
-          ...GatsbyImageSharpFluid
+    image3: imageSharp(original: { src: { regex: "/align-Background/" } }) {
+      fluid(maxWidth: 800, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
     }
+    image4: imageSharp(original: { src: { regex: "/soundwise-Background/" } }) {
+      fluid(maxWidth: 800, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
     }
-    image4 : imageSharp(original: {src: {regex: "/soundwise-Background/"}}) {
-      fluid (maxWidth: 800,  quality: 100){
-          ...GatsbyImageSharpFluid
+    image5: imageSharp(original: { src: { regex: "/lekplats-Background/" } }) {
+      fluid(maxWidth: 800, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
     }
-    }
-    image5 : imageSharp(original: {src: {regex: "/lekplats-Background/"}}) {
-      fluid (maxWidth: 800, quality: 100){
-          ...GatsbyImageSharpFluid
-    }
-    }
- }
- `
+  }
+`;

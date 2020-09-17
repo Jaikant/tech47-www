@@ -1,14 +1,9 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import { ArrowButton, Email } from '../components/Common'
-import * as Yup from 'yup'
-import { Formik } from 'formik'
-import {
-  Form,
-  InputField,
-  FormText,
-  RowWrapper
-} from '../components/Form'
+import React from 'react';
+import { MainDiv } from '../components/Layout';
+import { ArrowButton, Email } from '../components/Common';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
+import { Form, InputField, FormText, RowWrapper } from '../components/Form';
 
 const HiringForm = ({ values, onSubmit }) => (
   <Formik
@@ -20,18 +15,17 @@ const HiringForm = ({ values, onSubmit }) => (
         .email('Invalid email address')
         .required('Required'),
       company: Yup.string(),
-      description: Yup.string().required('Required'),
+      description: Yup.string().required('Required')
     })}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
         //alert(JSON.stringify(values, null, 2));
-        setSubmitting(false)
-      }, 400)
-      console.log('submitted', values)
+        setSubmitting(false);
+      }, 400);
     }}
   >
     {({ isSubmitting }) => (
-      <Layout white>
+      <MainDiv white>
         <Form>
           <div>
             <RowWrapper>
@@ -64,17 +58,21 @@ const HiringForm = ({ values, onSubmit }) => (
                 required
                 placeholder="Give us a short description"
               />
-               </RowWrapper>
-               <RowWrapper>
-               <div />
-               <ArrowButton text="Submit" disabled={isSubmitting} style={{marginTop: '50px'}} />
+            </RowWrapper>
+            <RowWrapper>
+              <div />
+              <ArrowButton
+                text="Submit"
+                disabled={isSubmitting}
+                style={{ marginTop: '50px' }}
+              />
             </RowWrapper>
           </div>
           <Email text="Prefer to send us an email instead?" />
         </Form>
-      </Layout>
+      </MainDiv>
     )}
   </Formik>
-)
+);
 
-export default HiringForm
+export default HiringForm;

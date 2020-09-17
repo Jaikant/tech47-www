@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import { graphql, Link } from "gatsby";
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { Box, Flex, Tags } from '../components';
 import colors from '../utils/colors';
@@ -90,7 +91,8 @@ export default function TagsPage({ pageContext }) {
     return (
       <Box>
         <h3 css="margin-top: 1em;">
-          {post.length} post{post.length === 1 ? '' : 's'} tagged with {tag}
+          {post.length} post
+          {post.length === 1 ? '' : 's'} tagged with {tag}
         </h3>
         <ul className={listStyle}>
           <Flex>
@@ -133,18 +135,21 @@ export default function TagsPage({ pageContext }) {
       <h4 css="margin: 1em;">Tags</h4>
       <Flex>
         <Flex css="max-width: 500px; flex-wrap: wrap;">
-          {Object.keys(posts).map(tagName => <Tags list={[tagName] || []} />)}
+          {Object.keys(posts).map(tagName => (
+            <Tags list={[tagName] || []} />
+          ))}
         </Flex>
       </Flex>
-      <Flex css={`
-              font-size: 0.8em; 
-              margin: 1em;
-              color: ${colors.tech47category};
-              a:hover {
-                color: ${colors.tech47categoryhover};
-                transition: color 0.15s ease-in;
-              }
-            `}
+      <Flex
+        css={css`
+          font-size: 0.8em;
+          margin: 1em;
+          color: ${colors.tech47category};
+          a:hover {
+            color: ${colors.tech47categoryhover};
+            transition: color 0.15s ease-in;
+          }
+        `}
       >
         <Link to="/">All posts</Link>
       </Flex>

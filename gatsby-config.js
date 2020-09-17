@@ -3,13 +3,31 @@ module.exports = {
     title: `Tech47`,
     siteUrl: `https://www.tech47.in`,
     description: `Tech47 - Building technology to power your startup`,
-    instagram: '/social-media/instagram',
+    instagram: '/social-media/instagram'
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorsYaml'
   },
   plugins: [
-    // Adding various source folders to the GraphQL layer.
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/Layout`)
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false
+        }
+      }
+    },
+    'gatsby-plugin-emotion',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,13 +44,13 @@ module.exports = {
         background_color: `#000`,
         theme_color: `#fff`,
         icon: 'src/assets/images/logo-small.png'
-      },
+      }
     },
-   {
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
+        pathToConfigModule: `src/utils/typography.js`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -65,7 +83,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACEID,
-        accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
+        accessToken: process.env.CONTENTFUL_ACCESSTOKEN
       }
     },
     {
@@ -83,25 +101,24 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 800
             }
-          },
-        ],
-      },
+          }
+        ]
+      }
     },
     {
-  resolve: 'gatsby-plugin-nprogress',
-  options: {
-    // Setting a color is optional.
-    color: '#02a9f7',
-    // Disable the loading spinner.
-    showSpinner: false,
-      },
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        // Setting a color is optional.
+        color: '#02a9f7',
+        // Disable the loading spinner.
+        showSpinner: false
+      }
     },
     'gatsby-transformer-json',
     'gatsby-transformer-yaml',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
+    'gatsby-plugin-sitemap'
   ]
 };

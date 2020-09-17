@@ -1,24 +1,24 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import Social from '../assets/icons/Community.svg'
-import CommunityLanding from '../components/BlogCommunity'
+import React from 'react';
+import Layout, { MainDiv } from '../components/Layout';
+import Social from '../assets/icons/Community.svg';
+import CommunityLanding from '../components/BlogCommunity';
 import {
   ImageGalleryText,
   ImageWrapper,
-  Wrapper,
-} from '../components/ImageGallery'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
+  Wrapper
+} from '../components/ImageGallery';
+import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 
 const community = ({ data }) => (
   <div>
-    <Layout footer fixedHeight light>
+    <MainDiv fixedHeight light>
       <CommunityLanding
         title="Our community initiatives"
         subtitle="Because we are grateful to have recieved so much"
         image={<img src={Social} width="360" height="273" alt="Social" />}
       />
-    </Layout>
+    </MainDiv>
 
     <Wrapper>
       <ImageGalleryText>
@@ -31,9 +31,9 @@ const community = ({ data }) => (
       </ImageWrapper>
     </Wrapper>
   </div>
-)
+);
 
-export default community
+export default community;
 
 export const query = graphql`
   query {
@@ -49,4 +49,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
