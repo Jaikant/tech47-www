@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import TrayButton, {
   TYPE_MUTE_CAMERA,
   TYPE_MUTE_MIC,
   TYPE_SCREEN,
   TYPE_LEAVE
-} from "./TrayButton";
-import CallObjectContext from "./CallObjectContext";
-import { logDailyEvent } from "./logUtils";
-import DailyIframe from "@daily-co/daily-js";
+} from './TrayButton';
+import CallObjectContext from './CallObjectContext';
+import { logDailyEvent } from './logUtils';
+import DailyIframe from '@daily-co/daily-js';
 
 const TrayDiv = styled.div`
   flex: none;
@@ -74,30 +74,33 @@ export default function Tray(props) {
    * Start listening for participant changes when callObject is set (i.e. when the component mounts).
    * This event will capture any changes to your audio/video mute state.
    */
-  useEffect(() => {
-    if (!callObject) return;
+  useEffect(
+    () => {
+      if (!callObject) return;
 
-    function handleNewParticipantsState(event) {
-      event && logDailyEvent(event);
-      const [isCameraMuted, isMicMuted, isSharingScreen] = getStreamStates(
-        callObject
-      );
-      setCameraMuted(isCameraMuted);
-      setMicMuted(isMicMuted);
-      setSharingScreen(isSharingScreen);
-    }
+      function handleNewParticipantsState(event) {
+        event && logDailyEvent(event);
+        const [isCameraMuted, isMicMuted, isSharingScreen] = getStreamStates(
+          callObject
+        );
+        setCameraMuted(isCameraMuted);
+        setMicMuted(isMicMuted);
+        setSharingScreen(isSharingScreen);
+      }
 
-    // Use initial state
-    handleNewParticipantsState();
+      // Use initial state
+      handleNewParticipantsState();
 
-    // Listen for changes in state
-    callObject.on("participant-updated", handleNewParticipantsState);
+      // Listen for changes in state
+      callObject.on('participant-updated', handleNewParticipantsState);
 
-    // Stop listening for changes in state
-    return function cleanup() {
-      callObject.off("participant-updated", handleNewParticipantsState);
-    };
-  }, [callObject]);
+      // Stop listening for changes in state
+      return function cleanup() {
+        callObject.off('participant-updated', handleNewParticipantsState);
+      };
+    },
+    [callObject]
+  );
 
   return (
     <TrayDiv>

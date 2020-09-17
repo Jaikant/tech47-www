@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
-import "./Tile.css";
+import './Tile.css';
 
 /**
  * Props
@@ -17,18 +17,24 @@ export default function Tile(props) {
   /**
    * When video track changes, update video srcObject
    */
-  useEffect(() => {
-    videoEl.current &&
-      (videoEl.current.srcObject = new MediaStream([props.videoTrack]));
-  }, [props.videoTrack]);
+  useEffect(
+    () => {
+      videoEl.current &&
+        (videoEl.current.srcObject = new MediaStream([props.videoTrack]));
+    },
+    [props.videoTrack]
+  );
 
   /**
    * When audio track changes, update audio srcObject
    */
-  useEffect(() => {
-    audioEl.current &&
-      (audioEl.current.srcObject = new MediaStream([props.audioTrack]));
-  }, [props.audioTrack]);
+  useEffect(
+    () => {
+      audioEl.current &&
+        (audioEl.current.srcObject = new MediaStream([props.audioTrack]));
+    },
+    [props.audioTrack]
+  );
 
   function getLoadingComponent() {
     return props.isLoading && <p className="loading">Loading...</p>;
@@ -48,9 +54,9 @@ export default function Tile(props) {
   }
 
   function getClassNames() {
-    let classNames = "tile";
-    classNames += props.isLarge ? " large" : " small";
-    props.isLocalPerson && (classNames += " local");
+    let classNames = 'tile';
+    classNames += props.isLarge ? ' large' : ' small';
+    props.isLocalPerson && (classNames += ' local');
     return classNames;
   }
 

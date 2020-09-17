@@ -1,8 +1,8 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useContext, useReducer } from 'react';
 import styled from '@emotion/styled';
-import Tile from "./Tile";
-import CallObjectContext from "./CallObjectContext";
-import CallMessage from "./CallMessage";
+import Tile from './Tile';
+import CallObjectContext from './CallObjectContext';
+import CallMessage from './CallMessage';
 import {
   initialCallState,
   CLICK_ALLOW_TIMEOUT,
@@ -14,9 +14,8 @@ import {
   isScreenShare,
   containsScreenShare,
   getMessage
-} from "./callState";
-import { logDailyEvent } from "./logUtils";
-
+} from './callState';
+import { logDailyEvent } from './logUtils';
 
 const CallDiv = styled.div`
   position: relative; /* To make it a "positioned" container so children layout works */
@@ -41,7 +40,6 @@ const SmallTiles = styled.div`
   align-items: center;
 `;
 
-
 export default function Call() {
   const callObject = useContext(CallObjectContext);
   const [callState, dispatch] = useReducer(callReducer, initialCallState);
@@ -49,87 +47,96 @@ export default function Call() {
   /**
    * Start listening for participant changes, when the callObject is set.
    */
-  useEffect(() => {
-    if (!callObject) return;
+  useEffect(
+    () => {
+      if (!callObject) return;
 
-    const events = [
-      "participant-joined",
-      "participant-updated",
-      "participant-left"
-    ];
+      const events = [
+        'participant-joined',
+        'participant-updated',
+        'participant-left'
+      ];
 
-    function handleNewParticipantsState(event) {
-      event && logDailyEvent(event);
-      dispatch({
-        type: PARTICIPANTS_CHANGE,
-        participants: callObject.participants()
-      });
-    }
-
-    // Use initial state
-    handleNewParticipantsState();
-
-    // Listen for changes in state
-    for (const event of events) {
-      callObject.on(event, handleNewParticipantsState);
-    }
-
-    // Stop listening for changes in state
-    return function cleanup() {
-      for (const event of events) {
-        callObject.off(event, handleNewParticipantsState);
+      function handleNewParticipantsState(event) {
+        event && logDailyEvent(event);
+        dispatch({
+          type: PARTICIPANTS_CHANGE,
+          participants: callObject.participants()
+        });
       }
-    };
-  }, [callObject]);
+
+      // Use initial state
+      handleNewParticipantsState();
+
+      // Listen for changes in state
+      for (const event of events) {
+        callObject.on(event, handleNewParticipantsState);
+      }
+
+      // Stop listening for changes in state
+      return function cleanup() {
+        for (const event of events) {
+          callObject.off(event, handleNewParticipantsState);
+        }
+      };
+    },
+    [callObject]
+  );
 
   /**
    * Start listening for call errors, when the callObject is set.
    */
-  useEffect(() => {
-    if (!callObject) return;
+  useEffect(
+    () => {
+      if (!callObject) return;
 
-    function handleCameraErrorEvent(event) {
-      logDailyEvent(event);
-      dispatch({
-        type: CAM_OR_MIC_ERROR,
-        message:
-          (event && event.errorMsg && event.errorMsg.errorMsg) || "Unknown"
-      });
-    }
+      function handleCameraErrorEvent(event) {
+        logDailyEvent(event);
+        dispatch({
+          type: CAM_OR_MIC_ERROR,
+          message:
+            (event && event.errorMsg && event.errorMsg.errorMsg) || 'Unknown'
+        });
+      }
 
-    // We're making an assumption here: there is no camera error when callObject
-    // is first assigned.
+      // We're making an assumption here: there is no camera error when callObject
+      // is first assigned.
 
-    callObject.on("camera-error", handleCameraErrorEvent);
+      callObject.on('camera-error', handleCameraErrorEvent);
 
-    return function cleanup() {
-      callObject.off("camera-error", handleCameraErrorEvent);
-    };
-  }, [callObject]);
+      return function cleanup() {
+        callObject.off('camera-error', handleCameraErrorEvent);
+      };
+    },
+    [callObject]
+  );
 
   /**
    * Start listening for fatal errors, when the callObject is set.
    */
-  useEffect(() => {
-    if (!callObject) return;
+  useEffect(
+    () => {
+      if (!callObject) return;
 
-    function handleErrorEvent(e) {
-      logDailyEvent(e);
-      dispatch({
-        type: FATAL_ERROR,
-        message: (e && e.errorMsg) || "Unknown"
-      });
-    }
+      function handleErrorEvent(e) {
+        logDailyEvent(e);
+        dispatch({
+          type: FATAL_ERROR,
+          message: (e && e.errorMsg) || 'Unknown'
+        });
+      }
 
-    // We're making an assumption here: there is no error when callObject is
-    // first assigned.
+      // We're making an assumption here: there is no error when callObject is
+      // first assigned.
 
-    callObject.on("error", handleErrorEvent);
+      callObject.on('error', handleErrorEvent);
 
-    return function cleanup() {
-      callObject.off("error", handleErrorEvent);
-    };
-  }, [callObject]);
+      return function cleanup() {
+        callObject.off('error', handleErrorEvent);
+      };
+    },
+    [callObject]
+  );
 
   /**
    * Start a timer to show the "click allow" message, when the component mounts.

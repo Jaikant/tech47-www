@@ -10,7 +10,6 @@ export const ConfirmWrapper = styled.div`
   align-items: center;
 `;
 
-
 export const ConfirmText = styled.text`
   font-size: 22px;
   line-height: 26px;

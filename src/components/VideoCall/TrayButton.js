@@ -5,7 +5,7 @@ import Icon, {
   TYPE_MUTE_MIC,
   TYPE_SCREEN,
   TYPE_LEAVE
-} from "./Icon";
+} from './Icon';
 
 const MyTrayButton = styled.button`
   width: 44x;
@@ -13,16 +13,14 @@ const MyTrayButton = styled.button`
   border: none;
   background-color: transparent;
   margin: 0 5px;
-  margin-left: ${props => props.newButtonGroup ? `auto` : `5px`};
+  margin-left: ${props => (props.newButtonGroup ? `auto` : `5px`)};
   &:disabled {
     opacity: 33%;
-  };
+  }
   &:enabled {
     cursor: pointer;
   }
-
 `;
-
 
 /**
  * Props:

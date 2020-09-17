@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import WhoWeAre from '../components/WhoWeAre';
@@ -12,18 +12,38 @@ import LekplatsLogo from '../assets/icons/Lekplats.svg';
 import LekplatsBackground from '../assets/images/lekplats-Background.png';
 
 const Landing = () => (
-      <Layout>
-         <Hero />
-      <WhoWeAre />
-      <ServicesCareer />
-      <Quote logo={AlignLogo} img={AlignBackground} author={"Scott Raymond, Founder"} >
-         Jai has been instrumental in our project success. He transformed rough design specs into running code, with a strong eye toward React best practices, usability, and efficiency.
-   </Quote>
-      <Quote logo={SoundwiseLogo} img={SoundwiseBackground} author={"Natasha Che, Founder"} >
-         I had a great experience working with Jai. He is technically very competent and also is proactive and very good at communicating work needs and offering suggestions.</Quote>
-      <Quote logo={LekplatsLogo} img={LekplatsBackground} author={"Daniel Lapidus, Founder"} >
-         Jai is a wonderful programmer to work with. Takes responsibility for the whole process and communicates very effectively. Can warmly recommend. Will rehire.</Quote>
-         </Layout>
-)
+  <Layout>
+    <Hero />
+    <WhoWeAre />
+    <ServicesCareer />
+    <Quote
+      logo={AlignLogo}
+      img={AlignBackground}
+      author={'Scott Raymond, Founder'}
+    >
+      Jai has been instrumental in our project success. He transformed rough
+      design specs into running code, with a strong eye toward React best
+      practices, usability, and efficiency.
+    </Quote>
+    <Quote
+      logo={SoundwiseLogo}
+      img={SoundwiseBackground}
+      author={'Natasha Che, Founder'}
+    >
+      I had a great experience working with Jai. He is technically very
+      competent and also is proactive and very good at communicating work needs
+      and offering suggestions.
+    </Quote>
+    <Quote
+      logo={LekplatsLogo}
+      img={LekplatsBackground}
+      author={'Daniel Lapidus, Founder'}
+    >
+      Jai is a wonderful programmer to work with. Takes responsibility for the
+      whole process and communicates very effectively. Can warmly recommend.
+      Will rehire.
+    </Quote>
+  </Layout>
+);
 
 export default Landing;

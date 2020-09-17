@@ -8,17 +8,15 @@ import {
 } from 'formik';
 import media from '../utils/media';
 
-
-
 export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 32px);
-    ${media.desktop`
+  ${media.desktop`
     min-height: calc(100vh - 128px);
     `};
-    ${media.tablet`
+  ${media.tablet`
     min-height: calc(100vh - 64px);
     `};
 `;
@@ -33,7 +31,7 @@ export const Field = styled(FormikField)`
   outline: none;
   background-color: ${colors.tech47white};
   &::placeholder {
-    color: ${colors.formPlaceholder}; 
+    color: ${colors.formPlaceholder};
   }
 `;
 
@@ -42,7 +40,7 @@ export const ErrorMessage = styled(FormikErrorMessage)`
   font-size: 0.6em;
   letter-spacing: 0.05em;
   text-transform: uppercase;
- `;
+`;
 
 const FieldWrapper = styled.div`
   display: flex;
@@ -52,14 +50,8 @@ const FieldWrapper = styled.div`
 
 export const InputField = ({ name, ...props }) => (
   <FieldWrapper>
-    <ErrorMessage
-      name={name}
-    />
-    <Field
-      id={name}
-      name={name}
-      {...props}
-    />
+    <ErrorMessage name={name} />
+    <Field id={name} name={name} {...props} />
   </FieldWrapper>
 );
 
@@ -69,8 +61,7 @@ export const FormText = styled.text`
   ${media.tablet`
     font-size: 32px;
     line-height: 37px;
-  `}
-  padding-top: 30px;
+  `} padding-top: 30px;
   color: ${colors.darkTheme.primary};
 `;
 
@@ -79,11 +70,8 @@ export const RowWrapper = styled.div`
   grid-template-rows: 1fr;
   ${media.tablet`
     grid-template-columns: 1fr 4fr;
-  `}
-  grid-gap: 0px;
+  `} grid-gap: 0px;
   ${media.tablet`
     grid-gap: 26px;
-  `}
+  `};
 `;
-
-

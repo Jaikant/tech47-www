@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import media from '../utils/media';
 
-
 export const ImageGalleryText = styled.div`
   padding: 32px;
   font-weight: bold;

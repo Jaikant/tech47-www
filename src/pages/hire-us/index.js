@@ -1,3 +1,4 @@
+/* global analytics */
 import React from 'react';
 import { navigate } from 'gatsby';
 import { MainDiv } from '../../components/Layout';
@@ -25,25 +26,18 @@ const HiringForm = ({ values, onSubmit, location }) => (
     })}
     onSubmit={(values, { setSubmitting }) => {
       setSubmitting(true);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'tech47',
-          ...values
-        })
-      })
-        .then(() => {
-          setSubmitting(false);
-          navigate(`hire-us/confirm/`, {
-            replace: true,
-            state: { values }
-          });
-        })
-        .catch(error => {
-          setSubmitting(false);
-          alert(error);
-        });
+      console.log('the values are ', values);
+      analytics.track('tech47-contact', {
+        company: values.company,
+        description: values.description,
+        email: values.email,
+        name: values.name
+      });
+
+      navigate(`confirm`, {
+        replace: true,
+        state: { values }
+      });
     }}
   >
     {({ isSubmitting }) => (

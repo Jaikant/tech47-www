@@ -19,10 +19,6 @@
   "rules": {
     "linebreak-style": 0,
     "prettier/prettier": "warn",
-    "import/no-extraneous-dependencies": "off",
-    "no-unused-vars": [
-      "warn",
-      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
-    ]
+    "import/no-extraneous-dependencies": "off"
   }
 }

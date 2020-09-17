@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHelmet from 'react-helmet'
+import ReactHelmet from 'react-helmet';
 import coverImage from '../assets/images/cover.jpg';
-import { siteMetadata } from '../../gatsby-config'
+import { siteMetadata } from '../../gatsby-config';
 
-const rootUrl = siteMetadata.siteUrl
+const rootUrl = siteMetadata.siteUrl;
 
 const Helmet = ({
   title,
@@ -13,13 +13,12 @@ const Helmet = ({
   imageWidth,
   imageHeight,
   absoluteUrl,
-  children,
+  children
 }) => {
-
-  let imageUrl = image ? `${rootUrl}${image}` : coverImage
+  let imageUrl = image ? `${rootUrl}${image}` : coverImage;
 
   // Need the below check for absolute urls, e.g. contentful images.
-  imageUrl = absoluteUrl ? image : imageUrl
+  imageUrl = absoluteUrl ? image : imageUrl;
 
   return (
     <ReactHelmet title={title} titleTemplate={`%s | ${siteMetadata.title}`}>
@@ -36,8 +35,8 @@ const Helmet = ({
       {imageHeight && <meta property="og:image:height" content={imageHeight} />}
       {children}
     </ReactHelmet>
-  )
-}
+  );
+};
 
 Helmet.propTypes = {
   title: PropTypes.string,
@@ -46,7 +45,7 @@ Helmet.propTypes = {
   imageWidth: PropTypes.string,
   imageHeight: PropTypes.string,
   absoluteUrl: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.element
 };
 Helmet.defaultProps = {
   title: null,
@@ -54,16 +53,16 @@ Helmet.defaultProps = {
   image: null,
   imageWidth: null,
   imageHeight: null,
-  absoluteUrl: null,
+  absoluteUrl: null
 };
 
-const RealHelmet = (props) => {
+const RealHelmet = props => {
   const {
     title = siteMetadata.title,
     description = siteMetadata.description,
     image,
     absoluteUrl = false,
-    pathname,
+    pathname
   } = props;
 
   return (
@@ -84,21 +83,21 @@ const RealHelmet = (props) => {
         <meta property="twitter:card" content="summary_large_image" />
       </ReactHelmet>
     </div>
-  )
-}
+  );
+};
 
 RealHelmet.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   absoluteUrl: PropTypes.bool,
-  pathname: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired
 };
 RealHelmet.defaultProps = {
   title: null,
   description: null,
   image: null,
-  absoluteUrl: null,
+  absoluteUrl: null
 };
 
 export default RealHelmet;

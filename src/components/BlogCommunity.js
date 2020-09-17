@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import colors from '../utils/colors'
-import { BottomLine } from './Common'
-import media from '../utils/media'
-import Typist from 'react-typist'
+import React from 'react';
+import styled from '@emotion/styled';
+import colors from '../utils/colors';
+import { BottomLine } from './Common';
+import media from '../utils/media';
+import Typist from 'react-typist';
 
 const Wrapper = styled.div`
   display: grid;
-`
+`;
 
 const SubWrapper = styled.div`
   display: grid;
@@ -19,7 +19,7 @@ const SubWrapper = styled.div`
     `};
   align-items: center;
   justify-items: center;
-`
+`;
 
 const Title = styled.text`
   font-size: 40px;
@@ -27,7 +27,7 @@ const Title = styled.text`
      font-size: 60px;
     `};
   color: ${colors.tech47white};
-`
+`;
 
 //The height of 1px below, prevents the screen from filckering!
 const Subtitle = styled.text`
@@ -37,20 +37,20 @@ const Subtitle = styled.text`
      font-size: 34px;
     `};
   color: ${colors.darkTheme.primaryLight};
-`
+`;
 
 const Text = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 const cursor = {
   show: true,
   blink: true,
   element: '|',
   hideWhenDone: true,
-  hideWhenDoneDelay: 1000,
-}
+  hideWhenDoneDelay: 1000
+};
 
 const CommunityLanding = props => (
   <Wrapper>
@@ -65,6 +65,6 @@ const CommunityLanding = props => (
     </SubWrapper>
     <BottomLine />
   </Wrapper>
-)
+);
 
-export default CommunityLanding
+export default CommunityLanding;
