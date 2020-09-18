@@ -2,6 +2,7 @@
 import { jsx, css } from '@emotion/core';
 import React from 'react';
 import styled from '@emotion/styled';
+import SEO from '../components/SEO';
 import Img from 'gatsby-image';
 import Link from 'gatsby-link';
 import ReactHelmet from 'react-helmet';
@@ -11,7 +12,7 @@ import colors from '../utils/colors';
 import presets from '../utils/presets';
 import feather from '../utils/feather';
 import EmailCaptureForm from '../components/email-capture-form';
-import Helmet from '../components/helmet';
+import Helmet from '../components/SEO';
 import { MainDiv } from '../components/Layout';
 
 const { rhythm, scale } = typography;
@@ -150,6 +151,7 @@ const Template = ({ data, location, pageContext }) => {
 
   return (
     <MainDiv location={location}>
+      <SEO />
       <Helmet
         title={`Tech47 - ${post.title}`}
         description={post.description.description}

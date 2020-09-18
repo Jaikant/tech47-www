@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import SEO from '../components/SEO';
 import { Link } from 'gatsby';
 import Layout, { MainDiv } from '../components/Layout';
 import NavBar from '../components/NavBar';
@@ -36,6 +37,7 @@ const TagBlock = styled.span`
 
 const blogs = props => (
   <MainDiv fixedHeight white>
+    <SEO />
     {props.data.allContentfulBlogPost.edges.map((b, i) => (
       <BlogDiv>
         <BlogTitle>

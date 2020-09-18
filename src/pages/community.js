@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout, { MainDiv } from '../components/Layout';
+import SEO from '../components/SEO';
 import Social from '../assets/icons/Community.svg';
 import CommunityLanding from '../components/BlogCommunity';
 import {
@@ -13,6 +14,7 @@ import { graphql } from 'gatsby';
 const community = ({ data }) => (
   <div>
     <MainDiv fixedHeight light>
+      <SEO />
       <CommunityLanding
         title="Our community initiatives"
         subtitle="Because we are grateful to have recieved so much"

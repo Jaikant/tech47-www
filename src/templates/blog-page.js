@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { MainDiv } from '../components/Layout';
+import SEO from '../components/SEO';
 import Blog from '../components/Blog';
 import { ArrowButton } from '../components/Common';
 import { graphql, navigate } from 'gatsby';
 
 const BlogPage = ({ data }) => (
   <MainDiv white>
-    {/* <ArrowButton text="Go back" /> */}
+    <SEO
+      title={data.contentfulBlogPost.title}
+      description={data.contentfulBlogPost.description.description}
+    />
     <Blog
       title={data.contentfulBlogPost.title}
       description={data.contentfulBlogPost.description.description}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
+import SEO from '../components/SEO';
 import WhoWeAre from '../components/WhoWeAre';
 import ServicesCareer from '../components/ServicesCareer';
 import Quote from '../components/Quote';
@@ -11,6 +12,7 @@ import { HeroText, ContentInset } from '../components/Common';
 
 const Landing = ({ data }) => (
   <div>
+    <SEO />
     <Hero />
     <WhoWeAre />
     <ServicesCareer image1={data.image1.fluid} image2={data.image2.fluid} />

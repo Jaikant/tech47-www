@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { Box, Flex, Tags } from '../components';
 import colors from '../utils/colors';
+import SEO from '../components/SEO';
 
 const listStyle = css`
   list-style-type: none;
@@ -90,6 +91,7 @@ export default function TagsPage({ pageContext }) {
   if (tag) {
     return (
       <Box>
+        <SEO />
         <h3 css="margin-top: 1em;">
           {post.length} post
           {post.length === 1 ? '' : 's'} tagged with {tag}

@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Tech47`,
-    siteUrl: `https://www.tech47.in`,
-    description: `Tech47 - Building technology to power your startup`,
+    title: `We Build React Web Apps. Because we love to.`,
+    siteUrl: `https://tech47.in`,
+    description: `You need an agency which understands your business and works as your partner?
+    We are a group of developers who have built great products which scale.
+    Our teams come with a mix of experience to give the perfect balance.`,
     instagram: '/social-media/instagram'
   },
   mapping: {
@@ -155,7 +157,7 @@ module.exports = {
     'gatsby-transformer-yaml',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-next-seo',
     'gatsby-plugin-sitemap'
   ]
 };

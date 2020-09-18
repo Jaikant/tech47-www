@@ -1,6 +1,7 @@
 /* global analytics */
 import React from 'react';
 import { navigate } from 'gatsby';
+import SEO from '../../components/SEO';
 import { MainDiv } from '../../components/Layout';
 import { ArrowButton, Email } from '../../components/Common';
 import * as Yup from 'yup';
@@ -42,6 +43,7 @@ const HiringForm = ({ values, onSubmit, location }) => (
   >
     {({ isSubmitting }) => (
       <MainDiv white>
+        <SEO />
         <Form
           name="tech47"
           method="post"

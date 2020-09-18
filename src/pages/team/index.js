@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Card from '../../components/team';
 import Layout from '../../components/Layout';
-import Helmet from '../../components/helmet';
+import Helmet from '../../components/SEO';
 import Img from 'gatsby-image';
 
 const teamCards = css`

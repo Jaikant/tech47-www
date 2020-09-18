@@ -1,12 +1,13 @@
 /* eslint-disable */
 import React from 'react';
 import Link from 'gatsby-link';
+import SEO from '../components/SEO';
 import { Header, Box, Flex, Tags, BlogPosts, SideBar } from '../components';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { MainDiv } from '../components/Layout';
 import colors from '../utils/colors';
-import Helmet from '../components/helmet';
+import Helmet from '../components/SEO';
 
 const blogTheme = css`
   h1,
@@ -34,6 +35,7 @@ const ContentfulBlogIndex = ({ data, location, pageContext }) => {
   const nextUrl = pathPrefix + '/' + (index + 1).toString();
   return (
     <MainDiv location={location}>
+      <SEO />
       <Header />
       <div className={blogTheme}>
         <Helmet
