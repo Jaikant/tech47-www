@@ -1,7 +1,8 @@
-import React from 'react';
+import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import media from '../utils/media';
 import BlogContent from './BlogContent';
+import './Blog.css';
 
 const Wrapper = styled.div`
   ${media.desktop`
