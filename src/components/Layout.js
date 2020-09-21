@@ -46,28 +46,15 @@ export const MainDiv = styled.div`
     grid-gap: 64px;
   `};
 
-  padding: 32px;
+  padding: 32px 16px;
   ${media.tablet`
     padding: 64px;
   `};
   ${media.desktop`
     padding: 128px;
   `};
-
   min-height: ${props => (props.fixedHeight ? '100vh' : 'none')};
-  // @media (min-width: 768px) {
-  //   min-height: ${props =>
-    props.fixedHeight ? 'calc(100vh - 32px)' : 'none'};
-  // }
-  // @media (min-width: 768px) {
-  //   min-height: ${props =>
-    props.fixedHeight ? 'calc(100vh - 64px)' : 'none'};
-  // }
-  // @media (min-width: 992px) {
-  //   min-height: ${props => (props.fixedHeight ? '100vh' : 'none')};
-  // }
   background: ${props => (props.white ? 'white' : colors.darkTheme.primary)};
-
 `;
 
 const ExternalLink = styled.a`

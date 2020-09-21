@@ -313,9 +313,9 @@ const LiItem = styled.li`
 
 const StyledLink = styled(Link)`
   color: ${props =>
-    props.white ? colors.darkTheme.primary : colors.tech47white};
+    props.white === 'white' ? colors.darkTheme.primary : colors.tech47white};
   &:hover {
-    color: ${props => (props.white ? '#000000' : '#ffffff')};
+    color: ${props => (props.white === 'white' ? '#000000' : '#ffffff')};
     text-decoration: underline;
   }
 `;
@@ -333,7 +333,7 @@ const LiItems = ({ to, href, white, children }) => (
         activeStyle={{
           color: 'red'
         }}
-        white={white}
+        white={white ? 'white' : 'black'}
       >
         {children}
       </StyledLink>

@@ -61,7 +61,7 @@ export const BottomLine = props => {
     });
   });
   return (
-    <PartitionWrapper innerRef={lineRef}>
+    <PartitionWrapper ref={lineRef}>
       <img src={Partition} alt="Partition" data-scroll-fade={true} />
     </PartitionWrapper>
   );
@@ -79,7 +79,7 @@ const EmailWrapper = styled.div`
   align-items: baseline;
 `;
 
-const EmailText = styled.text`
+const EmailText = styled.div`
   font-size: 18px;
   line-height: 21px;
   color: rgba(54, 54, 54, 0.3);

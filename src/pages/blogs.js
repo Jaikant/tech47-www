@@ -39,12 +39,12 @@ const blogs = props => (
   <MainDiv fixedHeight white>
     <SEO />
     {props.data.allContentfulBlogPost.edges.map((b, i) => (
-      <BlogDiv>
+      <BlogDiv key={i}>
         <BlogTitle>
           {' '}
           <Link to={`/blog/${b.node.slug}`}> {b.node.title} </Link>
-          {b.node.tags.map(t => (
-            <TagBlock> {t} </TagBlock>
+          {b.node.tags.map((t, index) => (
+            <TagBlock key={index}> {t} </TagBlock>
           ))}
         </BlogTitle>
         <div>

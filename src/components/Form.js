@@ -55,7 +55,7 @@ export const InputField = ({ name, ...props }) => (
   </FieldWrapper>
 );
 
-export const FormText = styled.text`
+export const FormText = styled.div`
   font-size: 22px;
   line-height: 27px;
   ${media.tablet`
