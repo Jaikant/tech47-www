@@ -3,6 +3,29 @@ const path = require('path');
 const slash = require('slash');
 const createPaginatedPages = require('gatsby-paginate');
 
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions;
+
+  //Page which have the reverse theme:
+  // const reverseColorPages = ['hire-us', 'blog'];
+  //Pages which have reverse theme, but the nav is normal.
+  // const customPages = ['blogs'];
+
+  //No nav or layout.
+  // const NoNavLayoutPages = ['video-call'];
+
+  if (page.path.match(/video-call/)) {
+    page.context.layout = 'NoNavLayoutPages';
+    createPage(page);
+  } else if (page.path.match(/blogs/)) {
+    page.context.layout = 'customPages';
+    createPage(page);
+  } else if (page.path.match(/hire-us/)) {
+    page.context.layout = 'reverseColorPages';
+    createPage(page);
+  }
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   //We check for fileAbsolutePath to skip contentful nodes only nodes on filesystem.
@@ -88,7 +111,8 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/blog/${node.slug}`,
         component: path.resolve(`./src/templates/blog-page.js`),
         context: {
-          slug: node.slug
+          slug: node.slug,
+          layout: 'reverseColorPages'
         }
       });
     });

@@ -1,29 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Global, css } from '@emotion/core';
-import { Helmet } from 'react-helmet';
 import 'typeface-quattrocento-sans';
 import 'typeface-work-sans';
 import { navigate } from 'gatsby';
 import BlogLanding from './BlogCommunity';
 import Footer from '../components/Footer';
-import colors from '../utils/colors';
 import { ArrowButton } from './Common';
 import NavBar from './NavBar';
 import media from '../utils/media';
 import Blog from '../assets/icons/Blogs.svg';
-import { gridTemplateColumns, gridTemplateRows } from 'styled-system';
+import colors from '../utils/colors';
 
 /* eslint-disable */
-//import normalize from 'normalize.css';
-
-//Page which have the reverse theme:
-const reverseColorPages = ['hire-us', 'blog'];
-//Pages which have reverse theme, but the nav is normal.
-const customPages = ['blogs'];
-
-//No nav or layout.
-const NoNavLayoutPages = ['video-call'];
 
 export const UnPadMainDiv = styled.div`
   margin: 0px -32px;
@@ -53,7 +41,7 @@ export const MainDiv = styled.div`
   ${media.desktop`
     padding: 128px;
   `};
-  min-height: ${props => (props.fixedHeight ? '100vh' : 'none')};
+  min-height: ${props => (props.fixedHeight ? '100vh' : 'auto')};
   background: ${props => (props.white ? 'white' : colors.darkTheme.primary)};
 `;
 
@@ -63,15 +51,8 @@ const ExternalLink = styled.a`
   }
 `;
 
-const LayoutPages = ({
-  normalColors,
-  reverseColors,
-  custom,
-  noNavLayout,
-  children,
-  ...props
-}) => {
-  if (reverseColors) {
+const LayoutPages = ({ layoutType, children, ...props }) => {
+  if (layoutType === 'reverseColorPages') {
     return (
       <MainDiv {...props} white={true}>
         <NavBar {...props} white={true} />
@@ -81,7 +62,7 @@ const LayoutPages = ({
     );
   }
 
-  if (custom) {
+  if (layoutType === 'customPages') {
     return (
       <>
         <MainDiv fixedHeight>
@@ -98,7 +79,7 @@ const LayoutPages = ({
     );
   }
 
-  if (noNavLayout) {
+  if (layoutType === 'NoNavLayoutPages') {
     return (
       <>
         <div
@@ -147,57 +128,11 @@ const LayoutPages = ({
   );
 };
 
-const Layout = ({ children, uri }) => {
-  const rootUri = uri && uri.split('/');
-  const reverseColors =
-    reverseColorPages.indexOf(rootUri && rootUri[1]) === -1 ? false : true;
-
-  const custom =
-    customPages.indexOf(rootUri && rootUri[1]) === -1 ? false : true;
-  const noNavLayout =
-    NoNavLayoutPages.indexOf(rootUri && rootUri[1]) === -1 ? false : true;
-
+const Layout = ({ children, uri, pageContext, ...rest }) => {
   return (
     <>
-      <Global
-        styles={css`
-          * {
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-          }
-          body {
-            background-color: ${colors.darkTheme.primary};
-            color: ${colors.darkTheme.secondary};
-          }
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
-          a:hover {
-            cursor: pointer;
-            text-decoration: none;
-            color: ${colors.gray.calm};
-            transition: color 0.15s ease-in;
-          }
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6,
-          p {
-            color: ${colors.darkTheme.secondary};
-          }
-        `}
-      />
       <LayoutPages
-        reverseColors={reverseColors}
-        custom={custom}
-        noNavLayout={noNavLayout}
+        layoutType={pageContext && pageContext.layout}
         children={children}
       />
     </>

@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import AppComponent from './src/components/AppComponent';
 import objectFitImages from 'object-fit-images';
 import getWindowDimensions from './src/utils/getWindowDimensions';
 const throttle = require('lodash/throttle');
@@ -50,4 +52,8 @@ function handleFadeInAndOutOnScroll() {
 export const onInitialClientRender = () => {
   handleFadeInAndOutOnScroll();
   objectFitImages();
+};
+
+export const wrapRootElement = ({ element }) => {
+  return <AppComponent element={element} />;
 };
